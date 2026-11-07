@@ -1,0 +1,380 @@
+/* ------------------------------------------------------------------
+   "Beyond the work" — 3D photo globe hero
+   Effect reference: ramp.design (#work / life-at-ramp)
+   ------------------------------------------------------------------ */
+
+.beyond-header {
+   display: block;
+   align-items: stretch;
+   min-height: 100vh;
+   height: 100vh;
+   padding: 0;
+   overflow: hidden;
+   color: #1c1d20;
+   background:
+      radial-gradient(120% 95% at 50% 42%, #faf8f5 0%, #f5f2ed 46%, #efebe4 100%);
+}
+
+/* nav sits on the cream surface, so force dark ink */
+.beyond-header .nav-bar,
+.beyond-header .nav-bar a,
+.beyond-header .nav-bar .cbd,
+.beyond-header .nav-bar .code-by,
+.beyond-header .nav-bar .dennis {
+   color: #1c1d20;
+}
+
+.beyond-header .nav-bar .btn-text-inner {
+   color: #1c1d20;
+}
+
+.beyond {
+   position: absolute;
+   inset: 0;
+   display: block;
+}
+
+.beyond__stage {
+   --beyond-card-w: 9rem;
+   position: relative;
+   width: 100%;
+   height: 100%;
+   perspective: 1100px;
+   cursor: grab;
+   touch-action: pan-y pinch-zoom;
+   -webkit-user-select: none;
+   user-select: none;
+}
+
+.beyond__stage.is-dragging {
+   cursor: grabbing;
+}
+
+.beyond__sphere {
+   position: absolute;
+   inset: 0;
+   transform-style: preserve-3d;
+   pointer-events: none;
+}
+
+/* ---------- cards ---------- */
+
+.beyond__photo {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   width: var(--beyond-card-w);
+   translate: -50% -50%;
+   margin: 0;
+   padding: 0;
+   border: 0;
+   background: none;
+   outline: none;
+   cursor: pointer;
+   pointer-events: none;
+   transform-style: preserve-3d;
+   transform-origin: 50% 50%;
+   -webkit-tap-highlight-color: transparent;
+   will-change: transform, opacity, filter;
+   backface-visibility: hidden;
+}
+
+.beyond__photo.is-live {
+   pointer-events: auto;
+}
+
+.beyond__card {
+   display: block;
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+   border-radius: 18px;
+   background: #dcd7cf;
+   box-shadow: 0 14px 34px rgba(28, 29, 32, 0.14), 0 2px 6px rgba(28, 29, 32, 0.06);
+   transform: scale(1);
+   transition: transform 0.42s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.42s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.beyond__photo.is-live:hover .beyond__card,
+.beyond__photo:focus-visible .beyond__card {
+   transform: scale(1.06);
+   box-shadow: 0 22px 48px rgba(28, 29, 32, 0.22), 0 4px 10px rgba(28, 29, 32, 0.08);
+}
+
+.beyond__photo:focus-visible .beyond__card {
+   outline: 2px solid #1c1d20;
+   outline-offset: 4px;
+}
+
+.beyond__card img {
+   display: block;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   pointer-events: none;
+   user-select: none;
+   -webkit-user-drag: none;
+}
+
+/* ---------- centre type ---------- */
+
+.beyond__center {
+   position: absolute;
+   inset: 0;
+   z-index: 900;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   pointer-events: none;
+   isolation: isolate;
+   padding: 0 1.25rem;
+}
+
+.beyond__center::before {
+   content: "";
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   z-index: -1;
+   width: min(88vw, 46rem);
+   height: 22rem;
+   transform: translate(-50%, -50%);
+   background: radial-gradient(closest-side, rgba(246, 243, 237, 0.94) 0%, rgba(246, 243, 237, 0.82) 42%, rgba(246, 243, 237, 0) 78%);
+   filter: blur(6px);
+   pointer-events: none;
+}
+
+.beyond__title {
+   margin: 0;
+   font-family: 'Dennis Sans', sans-serif;
+   font-weight: 450;
+   font-size: clamp(3.4rem, 10.5vw, 9.75rem);
+   line-height: 0.8;
+   letter-spacing: -0.045em;
+   color: #1c1d20;
+   text-wrap: balance;
+}
+
+.beyond__title span {
+   display: block;
+}
+
+.beyond__dek {
+   width: min(88%, 27rem);
+   margin: 1.6rem 0 0;
+   font-family: 'Dennis Sans', sans-serif;
+   font-weight: 450;
+   font-size: clamp(0.9rem, 1.05vw, 1.05rem);
+   line-height: 1.45;
+   letter-spacing: -0.01em;
+   color: rgba(28, 29, 32, 0.6);
+   text-wrap: balance;
+}
+
+.beyond__hint {
+   position: absolute;
+   left: 50%;
+   bottom: 2.25rem;
+   transform: translateX(-50%);
+   z-index: 900;
+   display: flex;
+   align-items: center;
+   gap: 0.55rem;
+   font-size: 0.72rem;
+   letter-spacing: 0.14em;
+   text-transform: uppercase;
+   color: rgba(28, 29, 32, 0.42);
+   pointer-events: none;
+   white-space: nowrap;
+}
+
+.beyond__hint::before {
+   content: "";
+   width: 26px;
+   height: 1px;
+   background: rgba(28, 29, 32, 0.32);
+}
+
+/* ---------- lightbox ---------- */
+
+.beyond-lightbox {
+   position: fixed;
+   inset: 0;
+   z-index: 99999;
+   display: none;
+   place-items: center;
+   padding: 4vh 4vw;
+   background: rgba(18, 18, 20, 0.86);
+   -webkit-backdrop-filter: blur(10px);
+   backdrop-filter: blur(10px);
+   cursor: zoom-out;
+}
+
+.beyond-lightbox.is-open {
+   display: grid;
+}
+
+.beyond-lightbox figure {
+   margin: 0;
+   max-width: min(90vw, 1080px);
+   text-align: center;
+}
+
+.beyond-lightbox img {
+   display: block;
+   width: 100%;
+   max-height: 78vh;
+   object-fit: contain;
+   border-radius: 14px;
+}
+
+.beyond-lightbox figcaption {
+   margin-top: 1.1rem;
+   color: rgba(255, 255, 255, 0.78);
+   font-family: 'Dennis Sans', sans-serif;
+   font-size: 0.9rem;
+   letter-spacing: 0.01em;
+}
+
+/* ---------- responsive ---------- */
+
+@media screen and (max-width: 900px) {
+   .beyond__card {
+      border-radius: 14px;
+   }
+
+   .beyond__center::before {
+      height: 16rem;
+   }
+
+   .beyond__title {
+      font-size: clamp(2.9rem, 13.5vw, 4.6rem);
+      line-height: 0.84;
+   }
+
+   .beyond__dek {
+      margin-top: 1.15rem;
+      font-size: 0.85rem;
+      width: min(80%, 19rem);
+   }
+
+   .beyond__hint {
+      bottom: 1.5rem;
+      font-size: 0.64rem;
+   }
+}
+
+@media screen and (max-height: 620px) {
+   .beyond__title {
+      font-size: clamp(2.2rem, 11vh, 3.2rem);
+   }
+
+   .beyond__center::before {
+      height: 11rem;
+   }
+
+   .beyond__hint {
+      display: none;
+   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+   .beyond__card {
+      transition: none;
+   }
+}
+
+/* ------------------------------------------------------------------
+   首屏：AXON 粒子流体背景（iframe 嵌入 /axon/index.html）
+   原「照片球」板块下移为 .beyond-section
+   ------------------------------------------------------------------ */
+
+.beyond-header {
+   background: #000;
+   height: 100vh;
+   min-height: 100vh;
+}
+
+.axon-hero {
+   position: absolute;
+   inset: 0;
+   z-index: 1;
+   overflow: hidden;
+   background: #05050a;
+}
+
+.axon-hero__frame {
+   position: absolute;
+   inset: 0;
+   width: 100%;
+   height: 100%;
+   border: 0;
+   display: block;
+   background: #000;
+}
+
+/* 顶部与底部轻微压暗，保证导航与滚动提示可读 */
+.axon-hero__veil {
+   position: absolute;
+   inset: 0;
+   z-index: 2;
+   pointer-events: none;
+   background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 20%),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 16%);
+}
+
+/* 深色首屏下的导航配色（覆盖上方的奶油底深墨规则） */
+.beyond-header .nav-bar,
+.beyond-header .nav-bar a,
+.beyond-header .nav-bar .cbd,
+.beyond-header .nav-bar .code-by,
+.beyond-header .nav-bar .dennis,
+.beyond-header .nav-bar .btn-text-inner {
+   color: #ffffff;
+}
+
+.beyond-header .nav-bar .credit,
+.beyond-header .nav-bar .credit span {
+   color: #ffffff;
+}
+
+/* 下移后的照片球板块 */
+.beyond-section {
+   position: relative;
+   height: 100vh;
+   min-height: 100vh;
+   overflow: hidden;
+   color: #1c1d20;
+   background:
+      radial-gradient(120% 95% at 50% 42%, #faf8f5 0%, #f5f2ed 46%, #efebe4 100%);
+}
+
+.beyond-section .beyond {
+   position: absolute;
+   inset: 0;
+   display: block;
+}
+
+@supports (height: 100svh) {
+   .beyond-header,
+   .beyond-section {
+      height: 100svh;
+      min-height: 100svh;
+   }
+}
+
+@media screen and (max-width: 720px) {
+   .axon-hero__veil {
+      background:
+         linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 18%),
+         linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 14%);
+   }
+}
+
+/* 加载屏滑出后，底部圆角遮罩会停在首屏顶部，压住粒子背景 —— 首页无需该装饰 */
+.loading-screen .rounded-div-wrap.bottom {
+   display: none !important;
+}

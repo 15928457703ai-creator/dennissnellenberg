@@ -1,0 +1,134 @@
+/* 设计稿字体：汉仪旗黑 HYQiHeiY2（按本页用字子集化，5 个字重）+ Nexa Heavy（数据大字） */
+@font-face {
+   font-family: 'HYQiHeiY2';
+   src: url('../fonts/HYQiHeiY2-op-300.woff2') format('woff2');
+   font-weight: 300;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'HYQiHeiY2';
+   src: url('../fonts/HYQiHeiY2-op-400.woff2') format('woff2');
+   font-weight: 400;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'HYQiHeiY2';
+   src: url('../fonts/HYQiHeiY2-op-500.woff2') format('woff2');
+   font-weight: 500;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'HYQiHeiY2';
+   src: url('../fonts/HYQiHeiY2-op-600.woff2') format('woff2');
+   font-weight: 600;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'HYQiHeiY2';
+   src: url('../fonts/HYQiHeiY2-op-700.woff2') format('woff2');
+   font-weight: 700;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'Nexa';
+   src: url('../fonts/Nexa-Heavy-op.woff2') format('woff2');
+   font-weight: 900;
+   font-display: swap;
+}
+
+/* =========================================================
+   OPPO 自助服务案例页 · 中部内容区（Figma node 6003-3075 代码还原）
+   图层命名含【切图】的用导出图片（assets/img/oppo-self/qNN.webp）
+   其余图层全部由代码还原：绝对定位舞台 + 真实文字/矢量/CSS 效果
+   ========================================================= */
+
+.erp-deck {
+   position: relative;
+   background: #0d0d0d;
+   padding: 0;
+   margin: 0;
+   overflow: hidden;
+}
+
+.erp-deck-inner {
+   width: 100%;
+   max-width: 1920px;
+   margin: 0 auto;
+}
+
+.erp-slide {
+   position: relative;
+   width: 100%;
+   aspect-ratio: 1920 / 1080;
+   overflow: hidden;
+   isolation: isolate;
+   /* 相邻屏之间留一条很细的缝，读起来像连续的分屏稿 */
+   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.erp-stage {
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 1920px;
+   height: 1080px;
+   transform-origin: 0 0;
+   transform: scale(var(--erp-s, 1));
+   font-kerning: normal;
+   -webkit-font-smoothing: antialiased;
+}
+
+.erp-stage,
+.erp-stage * {
+   box-sizing: border-box;
+}
+
+.erp-stage > div,
+.erp-stage div,
+.erp-stage svg,
+.erp-stage img {
+   position: absolute;
+}
+
+.erp-stage div {
+   margin: 0;
+   padding: 0;
+}
+
+.erp-stage .t {
+   color: inherit;
+   transform: translateZ(0);
+}
+
+.erp-stage .v,
+.erp-stage svg.v {
+   display: block;
+   overflow: visible;
+}
+
+.erp-stage img.q {
+   display: block;
+   object-fit: fill;
+   max-width: none;
+}
+
+/* 案例页中该区段前后留白由站点本身的 section 负责，这里去掉多余间距 */
+.erp-deck + .footer-wrap {
+   margin-top: 0;
+}
+
+@media (max-width: 900px) {
+   /* 窄屏：16 屏按顺序纵向堆叠成一条胶片，跟着页面正常往下滚 */
+   .erp-deck-inner {
+      display: block;
+   }
+
+   .erp-slide {
+      width: 100%;
+   }
+}

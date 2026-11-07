@@ -1,0 +1,107 @@
+/* ---- OPPO 售后服务 case — 16:9 介绍图版式 ---- */
+
+.slide-block {
+   padding-top: 0;
+   padding-bottom: 0;
+   background: #EDEDED;
+}
+
+.slide-block .single-image,
+.case-intro-image .single-image.slide-hero {
+   width: 100%;
+   overflow: hidden;
+   position: relative;
+}
+
+.slide-block .single-image::before,
+.case-intro-image .single-image.slide-hero::before {
+   content: "";
+   display: block;
+   padding-top: 56.25%;
+}
+
+/* 覆盖原站统一设置的 height:120% / top:-10%，让 16:9 图完整显示不裁切 */
+.slide-block .single-image .overlay-image,
+.case-intro-image .single-image.slide-hero .overlay-image {
+   height: 100%;
+   top: 0;
+   left: 0;
+   width: 100%;
+   object-fit: cover;
+   object-position: center center;
+}
+
+@media screen and (max-width: 540px) {
+   .slide-block .single-image::before,
+   .case-intro-image .single-image.slide-hero::before {
+      padding-top: 56.25%;
+   }
+
+   /* 中文标题在窄屏不换行 */
+   .case-header h1 {
+      font-size: 44px;
+      line-height: 1.05;
+      letter-spacing: -0.015em;
+   }
+}
+
+/* ---- 点击看大图 ---- */
+.slide-block .single-image,
+.case-intro-image .single-image.slide-hero {
+   cursor: zoom-in;
+}
+
+.oppo-lightbox {
+   position: fixed;
+   inset: 0;
+   z-index: 9999;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 2vh 2vw;
+   background: rgba(8, 8, 8, 0.97);
+   backdrop-filter: blur(10px);
+   -webkit-backdrop-filter: blur(10px);
+   opacity: 0;
+   pointer-events: none;
+   transition: opacity 0.28s ease;
+}
+
+.oppo-lightbox.is-open {
+   opacity: 1;
+   pointer-events: auto;
+}
+
+.oppo-lightbox img {
+   max-width: 96vw;
+   max-height: 92vh;
+   width: auto;
+   height: auto;
+   object-fit: contain;
+   transform: scale(0.97);
+   transition: transform 0.28s ease;
+}
+
+.oppo-lightbox.is-open img {
+   transform: scale(1);
+}
+
+.oppo-lightbox-close {
+   position: absolute;
+   top: 22px;
+   right: 24px;
+   width: 44px;
+   height: 44px;
+   border: 0;
+   border-radius: 50%;
+   background: rgba(255, 255, 255, 0.14);
+   color: #fff;
+   font-size: 20px;
+   line-height: 1;
+   cursor: pointer;
+}
+
+.oppo-lightbox-close:hover {
+   background: rgba(255, 255, 255, 0.26);
+}
+

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AXON — 冯梅 FengMei</title>
+    <link rel="stylesheet" href="fonts.css" />
+    <link rel="stylesheet" href="assets/app.css" />
+    <script src="three.min.js"></script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #000;
+      }
+      #root,
+      #root canvas,
+      #bg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      /* 中文字形用系统字体兜底，避免依赖外部字体服务 */
+      .hero-name,
+      .hero-roles,
+      .hero-kicker {
+        font-family: 'Plus Jakarta Sans', 'PingFang SC', 'Hiragino Sans GB',
+          'Microsoft YaHei', sans-serif;
+      }
+
+      /* WebGL 不可用时的兜底排版。默认不渲染，只有确认无 GL / 场景起不来时才显示，
+         避免与三维场景里的同名文字同时存在而出现重影 */
+      .ax-fallback {
+        position: fixed;
+        inset: 0;
+        z-index: 2;
+        pointer-events: none;
+        display: none;
+      }
+      .ax-fallback.is-shown {
+        display: block;
+      }
+      .ax-fallback .hero-type {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .ax-fallback .hero-name,
+      .ax-fallback .hero-roles,
+      .ax-fallback .hero-kicker span,
+      .ax-fallback .hero-role-left,
+      .ax-fallback .hero-role-right,
+      .ax-fallback .hero-cross {
+        animation: none !important;
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- 兜底：无 WebGL 时也能看到完整标题排版 -->
+    <div class="ax-fallback" id="axFallback">
+      <section class="hero-type" aria-label="About Me — 冯梅 FengMei">
+        <div class="hero-kicker" aria-hidden="true">
+          <span>ABOUT</span>
+          <span>ME</span>
+        </div>
+        <h1 class="hero-name">
+          <span>冯</span>
+          <span class="hero-name-second">梅</span>
+          <span class="hero-name-latin">FengMei</span>
+        </h1>
+        <p class="hero-roles">
+          <span class="hero-role-left">UX交互设计师</span>
+          <svg class="hero-cross" width="12" height="15" viewBox="0 0 12 15" fill="none" aria-hidden="true">
+            <line x1="1.5" y1="1.5" x2="10.5" y2="13.5" stroke="currentColor" stroke-width="1.25" />
+            <line x1="10.5" y1="1.5" x2="1.5" y2="13.5" stroke="currentColor" stroke-width="1.25" />
+          </svg>
+          <span class="hero-role-right">UI界面设计师</span>
+        </p>
+      </section>
+    </div>
+
+    <script>
+      /* 1. 先探测 WebGL，不可用则保留兜底排版，不加载三维场景 */
+      var hasGL = (function () {
+        try {
+          var c = document.createElement('canvas');
+          return !!(c.getContext('webgl2') || c.getContext('webgl'));
+        } catch (e) {
+          return false;
+        }
+      })();
+
+      /* 2. 把滚轮/触摸滚动交还父页面，避免 iframe 吃掉首页滚动 */
+      function forward(dy) {
+        try {
+          if (window.parent && window.parent !== window) window.parent.scrollBy(0, dy);
+        } catch (e) {}
+      }
+      window.addEventListener('wheel', function (e) { forward(e.deltaY); }, { passive: true });
+      var lastY = 0;
+      window.addEventListener('touchstart', function (e) { lastY = e.touches[0].clientY; }, { passive: true });
+      window.addEventListener(
+        'touchmove',
+        function (e) {
+          var y = e.touches[0].clientY;
+          forward((lastY - y) * 1.6);
+          lastY = y;
+        },
+        { passive: true }
+      );
+
+      /* 3. 有 WebGL 才启动粒子场景。
+            场景一旦出图就把兜底层整个移除（不是淡出），
+            确保页面上永远只有一份标题文字，不会出现重影。 */
+      var fb = document.getElementById('axFallback');
+
+      function showFallback() {
+        if (fb) fb.classList.add('is-shown');
+      }
+      function dropFallback() {
+        if (fb && fb.parentNode) {
+          fb.parentNode.removeChild(fb);
+          fb = null;
+        }
+      }
+
+      if (!hasGL) {
+        /* 无 WebGL：只显示兜底排版 */
+        showFallback();
+      } else {
+        var s = document.createElement('script');
+        s.type = 'module';
+        s.src = 'assets/app.js';
+        document.body.appendChild(s);
+
+        var settled = false;
+        var obs = null;
+        var timer = null;
+        var ticks = 0;
+
+        function stopWatch() {
+          settled = true;
+          if (timer) clearInterval(timer);
+          if (obs) obs.disconnect();
+        }
+
+        function check() {
+          if (settled) return;
+          var root = document.getElementById('root');
+          /* 只要 React 已经渲染出自己的标题排版（或画布），
+             就说明正式内容已接管，立刻移除兜底层 */
+          var takenOver =
+            root && (root.querySelector('.hero-type') || root.querySelector('canvas'));
+          if (takenOver) {
+            stopWatch();
+            dropFallback();
+          }
+        }
+
+        timer = setInterval(function () {
+          check();
+          if (settled) return;
+          /* 约 12 秒仍无画面：先显示兜底，避免长时间黑屏。
+             注意不停止监听——万一场景随后才起来，仍会把兜底移除，防止叠加 */
+          if (++ticks > 48) {
+            showFallback();
+            clearInterval(timer);
+            timer = null;
+          }
+        }, 250);
+
+        if (window.MutationObserver) {
+          obs = new MutationObserver(check);
+          obs.observe(document.documentElement, { childList: true, subtree: true });
+        }
+      }
+    </script>
+  </body>
+</html>
