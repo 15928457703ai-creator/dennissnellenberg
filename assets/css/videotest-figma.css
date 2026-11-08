@@ -1,0 +1,243 @@
+/* =========================================================
+   Naivideo / Videotest 案例页 · 中部内容区
+   Figma node 4276-207「Naivideo」8 屏 1920×1080 代码还原
+   - 图层名含【切图】的用导出图片（assets/img/videotest/*.webp）
+   - 其余图层由代码还原：绝对定位舞台 + 真实文字/矢量/CSS 效果
+   ========================================================= */
+
+/* ---- 汉仪旗黑：中文标题与正文（项目已有子集） ---- */
+@font-face {
+   font-family: 'HYQiHeiY2';
+   src: url('../fonts/HYQiHeiY2-300.woff2') format('woff2');
+   font-weight: 300;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'HYQiHeiY2';
+   src: url('../fonts/HYQiHeiY2-400.woff2') format('woff2');
+   font-weight: 400;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'HYQiHeiY2';
+   src: url('../fonts/HYQiHeiY2-500.woff2') format('woff2');
+   font-weight: 500;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'HYQiHeiY2';
+   src: url('../fonts/HYQiHeiY2-600.woff2') format('woff2');
+   font-weight: 600;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'HYQiHeiY2';
+   src: url('../fonts/HYQiHeiY2-700.woff2') format('woff2');
+   font-weight: 700;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'HYQiHeiY2';
+   src: url('../fonts/HYQiHeiY2-800.woff2') format('woff2');
+   font-weight: 800;
+   font-display: swap;
+}
+
+/* ---- Google Sans Flex：设计稿里手机 UI 的主要字体 ---- */
+@font-face {
+   font-family: 'GSFlex';
+   src: url('../fonts/vt-GSFlex-400.woff2') format('woff2');
+   font-weight: 400;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'GSFlex';
+   src: url('../fonts/vt-GSFlex-500.woff2') format('woff2');
+   font-weight: 500;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'GSFlex';
+   src: url('../fonts/vt-GSFlex-600.woff2') format('woff2');
+   font-weight: 600;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'GSFlex';
+   src: url('../fonts/vt-GSFlex-700.woff2') format('woff2');
+   font-weight: 700;
+   font-display: swap;
+}
+
+/* ---- DM Sans：英文与数字 ---- */
+@font-face {
+   font-family: 'DMSans';
+   src: url('../fonts/vt-DMSans-400.woff2') format('woff2');
+   font-weight: 400;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'DMSans';
+   src: url('../fonts/vt-DMSans-500.woff2') format('woff2');
+   font-weight: 500;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'DMSans';
+   src: url('../fonts/vt-DMSans-600.woff2') format('woff2');
+   font-weight: 600;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'DMSans';
+   src: url('../fonts/vt-DMSans-700.woff2') format('woff2');
+   font-weight: 700;
+   font-display: swap;
+}
+
+/* ---- Inter：少量标注文字 ---- */
+@font-face {
+   font-family: 'Inter';
+   src: url('../fonts/vt-Inter-400.woff2') format('woff2');
+   font-weight: 400;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'Inter';
+   src: url('../fonts/vt-Inter-500.woff2') format('woff2');
+   font-weight: 500;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'Inter';
+   src: url('../fonts/vt-Inter-600.woff2') format('woff2');
+   font-weight: 600;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'Inter';
+   src: url('../fonts/vt-Inter-700.woff2') format('woff2');
+   font-weight: 700;
+   font-display: swap;
+}
+
+/* =========================================================
+   舞台：每屏 1920×1080，按容器宽度等比缩放
+   ========================================================= */
+
+.vt-deck {
+   position: relative;
+   background: #0d0d0d;
+   padding: 0;
+   margin: 0;
+   overflow: hidden;
+}
+
+.vt-deck-inner {
+   width: 100%;
+   max-width: 1920px;
+   margin: 0 auto;
+}
+
+.vt-slide {
+   position: relative;
+   width: 100%;
+   aspect-ratio: 1920 / 1080;
+   overflow: hidden;
+   isolation: isolate;
+   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.vt-stage {
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 1920px;
+   height: 1080px;
+   transform-origin: 0 0;
+   transform: scale(var(--vt-s, 1));
+   font-kerning: normal;
+   -webkit-font-smoothing: antialiased;
+}
+
+.vt-stage,
+.vt-stage * {
+   box-sizing: border-box;
+}
+
+.vt-stage>div,
+.vt-stage div,
+.vt-stage svg,
+.vt-stage img {
+   position: absolute;
+}
+
+.vt-stage div {
+   margin: 0;
+   padding: 0;
+}
+
+.vt-stage .t {
+   color: inherit;
+   transform: translateZ(0);
+}
+
+.vt-stage .v,
+.vt-stage svg.v {
+   display: block;
+   overflow: visible;
+}
+
+.vt-stage img.q {
+   display: block;
+   object-fit: fill;
+   max-width: none;
+}
+
+.vt-deck + .footer-wrap {
+   margin-top: 0;
+}
+
+/* 入场动画：每屏进入视口时轻微上浮淡入 */
+.vt-slide {
+   opacity: 0;
+   transform: translateY(24px);
+   transition: opacity .7s cubic-bezier(.22, .61, .36, 1), transform .7s cubic-bezier(.22, .61, .36, 1);
+}
+
+.vt-slide.vt-in {
+   opacity: 1;
+   transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+   .vt-slide {
+      opacity: 1;
+      transform: none;
+      transition: none;
+   }
+}
+
+@media (max-width: 900px) {
+   .vt-deck-inner {
+      display: block;
+   }
+
+   .vt-slide {
+      width: 100%;
+   }
+}

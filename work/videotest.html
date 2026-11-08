@@ -34,6 +34,7 @@
    <link href="../assets/css/style-new.css?v=20261106r" rel="stylesheet">
    <link href="../assets/css/nv-framework.css?v=20261106h" rel="stylesheet">
    <link href="../assets/css/videotest.css?v=20261106m" rel="stylesheet">
+   <link href="../assets/css/videotest-figma.css?v=20261107a" rel="stylesheet">
    <!-- Global site tag (gtag.js) - Google Analytics -->
 
 </head>
@@ -69,6 +70,7 @@
             <h2>Work<div class="dot"></div>
             <h2>金沙白酒 ERP<div class="dot"></div></h2>
                 <h2>OPPO 售后服务<div class="dot"></div></h2>
+                <h2>OPPO 自助服务小程序<div class="dot"></div></h2>
                 <h2>OPPO 自助服务<div class="dot"></div></h2>
             </h2>
             <h2 class="active">Videotest<div class="dot"></div>
@@ -342,459 +344,83 @@
 
       <!-- ===================== 案例正文（按 Figma 作品集画板实现） ===================== -->
 
-      <div class="vd">
+      <!-- ================================================================
+     Naivideo 案例 · 中部内容区 · Figma（node 4276-207）代码还原
+     8 屏 1920×1080：切图图层用导出图，其余全部代码还原
+     头部 case-top-wrap / case-intro 与尾部 footer 保持不变
+     ================================================================ -->
+<section class="section vt-deck" id="vt-deck">
+<div class="vt-deck-inner">
+<!-- frame 01 -->
+<div class="vt-slide"><div class="vt-stage" style="background-color:#ffffff;"><div style="left:40px;top:40px;width:1840px;height:1000px;"><svg class="v" viewBox="0 0 1790 1000" style="left:50px;top:0px;width:1790px;height:1000px;"><path d="M0 80C0 35.8172 35.8172 0 80 0L1710 0C1754.18 0 1790 35.8172 1790 80L1790 920C1790 964.183 1754.18 1000 1710 1000L80 1000C35.8173 1000 0 964.183 0 920L0 80Z" fill-rule="evenodd" fill="#000000"/></svg><svg class="v" viewBox="0 0 94.55 786" style="left:0px;top:208px;width:94.55px;height:786px;"><path d="M94.5498 726C94.5498 759.137 67.6867 786 34.5498 786L0 786C29.0791 774.021 49.5498 745.401 49.5498 712L49.5498 0L94.5498 0L94.5498 726Z" fill-rule="evenodd" fill="#000000"/></svg></div><div style="left:170px;top:120px;width:1662px;height:267px;"><div style="left:0px;top:0px;width:1662px;height:267px;"><div class="t" style="left:1562px;top:0px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:90px;font-weight:700;line-height:84.6px;text-align:right;color:#ffffff;">AI</div><div style="left:0px;top:21px;width:957px;height:246px;"><div class="t" style="left:0px;top:0px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:110px;font-weight:700;line-height:103.4px;text-align:left;color:#ffffff;">Agent/创作者生态</div><div class="t" style="left:0px;top:143px;width:835px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:110px;font-weight:700;line-height:103.4px;text-align:left;background-image:linear-gradient(90deg,#81fab2 -9.94%,#ecd190 15.82%,#ea33ff 44.19%);-webkit-background-clip:text;background-clip:text;color:transparent;width:835px;">Naivideo</div></div></div></div><div style="left:170px;top:642px;width:1630px;height:358px;"><div style="left:0px;top:0px;width:790px;height:358px;border-radius:200px;"><div style="left:0px;top:0px;width:790px;height:358px;border-radius:200px;background-color:rgba(255,255,255,0.08);"></div><div class="t" style="left:116px;top:64px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:24px;font-weight:700;line-height:22.56px;text-align:left;color:rgba(255,255,255,0.65);">AI创作工具</div><div style="left:116px;top:138px;width:367px;height:60px;"><div class="t" style="left:0px;top:0px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:64px;font-weight:500;line-height:60.16px;text-align:left;color:#ffffff;">海外百万</div><div class="t" style="left:271px;top:25px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:32px;font-weight:500;line-height:30.08px;text-align:left;color:rgba(255,255,255,0.65);">用户量</div></div><div class="t" style="left:126px;top:233px;width:594px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:500;line-height:32px;text-align:left;color:rgba(255,255,255,0.45);">Naivideo是PicLumen 旗下海外市场的 iOS AI 视频与图像的多模态AI创作应用，为全球短视频/短剧创作者提供高效 AIGC创作工作流。</div></div><div style="left:840px;top:0px;width:790px;height:358px;border-radius:200px;"><div style="left:0px;top:0px;width:790px;height:358px;border-radius:200px;background-color:rgba(255,255,255,0.08);"></div><div class="t" style="left:136px;top:73px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:24px;font-weight:700;line-height:22.56px;text-align:left;color:rgba(255,255,255,0.65);">担任角色</div><div class="t" style="left:136px;top:147px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:64px;font-weight:500;line-height:60.16px;text-align:left;color:#ffffff;">主设</div><div class="t" style="left:280px;top:172px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:32px;font-weight:500;line-height:30.08px;text-align:left;color:rgba(255,255,255,0.65);">用户体验设计</div><div class="t" style="left:136px;top:242px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:500;line-height:32px;text-align:left;color:rgba(255,255,255,0.45);">海外市场   Agent    AI开发落地</div></div></div><div class="t" style="left:20px;top:40px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:32px;font-weight:700;line-height:30.08px;text-align:left;color:rgba(0,0,0,0.35);">P1</div><div style="left:380px;top:143px;width:406.51px;height:366.22px;"><svg class="v" viewBox="0 0 168.91 337.69" style="left:135.8px;top:-1.32px;width:168.91px;height:337.69px;filter:blur(12px);transform:rotate(54.03deg);transform-origin:50% 50%;"><defs><linearGradient id="eg1" x1="0.44" y1="0.02" x2="0.77" y2="1.05"><stop offset="0" stop-color="rgb(255,255,255)" stop-opacity="0.95"/><stop offset="1" stop-color="rgb(255,255,255)" stop-opacity="0"/></linearGradient></defs><path d="M168.909 158.419C168.909 253.689 130.86 337.69 82.5762 337.69C34.2925 337.691 0 260.847 0 165.578C0 70.3091 48.2304 0.000412936 80.005 2.02507e-09C111.78 -0.000412932 168.909 63.1503 168.909 158.419Z" fill-rule="evenodd" fill="url(#eg1)"/></svg><svg class="v" viewBox="0 0 180.59 361.05" style="left:108.84px;top:6.59px;width:180.59px;height:361.05px;filter:blur(12px);transform:rotate(54.03deg);transform-origin:50% 50%;"><defs><linearGradient id="eg2" x1="0.44" y1="0.02" x2="0.77" y2="1.05"><stop offset="0" stop-color="rgb(255,255,255)" stop-opacity="0.35"/><stop offset="1" stop-color="rgb(255,255,255)" stop-opacity="0"/></linearGradient></defs><path d="M180.594 169.379C180.594 271.239 139.913 361.052 88.289 361.052C36.6649 361.053 0 278.893 0 177.033C0 75.1732 51.5671 0.000441503 85.5399 2.16517e-09C119.513 -0.000441499 180.594 67.5192 180.594 169.379Z" fill-rule="evenodd" fill="url(#eg2)"/></svg></div></div></div>
+<!-- frame 02 -->
+<div class="vt-slide"><div class="vt-stage" style="background-color:#121212;"><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-4822.webp" style="left:60px;top:40px;width:350px;height:675px;border-radius:50px;"/><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-4912.webp" style="left:437px;top:390px;width:651px;height:324px;border-radius:50px;"/><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-4925.webp" style="left:1485px;top:37px;width:358px;height:682px;border-radius:50px;"/><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-4929.webp" style="left:435.5px;top:41.5px;width:360px;height:322px;border-radius:50px;"/><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-4943.webp" style="left:820px;top:41px;width:645px;height:324px;border-radius:50px;"/><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-4952.webp" style="left:1111px;top:385px;width:358px;height:682px;border-radius:50px;"/><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-4982.webp" style="left:60px;top:739px;width:350px;height:301px;border-radius:50px;"/><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-5017.webp" style="left:435px;top:739px;width:656px;height:301px;border-radius:50px;"/><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-5042.webp" style="left:1489px;top:739px;width:350px;height:308px;border-radius:50px;"/></div></div>
+<!-- frame 03 -->
+<div class="vt-slide"><div class="vt-stage" style="background-color:#000000;"><div style="left:0px;top:177px;width:1920px;height:726px;"><div style="left:160px;top:0px;width:1600px;height:114px;"><div class="t" style="left:0px;top:0px;width:1600px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:60px;font-weight:700;line-height:56.4px;text-align:center;color:#ffffff;">以视频<span style="color:#84f56b;">激发</span>灵感，让观看自然走向<span style="color:#84f56b;">创作</span></div><div class="t" style="left:536px;top:84px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:24px;font-weight:700;line-height:30px;text-align:center;color:rgba(255,255,255,0.45);">从沉浸观看到灵感创作，再到作品分享与持续回流</div></div><div style="left:160px;top:186px;width:1600px;height:540px;"><div style="left:0px;top:0px;width:493.33px;height:540px;border-radius:48px;background-color:rgba(255,255,255,0.1);transform:rotate(-5deg);transform-origin:50% 50%;"><div class="t" style="left:44.03px;top:51.3px;width:415.07px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:40px;font-weight:700;line-height:37.6px;text-align:left;color:rgba(255,255,255,0.25);">现有<span style="color:#ffffff;">基石</span></div><div style="left:52.57px;top:148.93px;width:433.55px;height:285.07px;transform:rotate(0deg);transform-origin:50% 50%;"><div style="left:0px;top:0px;width:417.16px;height:97.79px;"><div class="t" style="left:0px;top:0.99px;width:403.08px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:18px;font-weight:700;line-height:30px;text-align:left;color:rgba(255,255,255,0.95);">背靠七百万+的平台</div><div class="t" style="left:3.31px;top:37.86px;width:413.85px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:14px;font-weight:500;line-height:24px;text-align:left;color:rgba(255,255,255,0.35);">PicLumen 旗下海外 AI 创作 App，注册用户 752 万+</div></div><div style="left:8.19px;top:93.64px;width:417.16px;height:97.79px;transform:rotate(0deg);transform-origin:50% 50%;"><div class="t" style="left:0px;top:0.99px;width:403.08px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:18px;font-weight:700;line-height:30px;text-align:left;color:rgba(255,255,255,0.95);">产品已有影响力</div><div class="t" style="left:3.31px;top:37.86px;width:413.85px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:14px;font-weight:500;line-height:24px;text-align:left;color:rgba(255,255,255,0.35);">赋能全球内容创作者，打造高效的 AIGC 视觉工作流</div></div><div style="left:16.39px;top:187.28px;width:417.16px;height:97.79px;transform:rotate(0deg);transform-origin:50% 50%;"><div class="t" style="left:0px;top:0.99px;width:403.08px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:18px;font-weight:700;line-height:30px;text-align:left;color:rgba(255,255,255,0.95);">多模型与跨端数据底座</div><div class="t" style="left:3.31px;top:37.86px;width:413.85px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:14px;font-weight:500;line-height:24px;text-align:left;color:rgba(255,255,255,0.35);">聚合 20+ 顶尖模型，实现账号、资产与点数的跨端无缝互通</div></div></div></div><div style="left:553.33px;top:0px;width:493.33px;height:540px;border-radius:48px;background-color:rgba(255,255,255,0.1);transform:rotate(5deg);transform-origin:50% 50%;"><div class="t" style="left:79.42px;top:51.3px;width:415.07px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:40px;font-weight:700;line-height:37.6px;text-align:left;color:rgba(255,255,255,0.25);">面临<span style="color:#ffffff;">挑战</span></div><div style="left:52.4px;top:148.93px;width:433.55px;height:285.07px;"><div style="left:16.39px;top:0px;width:417.16px;height:97.79px;"><div class="t" style="left:2.79px;top:0px;width:403.08px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:20px;font-weight:700;line-height:30px;text-align:left;color:rgba(255,255,255,0.95);">新型工具如何差异化定位？</div><div class="t" style="left:0px;top:37.86px;width:413.85px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:14px;font-weight:500;line-height:24px;text-align:left;color:rgba(255,255,255,0.35);">竞品在卷“生成技术”，Naivideo 在解“创作动机”</div></div><div style="left:8.19px;top:93.64px;width:417.16px;height:97.79px;"><div class="t" style="left:2.79px;top:0px;width:403.08px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:20px;font-weight:700;line-height:30px;text-align:left;color:rgba(255,255,255,0.95);">商业化与体验如何平衡？</div><div class="t" style="left:0px;top:37.86px;width:413.85px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:14px;font-weight:500;line-height:24px;text-align:left;color:rgba(255,255,255,0.35);">如何做到沉浸式引导，无感化的商业转化？</div></div><div style="left:0px;top:187.28px;width:417.16px;height:97.79px;"><div class="t" style="left:2.79px;top:0px;width:403.08px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:20px;font-weight:700;line-height:30px;text-align:left;color:rgba(255,255,255,0.95);">提升用户粘性</div><div class="t" style="left:0px;top:37.86px;width:413.85px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:14px;font-weight:500;line-height:24px;text-align:left;color:rgba(255,255,255,0.35);">用户在平台的创作痕迹，如何二次更好的利用</div></div></div></div><div style="left:1106.67px;top:0px;width:493.33px;height:540px;border-radius:48px;background-color:rgba(255,255,255,0.1);transform:rotate(-5deg);transform-origin:50% 50%;"><div class="t" style="left:44.03px;top:51.3px;width:415.07px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:40px;font-weight:700;line-height:37.6px;text-align:left;color:rgba(255,255,255,0.25);">破局方案<span style="color:#ffffff;">策略</span></div><div style="left:52.57px;top:148.93px;width:437.73px;height:332.89px;"><div style="left:0px;top:0px;width:419.26px;height:121.7px;"><div class="t" style="left:0px;top:0px;width:414.38px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:700;line-height:30px;text-align:left;color:rgba(255,255,255,0.95);">内容点燃灵感，Agent 极简创作</div><div class="t" style="left:3.31px;top:37.86px;width:415.94px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:14px;font-weight:500;line-height:24px;text-align:left;color:rgba(255,255,255,0.35);">通过沉浸式社区激发创作欲，依托Agent自动优化Prompt并智能匹配最优模型参数。</div></div><div style="left:10.28px;top:117.55px;width:417.16px;height:97.79px;"><div class="t" style="left:0px;top:0.99px;width:403.08px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:700;line-height:30px;text-align:left;color:rgba(255,255,255,0.95);">商业化融入克制，路径简短</div><div class="t" style="left:3.31px;top:37.86px;width:413.85px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:14px;font-weight:500;line-height:24px;text-align:left;color:rgba(255,255,255,0.35);">商业转化点设置位置，遵循不打扰、不打断用户操作</div></div><div style="left:18.48px;top:211.19px;width:419.26px;height:121.7px;"><div class="t" style="left:0px;top:0.99px;width:403.08px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:700;line-height:30px;text-align:left;color:rgba(255,255,255,0.95);">资产管理分类，用户资产</div><div class="t" style="left:3.31px;top:37.86px;width:415.94px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:14px;font-weight:500;line-height:24px;text-align:left;color:rgba(255,255,255,0.35);">将创作资产作为粘性引擎，通过时间积累提高迁移成本，形成用户深度依赖的迁移成本</div></div></div></div></div></div></div></div>
+<!-- frame 04 -->
+<div class="vt-slide"><div class="vt-stage" style="background-color:#eaebf0;"><div style="left:547px;top:20px;width:1353px;height:1040px;border-radius:84px;background-color:#000000;"></div><div style="left:354px;top:-74px;width:1353px;height:1040px;border-radius:84px;"><div style="left:0;top:0;width:1353px;height:1040px;-webkit-mask-image:linear-gradient(90deg,#f0f1f6 94.2%,rgba(240,241,246,0) 100%);mask-image:linear-gradient(90deg,#f0f1f6 94.2%,rgba(240,241,246,0) 100%);-webkit-mask-size:1353px 1040px;mask-size:1353px 1040px;-webkit-mask-position:0px 0px;mask-position:0px 0px;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;"></div></div><div style="left:611px;top:80px;width:550px;height:52px;"><div class="t" style="left:10px;top:10px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:24px;font-weight:700;line-height:32px;text-align:left;color:#ffffff;">多维度打造<span style="color:#3ee949;">数据沉浸/多样性</span></div><div class="t" style="left:334px;top:12px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:20px;font-weight:500;line-height:28px;text-align:left;color:rgba(255,255,255,0.65);">看入迷 ➔ 想做 ➔ 传播</div></div><div style="left:611px;top:187px;width:1204px;height:74px;"><div style="left:0px;top:0px;width:300px;height:74px;"><div class="t" style="left:0px;top:0px;width:300px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:24px;font-weight:500;line-height:32px;text-align:center;color:#ffffff;">【内容多样性】</div><div class="t" style="left:0px;top:42px;width:300px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:500;line-height:32px;text-align:center;color:rgba(255,255,255,0.64);">从数据和视觉双维度打造沉浸感</div></div><svg class="v" viewBox="0 -2.89 152 5.77" style="left:300px;top:34.11px;width:152px;height:5.77px;overflow:visible"><path d="M0 0L0 0.5L0.996622 0.5L0.996622 0L0.996622 -0.5L0 -0.5L0 0ZM2.98986 0L2.98986 0.5L4.98311 0.5L4.98311 0L4.98311 -0.5L2.98986 -0.5L2.98986 0ZM6.97635 0L6.97635 0.5L8.96959 0.5L8.96959 0L8.96959 -0.5L6.97635 -0.5L6.97635 0ZM10.9628 0L10.9628 0.5L12.9561 0.5L12.9561 0L12.9561 -0.5L10.9628 -0.5L10.9628 0ZM14.9493 0L14.9493 0.5L16.9426 0.5L16.9426 0L16.9426 -0.5L14.9493 -0.5L14.9493 0ZM18.9358 0L18.9358 0.5L20.9291 0.5L20.9291 0L20.9291 -0.5L18.9358 -0.5L18.9358 0ZM22.9223 0L22.9223 0.5L24.9155 0.5L24.9155 0L24.9155 -0.5L22.9223 -0.5L22.9223 0ZM26.9088 0L26.9088 0.5L28.902 0.5L28.902 0L28.902 -0.5L26.9088 -0.5L26.9088 0ZM30.8953 0L30.8953 0.5L32.8885 0.5L32.8885 0L32.8885 -0.5L30.8953 -0.5L30.8953 0ZM34.8818 0L34.8818 0.5L36.875 0.5L36.875 0L36.875 -0.5L34.8818 -0.5L34.8818 0ZM38.8682 0L38.8682 0.5L40.8615 0.5L40.8615 0L40.8615 -0.5L38.8682 -0.5L38.8682 0ZM42.8547 0L42.8547 0.5L44.848 0.5L44.848 0L44.848 -0.5L42.8547 -0.5L42.8547 0ZM46.8412 0L46.8412 0.5L48.8345 0.5L48.8345 0L48.8345 -0.5L46.8412 -0.5L46.8412 0ZM50.8277 0L50.8277 0.5L52.821 0.5L52.821 0L52.821 -0.5L50.8277 -0.5L50.8277 0ZM54.8142 0L54.8142 0.5L56.8074 0.5L56.8074 0L56.8074 -0.5L54.8142 -0.5L54.8142 0ZM58.8007 0L58.8007 0.5L60.7939 0.5L60.7939 0L60.7939 -0.5L58.8007 -0.5L58.8007 0ZM62.7872 0L62.7872 0.5L64.7804 0.5L64.7804 0L64.7804 -0.5L62.7872 -0.5L62.7872 0ZM66.7737 0L66.7737 0.5L68.7669 0.5L68.7669 0L68.7669 -0.5L66.7737 -0.5L66.7737 0ZM70.7601 0L70.7601 0.5L72.7534 0.5L72.7534 0L72.7534 -0.5L70.7601 -0.5L70.7601 0ZM74.7466 0L74.7466 0.5L76.7399 0.5L76.7399 0L76.7399 -0.5L74.7466 -0.5L74.7466 0ZM78.7331 0L78.7331 0.5L80.7263 0.5L80.7263 0L80.7263 -0.5L78.7331 -0.5L78.7331 0ZM82.7196 0L82.7196 0.5L84.7128 0.5L84.7128 0L84.7128 -0.5L82.7196 -0.5L82.7196 0ZM86.7061 0L86.7061 0.5L88.6993 0.5L88.6993 0L88.6993 -0.5L86.7061 -0.5L86.7061 0ZM90.6926 0L90.6926 0.5L92.6858 0.5L92.6858 0L92.6858 -0.5L90.6926 -0.5L90.6926 0ZM94.679 0L94.679 0.5L96.6723 0.5L96.6723 0L96.6723 -0.5L94.679 -0.5L94.679 0ZM98.6655 0L98.6655 0.5L100.659 0.5L100.659 0L100.659 -0.5L98.6655 -0.5L98.6655 0ZM102.652 0L102.652 0.5L104.645 0.5L104.645 0L104.645 -0.5L102.652 -0.5L102.652 0ZM106.638 0L106.638 0.5L108.632 0.5L108.632 0L108.632 -0.5L106.638 -0.5L106.638 0ZM110.625 0L110.625 0.5L112.618 0.5L112.618 0L112.618 -0.5L110.625 -0.5L110.625 0ZM114.611 0L114.611 0.5L116.605 0.5L116.605 0L116.605 -0.5L114.611 -0.5L114.611 0ZM118.598 0L118.598 0.5L120.591 0.5L120.591 0L120.591 -0.5L118.598 -0.5L118.598 0ZM122.584 0L122.584 0.5L124.578 0.5L124.578 0L124.578 -0.5L122.584 -0.5L122.584 0ZM126.571 0L126.571 0.5L128.564 0.5L128.564 0L128.564 -0.5L126.571 -0.5L126.571 0ZM130.557 0L130.557 0.5L132.551 0.5L132.551 0L132.551 -0.5L130.557 -0.5L130.557 0ZM134.544 0L134.544 0.5L136.537 0.5L136.537 0L136.537 -0.5L134.544 -0.5L134.544 0ZM138.53 0L138.53 0.5L140.524 0.5L140.524 0L140.524 -0.5L138.53 -0.5L138.53 0ZM142.517 0L142.517 0.5L144.51 0.5L144.51 0L144.51 -0.5L142.517 -0.5L142.517 0ZM146.503 0L146.503 0.5L147.5 0.5L147.5 0L147.5 -0.5L146.503 -0.5L146.503 0ZM152 0L147 -2.88675L147 2.88675L152 0Z" fill="none" stroke="#ffffff" stroke-width="1"/></svg><div style="left:452px;top:0px;width:300px;height:74px;"><div class="t" style="left:0px;top:0px;width:300px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:24px;font-weight:500;line-height:32px;text-align:center;color:#ffffff;">【浏览沉浸感】</div><div class="t" style="left:0px;top:42px;width:300px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:500;line-height:32px;text-align:center;color:rgba(255,255,255,0.64);">从数据和视觉双维度打造沉浸感</div></div><svg class="v" viewBox="0 -2.89 152 5.77" style="left:752px;top:34.11px;width:152px;height:5.77px;overflow:visible"><path d="M0 0L0 0.5L0.996622 0.5L0.996622 0L0.996622 -0.5L0 -0.5L0 0ZM2.98986 0L2.98986 0.5L4.98311 0.5L4.98311 0L4.98311 -0.5L2.98986 -0.5L2.98986 0ZM6.97635 0L6.97635 0.5L8.96959 0.5L8.96959 0L8.96959 -0.5L6.97635 -0.5L6.97635 0ZM10.9628 0L10.9628 0.5L12.9561 0.5L12.9561 0L12.9561 -0.5L10.9628 -0.5L10.9628 0ZM14.9493 0L14.9493 0.5L16.9426 0.5L16.9426 0L16.9426 -0.5L14.9493 -0.5L14.9493 0ZM18.9358 0L18.9358 0.5L20.9291 0.5L20.9291 0L20.9291 -0.5L18.9358 -0.5L18.9358 0ZM22.9223 0L22.9223 0.5L24.9155 0.5L24.9155 0L24.9155 -0.5L22.9223 -0.5L22.9223 0ZM26.9088 0L26.9088 0.5L28.902 0.5L28.902 0L28.902 -0.5L26.9088 -0.5L26.9088 0ZM30.8953 0L30.8953 0.5L32.8885 0.5L32.8885 0L32.8885 -0.5L30.8953 -0.5L30.8953 0ZM34.8818 0L34.8818 0.5L36.875 0.5L36.875 0L36.875 -0.5L34.8818 -0.5L34.8818 0ZM38.8682 0L38.8682 0.5L40.8615 0.5L40.8615 0L40.8615 -0.5L38.8682 -0.5L38.8682 0ZM42.8547 0L42.8547 0.5L44.848 0.5L44.848 0L44.848 -0.5L42.8547 -0.5L42.8547 0ZM46.8412 0L46.8412 0.5L48.8345 0.5L48.8345 0L48.8345 -0.5L46.8412 -0.5L46.8412 0ZM50.8277 0L50.8277 0.5L52.821 0.5L52.821 0L52.821 -0.5L50.8277 -0.5L50.8277 0ZM54.8142 0L54.8142 0.5L56.8074 0.5L56.8074 0L56.8074 -0.5L54.8142 -0.5L54.8142 0ZM58.8007 0L58.8007 0.5L60.7939 0.5L60.7939 0L60.7939 -0.5L58.8007 -0.5L58.8007 0ZM62.7872 0L62.7872 0.5L64.7804 0.5L64.7804 0L64.7804 -0.5L62.7872 -0.5L62.7872 0ZM66.7737 0L66.7737 0.5L68.7669 0.5L68.7669 0L68.7669 -0.5L66.7737 -0.5L66.7737 0ZM70.7601 0L70.7601 0.5L72.7534 0.5L72.7534 0L72.7534 -0.5L70.7601 -0.5L70.7601 0ZM74.7466 0L74.7466 0.5L76.7399 0.5L76.7399 0L76.7399 -0.5L74.7466 -0.5L74.7466 0ZM78.7331 0L78.7331 0.5L80.7263 0.5L80.7263 0L80.7263 -0.5L78.7331 -0.5L78.7331 0ZM82.7196 0L82.7196 0.5L84.7128 0.5L84.7128 0L84.7128 -0.5L82.7196 -0.5L82.7196 0ZM86.7061 0L86.7061 0.5L88.6993 0.5L88.6993 0L88.6993 -0.5L86.7061 -0.5L86.7061 0ZM90.6926 0L90.6926 0.5L92.6858 0.5L92.6858 0L92.6858 -0.5L90.6926 -0.5L90.6926 0ZM94.679 0L94.679 0.5L96.6723 0.5L96.6723 0L96.6723 -0.5L94.679 -0.5L94.679 0ZM98.6655 0L98.6655 0.5L100.659 0.5L100.659 0L100.659 -0.5L98.6655 -0.5L98.6655 0ZM102.652 0L102.652 0.5L104.645 0.5L104.645 0L104.645 -0.5L102.652 -0.5L102.652 0ZM106.638 0L106.638 0.5L108.632 0.5L108.632 0L108.632 -0.5L106.638 -0.5L106.638 0ZM110.625 0L110.625 0.5L112.618 0.5L112.618 0L112.618 -0.5L110.625 -0.5L110.625 0ZM114.611 0L114.611 0.5L116.605 0.5L116.605 0L116.605 -0.5L114.611 -0.5L114.611 0ZM118.598 0L118.598 0.5L120.591 0.5L120.591 0L120.591 -0.5L118.598 -0.5L118.598 0ZM122.584 0L122.584 0.5L124.578 0.5L124.578 0L124.578 -0.5L122.584 -0.5L122.584 0ZM126.571 0L126.571 0.5L128.564 0.5L128.564 0L128.564 -0.5L126.571 -0.5L126.571 0ZM130.557 0L130.557 0.5L132.551 0.5L132.551 0L132.551 -0.5L130.557 -0.5L130.557 0ZM134.544 0L134.544 0.5L136.537 0.5L136.537 0L136.537 -0.5L134.544 -0.5L134.544 0ZM138.53 0L138.53 0.5L140.524 0.5L140.524 0L140.524 -0.5L138.53 -0.5L138.53 0ZM142.517 0L142.517 0.5L144.51 0.5L144.51 0L144.51 -0.5L142.517 -0.5L142.517 0ZM146.503 0L146.503 0.5L147.5 0.5L147.5 0L147.5 -0.5L146.503 -0.5L146.503 0ZM152 0L147 -2.88675L147 2.88675L152 0Z" fill="none" stroke="#ffffff" stroke-width="1"/></svg><div style="left:904px;top:0px;width:300px;height:74px;"><div class="t" style="left:0px;top:0px;width:300px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:24px;font-weight:500;line-height:32px;text-align:center;color:#ffffff;">【互动与创作转化】</div><div class="t" style="left:0px;top:42px;width:300px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:500;line-height:32px;text-align:center;color:rgba(255,255,255,0.64);">搭建评论和分享作为转化的阵地</div></div></div><div style="left:611px;top:290px;width:300px;height:746.6px;border-radius:20px;background-color:rgba(255,255,255,0.1);"><div style="left:16px;top:16px;width:268px;height:302.8px;"><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-5103.webp" style="left:4px;top:0px;width:260px;height:254px;"/><div class="t" style="left:4px;top:262.8px;width:260px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:14px;font-weight:400;line-height:20px;text-align:left;color:rgba(255,255,255,0.65);">【短剧】从碎片化走向连续叙事，极大丰富内容品类，拉长用户停留时长及粘性</div></div><div style="left:16px;top:350.8px;width:268px;height:379.8px;"><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-5132.webp" style="left:4px;top:0px;width:260px;height:307px;border-radius:20px;"/><div style="left:4px;top:315.8px;width:260px;height:64px;"><div class="t" style="left:0px;top:0px;width:260px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:14px;font-weight:400;line-height:20px;text-align:left;color:rgba(255,255,255,0.65);">【Featured】运营精选，强视觉冲击力，刺激用户产生创作的钩子</div><div class="t" style="left:0px;top:44px;width:260px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:14px;font-weight:400;line-height:20px;text-align:left;color:rgba(255,255,255,0.65);">【New】社区发的最新趋势作品</div></div></div></div><div style="left:1063px;top:290px;width:300px;height:731px;border-radius:20px;background-color:rgba(255,255,255,0.1);overflow:hidden;isolation:isolate;"><div style="left:16px;top:16px;width:268px;height:260.8px;"><div style="left:0px;top:0px;width:268px;height:260.8px;"><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-5140.webp" style="left:0px;top:0px;width:260px;height:212px;"/><div class="t" style="left:0px;top:220.8px;width:268px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:14px;font-weight:400;line-height:20px;text-align:left;color:rgba(255,255,255,0.65);">【预加载】80%预加载保证用户观看的流程度，过滤已浏览，避免重复</div></div></div><div style="left:17px;top:316.8px;width:266px;height:103px;"><div style="left:3px;top:0px;width:260px;height:75px;"><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-5148.webp" style="left:0px;top:0px;width:260px;height:75px;border-radius:20px;"/></div><div class="t" style="left:0px;top:83px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:14px;font-weight:400;line-height:20px;text-align:left;color:rgba(255,255,255,0.65);">【TAB】去底色弱化，将视觉干扰降到最低</div></div><div style="left:20px;top:459.8px;width:260px;height:185.98px;"><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-5156.webp" style="left:0px;top:-0.01px;width:260px;height:136px;border-radius:20px;"/><div class="t" style="left:0px;top:145.98px;width:260px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:14px;font-weight:400;line-height:20px;text-align:left;color:rgba(255,255,255,0.65);">【视频适配】内容不同比例适配规则，适配最佳观感</div></div></div><div style="left:1515px;top:290px;width:300px;height:716px;border-radius:20px;background-color:rgba(255,255,255,0.1);"><div style="left:16px;top:16px;width:268px;height:295px;"><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-5160.webp" style="left:0px;top:0px;width:260px;height:219px;border-radius:20px;"/><div class="t" style="left:0px;top:235px;width:268px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:14px;font-weight:400;line-height:20px;text-align:left;color:rgba(255,255,255,0.65);">【评论】以评论为阵地，承载创作交流，将“围观灵感”直接转化为“二次创作”的裂变触发</div></div><div style="left:16px;top:343px;width:268px;height:161.36px;border-radius:12.8px 12.8px 0px 0px;background-color:#171717;overflow:hidden;isolation:isolate;"><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-5248.webp" style="left:4px;top:-0.32px;width:260px;height:102px;border-radius:16.64px 16.64px 0px 0px;"/><div class="t" style="left:0px;top:101.36px;width:268px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:14px;font-weight:400;line-height:20px;text-align:left;color:rgba(255,255,255,0.65);">【分享】打破数据内循环，用一键分享在社媒构建“带链接的免费广告牌”，实现流量外循环</div></div></div><div style="left:40px;top:72px;width:417px;height:766px;"><div style="left:0px;top:0px;width:417px;height:284px;"><div style="left:0px;top:0px;width:417px;height:284px;"><div class="t" style="left:0px;top:0px;width:417px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:64px;font-weight:700;line-height:82px;text-align:left;color:rgba(0,0,0,0.95);">沉浸/ 激发 /裂变</div><div class="t" style="left:0px;top:188px;width:417px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:20px;font-weight:400;line-height:32px;text-align:left;color:rgba(0,0,0,0.65);">打造沉浸式观感、从底层撬动用户参与及创作、带动用户创作。从看见高质量作品到想做最后再做成</div></div></div><div style="left:0px;top:364px;width:349px;height:402px;"><div style="left:0px;top:0px;width:349px;height:102px;"><div class="t" style="left:0px;top:0px;width:349px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:32px;font-weight:700;line-height:30.08px;text-align:left;color:rgba(0,0,0,0.85);">从“有得看”</div><div class="t" style="left:0px;top:38px;width:349px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:400;line-height:32px;text-align:left;color:rgba(0,0,0,0.65);">设置【短剧+Featured（精选推荐） + New（最新发布）三个维度的多样化数据观看</div></div><div style="left:0px;top:150px;width:349px;height:102px;"><div class="t" style="left:0px;top:0px;width:349px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:32px;font-weight:700;line-height:30.08px;text-align:left;color:rgba(0,0,0,0.85);">到“看得爽”</div><div class="t" style="left:0px;top:38px;width:349px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:400;line-height:32px;text-align:left;color:rgba(0,0,0,0.65);">通过预加载与无打断逻辑，保证“上下滑动”的绝对流畅与沉浸感</div></div><div style="left:0px;top:300px;width:349px;height:102px;"><div class="t" style="left:0px;top:0px;width:349px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:32px;font-weight:700;line-height:30.08px;text-align:left;color:rgba(0,0,0,0.85);">最后看完想做</div><div class="t" style="left:0px;top:38px;width:349px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:400;line-height:32px;text-align:left;color:rgba(0,0,0,0.65);">轻交互唤起评论，沉淀 AIGC 创作交流氛围，激发用户创作欲望的转化</div></div></div></div></div></div>
+<!-- frame 05 -->
+<div class="vt-slide"><div class="vt-stage" style="background-color:#eaebf0;"><div style="left:60px;top:269px;width:1800px;height:749px;border-radius:84px;background-color:#000000;"></div><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-5267.webp" style="left:121px;top:503px;width:352px;height:480px;border-radius:20px;"/><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-5336.webp" style="left:560px;top:503px;width:352px;height:480px;border-radius:20px;"/><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-5401.webp" style="left:1008px;top:503px;width:360px;height:480px;border-radius:20px;"/><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-5575.webp" style="left:1447px;top:503px;width:360px;height:480px;border-radius:16px;"/><div style="left:66px;top:316px;width:1353px;height:1040px;border-radius:84px;"><div style="left:0px;top:0px;width:1353px;height:1040px;overflow:hidden;border-radius:84px;"></div></div><div style="left:40px;top:72px;width:1776px;height:170px;"><div style="left:0px;top:0px;width:1776px;height:170px;"><div class="t" style="left:0px;top:0px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:64px;font-weight:700;line-height:82px;text-align:left;color:rgba(0,0,0,0.95);">资产的生命周期管理-创作内容的承接</div><div class="t" style="left:0px;top:106px;width:1776px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:20px;font-weight:400;line-height:32px;text-align:left;color:rgba(0,0,0,0.65);">资产库不是存储功能，而是粘性引擎。用户生成和上传的资产越多，迁移成本越高、复用越频繁、社交价值越大、付费意愿越强，打造沉浸式观感、从底层撬动用户参与及创作、带动用户创作。从看见高质量作品到想做最后再做成</div></div></div><div style="left:134px;top:319px;width:778px;height:60px;"><div class="t" style="left:10px;top:10px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:28px;font-weight:700;line-height:40px;text-align:left;color:rgba(255,255,255,0.95);">资产生命周期的循环</div><div class="t" style="left:272px;top:22.5px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:400;line-height:15.04px;text-align:left;color:rgba(255,255,255,0.65);">将资产的整个生命周期管理利用起来，二次创作、裂变传播、互动回流</div></div><div style="left:121px;top:406px;width:1686px;height:74px;"><div style="left:0px;top:0px;width:300px;height:74px;"><div class="t" style="left:0px;top:0px;width:300px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:24px;font-weight:500;line-height:32px;text-align:center;color:#ffffff;">【资产沉淀】</div><div class="t" style="left:0px;top:42px;width:300px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:500;line-height:32px;text-align:center;color:rgba(255,255,255,0.64);">打造用户深度依赖的创作库</div></div><svg class="v" viewBox="0 -2.89 120 5.77" style="left:321px;top:34.11px;width:120px;height:5.77px;overflow:visible"><path d="M0 0L0 0.5L0.99569 0.5L0.99569 0L0.99569 -0.5L0 -0.5L0 0ZM2.98707 0L2.98707 0.5L4.97845 0.5L4.97845 0L4.97845 -0.5L2.98707 -0.5L2.98707 0ZM6.96983 0L6.96983 0.5L8.96121 0.5L8.96121 0L8.96121 -0.5L6.96983 -0.5L6.96983 0ZM10.9526 0L10.9526 0.5L12.944 0.5L12.944 0L12.944 -0.5L10.9526 -0.5L10.9526 0ZM14.9353 0L14.9353 0.5L16.9267 0.5L16.9267 0L16.9267 -0.5L14.9353 -0.5L14.9353 0ZM18.9181 0L18.9181 0.5L20.9095 0.5L20.9095 0L20.9095 -0.5L18.9181 -0.5L18.9181 0ZM22.9009 0L22.9009 0.5L24.8922 0.5L24.8922 0L24.8922 -0.5L22.9009 -0.5L22.9009 0ZM26.8836 0L26.8836 0.5L28.875 0.5L28.875 0L28.875 -0.5L26.8836 -0.5L26.8836 0ZM30.8664 0L30.8664 0.5L32.8578 0.5L32.8578 0L32.8578 -0.5L30.8664 -0.5L30.8664 0ZM34.8491 0L34.8491 0.5L36.8405 0.5L36.8405 0L36.8405 -0.5L34.8491 -0.5L34.8491 0ZM38.8319 0L38.8319 0.5L40.8233 0.5L40.8233 0L40.8233 -0.5L38.8319 -0.5L38.8319 0ZM42.8147 0L42.8147 0.5L44.806 0.5L44.806 0L44.806 -0.5L42.8147 -0.5L42.8147 0ZM46.7974 0L46.7974 0.5L48.7888 0.5L48.7888 0L48.7888 -0.5L46.7974 -0.5L46.7974 0ZM50.7802 0L50.7802 0.5L52.7715 0.5L52.7715 0L52.7715 -0.5L50.7802 -0.5L50.7802 0ZM54.7629 0L54.7629 0.5L56.7543 0.5L56.7543 0L56.7543 -0.5L54.7629 -0.5L54.7629 0ZM58.7457 0L58.7457 0.5L60.7371 0.5L60.7371 0L60.7371 -0.5L58.7457 -0.5L58.7457 0ZM62.7284 0L62.7284 0.5L64.7198 0.5L64.7198 0L64.7198 -0.5L62.7284 -0.5L62.7284 0ZM66.7112 0L66.7112 0.5L68.7026 0.5L68.7026 0L68.7026 -0.5L66.7112 -0.5L66.7112 0ZM70.694 0L70.694 0.5L72.6853 0.5L72.6853 0L72.6853 -0.5L70.694 -0.5L70.694 0ZM74.6767 0L74.6767 0.5L76.6681 0.5L76.6681 0L76.6681 -0.5L74.6767 -0.5L74.6767 0ZM78.6595 0L78.6595 0.5L80.6508 0.5L80.6508 0L80.6508 -0.5L78.6595 -0.5L78.6595 0ZM82.6422 0L82.6422 0.5L84.6336 0.5L84.6336 0L84.6336 -0.5L82.6422 -0.5L82.6422 0ZM86.625 0L86.625 0.5L88.6164 0.5L88.6164 0L88.6164 -0.5L86.625 -0.5L86.625 0ZM90.6077 0L90.6077 0.5L92.5991 0.5L92.5991 0L92.5991 -0.5L90.6077 -0.5L90.6077 0ZM94.5905 0L94.5905 0.5L96.5819 0.5L96.5819 0L96.5819 -0.5L94.5905 -0.5L94.5905 0ZM98.5733 0L98.5733 0.5L100.565 0.5L100.565 0L100.565 -0.5L98.5733 -0.5L98.5733 0ZM102.556 0L102.556 0.5L104.547 0.5L104.547 0L104.547 -0.5L102.556 -0.5L102.556 0ZM106.539 0L106.539 0.5L108.53 0.5L108.53 0L108.53 -0.5L106.539 -0.5L106.539 0ZM110.522 0L110.522 0.5L112.513 0.5L112.513 0L112.513 -0.5L110.522 -0.5L110.522 0ZM114.504 0L114.504 0.5L115.5 0.5L115.5 0L115.5 -0.5L114.504 -0.5L114.504 0ZM120 0L115 -2.88675L115 2.88675L120 0Z" fill="none" stroke="#ffffff" stroke-width="1"/></svg><div style="left:462px;top:0px;width:300px;height:74px;"><div class="t" style="left:78px;top:0px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:24px;font-weight:500;line-height:32px;text-align:center;color:#ffffff;">【资产复用】</div><div class="t" style="left:0px;top:42px;width:300px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:500;line-height:32px;text-align:center;color:rgba(255,255,255,0.64);">支持参数复用，让二次创作更简单</div></div><svg class="v" viewBox="0 -2.89 120 5.77" style="left:783px;top:34.11px;width:120px;height:5.77px;overflow:visible"><path d="M0 0L0 0.5L0.99569 0.5L0.99569 0L0.99569 -0.5L0 -0.5L0 0ZM2.98707 0L2.98707 0.5L4.97845 0.5L4.97845 0L4.97845 -0.5L2.98707 -0.5L2.98707 0ZM6.96983 0L6.96983 0.5L8.96121 0.5L8.96121 0L8.96121 -0.5L6.96983 -0.5L6.96983 0ZM10.9526 0L10.9526 0.5L12.944 0.5L12.944 0L12.944 -0.5L10.9526 -0.5L10.9526 0ZM14.9353 0L14.9353 0.5L16.9267 0.5L16.9267 0L16.9267 -0.5L14.9353 -0.5L14.9353 0ZM18.9181 0L18.9181 0.5L20.9095 0.5L20.9095 0L20.9095 -0.5L18.9181 -0.5L18.9181 0ZM22.9009 0L22.9009 0.5L24.8922 0.5L24.8922 0L24.8922 -0.5L22.9009 -0.5L22.9009 0ZM26.8836 0L26.8836 0.5L28.875 0.5L28.875 0L28.875 -0.5L26.8836 -0.5L26.8836 0ZM30.8664 0L30.8664 0.5L32.8578 0.5L32.8578 0L32.8578 -0.5L30.8664 -0.5L30.8664 0ZM34.8491 0L34.8491 0.5L36.8405 0.5L36.8405 0L36.8405 -0.5L34.8491 -0.5L34.8491 0ZM38.8319 0L38.8319 0.5L40.8233 0.5L40.8233 0L40.8233 -0.5L38.8319 -0.5L38.8319 0ZM42.8147 0L42.8147 0.5L44.806 0.5L44.806 0L44.806 -0.5L42.8147 -0.5L42.8147 0ZM46.7974 0L46.7974 0.5L48.7888 0.5L48.7888 0L48.7888 -0.5L46.7974 -0.5L46.7974 0ZM50.7802 0L50.7802 0.5L52.7715 0.5L52.7715 0L52.7715 -0.5L50.7802 -0.5L50.7802 0ZM54.7629 0L54.7629 0.5L56.7543 0.5L56.7543 0L56.7543 -0.5L54.7629 -0.5L54.7629 0ZM58.7457 0L58.7457 0.5L60.7371 0.5L60.7371 0L60.7371 -0.5L58.7457 -0.5L58.7457 0ZM62.7284 0L62.7284 0.5L64.7198 0.5L64.7198 0L64.7198 -0.5L62.7284 -0.5L62.7284 0ZM66.7112 0L66.7112 0.5L68.7026 0.5L68.7026 0L68.7026 -0.5L66.7112 -0.5L66.7112 0ZM70.694 0L70.694 0.5L72.6853 0.5L72.6853 0L72.6853 -0.5L70.694 -0.5L70.694 0ZM74.6767 0L74.6767 0.5L76.6681 0.5L76.6681 0L76.6681 -0.5L74.6767 -0.5L74.6767 0ZM78.6595 0L78.6595 0.5L80.6508 0.5L80.6508 0L80.6508 -0.5L78.6595 -0.5L78.6595 0ZM82.6422 0L82.6422 0.5L84.6336 0.5L84.6336 0L84.6336 -0.5L82.6422 -0.5L82.6422 0ZM86.625 0L86.625 0.5L88.6164 0.5L88.6164 0L88.6164 -0.5L86.625 -0.5L86.625 0ZM90.6077 0L90.6077 0.5L92.5991 0.5L92.5991 0L92.5991 -0.5L90.6077 -0.5L90.6077 0ZM94.5905 0L94.5905 0.5L96.5819 0.5L96.5819 0L96.5819 -0.5L94.5905 -0.5L94.5905 0ZM98.5733 0L98.5733 0.5L100.565 0.5L100.565 0L100.565 -0.5L98.5733 -0.5L98.5733 0ZM102.556 0L102.556 0.5L104.547 0.5L104.547 0L104.547 -0.5L102.556 -0.5L102.556 0ZM106.539 0L106.539 0.5L108.53 0.5L108.53 0L108.53 -0.5L106.539 -0.5L106.539 0ZM110.522 0L110.522 0.5L112.513 0.5L112.513 0L112.513 -0.5L110.522 -0.5L110.522 0ZM114.504 0L114.504 0.5L115.5 0.5L115.5 0L115.5 -0.5L114.504 -0.5L114.504 0ZM120 0L115 -2.88675L115 2.88675L120 0Z" fill="none" stroke="#ffffff" stroke-width="1"/></svg><div style="left:924px;top:0px;width:300px;height:74px;"><div class="t" style="left:0px;top:0px;width:300px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:24px;font-weight:500;line-height:32px;text-align:center;color:#ffffff;">【资产流转】</div><div class="t" style="left:0px;top:42px;width:300px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:500;line-height:32px;text-align:center;color:rgba(255,255,255,0.64);">资产变为公域，借挑战赛激发创作活力</div></div><svg class="v" viewBox="0 -2.89 120 5.77" style="left:1245px;top:34.11px;width:120px;height:5.77px;overflow:visible"><path d="M0 0L0 0.5L0.99569 0.5L0.99569 0L0.99569 -0.5L0 -0.5L0 0ZM2.98707 0L2.98707 0.5L4.97845 0.5L4.97845 0L4.97845 -0.5L2.98707 -0.5L2.98707 0ZM6.96983 0L6.96983 0.5L8.96121 0.5L8.96121 0L8.96121 -0.5L6.96983 -0.5L6.96983 0ZM10.9526 0L10.9526 0.5L12.944 0.5L12.944 0L12.944 -0.5L10.9526 -0.5L10.9526 0ZM14.9353 0L14.9353 0.5L16.9267 0.5L16.9267 0L16.9267 -0.5L14.9353 -0.5L14.9353 0ZM18.9181 0L18.9181 0.5L20.9095 0.5L20.9095 0L20.9095 -0.5L18.9181 -0.5L18.9181 0ZM22.9009 0L22.9009 0.5L24.8922 0.5L24.8922 0L24.8922 -0.5L22.9009 -0.5L22.9009 0ZM26.8836 0L26.8836 0.5L28.875 0.5L28.875 0L28.875 -0.5L26.8836 -0.5L26.8836 0ZM30.8664 0L30.8664 0.5L32.8578 0.5L32.8578 0L32.8578 -0.5L30.8664 -0.5L30.8664 0ZM34.8491 0L34.8491 0.5L36.8405 0.5L36.8405 0L36.8405 -0.5L34.8491 -0.5L34.8491 0ZM38.8319 0L38.8319 0.5L40.8233 0.5L40.8233 0L40.8233 -0.5L38.8319 -0.5L38.8319 0ZM42.8147 0L42.8147 0.5L44.806 0.5L44.806 0L44.806 -0.5L42.8147 -0.5L42.8147 0ZM46.7974 0L46.7974 0.5L48.7888 0.5L48.7888 0L48.7888 -0.5L46.7974 -0.5L46.7974 0ZM50.7802 0L50.7802 0.5L52.7715 0.5L52.7715 0L52.7715 -0.5L50.7802 -0.5L50.7802 0ZM54.7629 0L54.7629 0.5L56.7543 0.5L56.7543 0L56.7543 -0.5L54.7629 -0.5L54.7629 0ZM58.7457 0L58.7457 0.5L60.7371 0.5L60.7371 0L60.7371 -0.5L58.7457 -0.5L58.7457 0ZM62.7284 0L62.7284 0.5L64.7198 0.5L64.7198 0L64.7198 -0.5L62.7284 -0.5L62.7284 0ZM66.7112 0L66.7112 0.5L68.7026 0.5L68.7026 0L68.7026 -0.5L66.7112 -0.5L66.7112 0ZM70.694 0L70.694 0.5L72.6853 0.5L72.6853 0L72.6853 -0.5L70.694 -0.5L70.694 0ZM74.6767 0L74.6767 0.5L76.6681 0.5L76.6681 0L76.6681 -0.5L74.6767 -0.5L74.6767 0ZM78.6595 0L78.6595 0.5L80.6508 0.5L80.6508 0L80.6508 -0.5L78.6595 -0.5L78.6595 0ZM82.6422 0L82.6422 0.5L84.6336 0.5L84.6336 0L84.6336 -0.5L82.6422 -0.5L82.6422 0ZM86.625 0L86.625 0.5L88.6164 0.5L88.6164 0L88.6164 -0.5L86.625 -0.5L86.625 0ZM90.6077 0L90.6077 0.5L92.5991 0.5L92.5991 0L92.5991 -0.5L90.6077 -0.5L90.6077 0ZM94.5905 0L94.5905 0.5L96.5819 0.5L96.5819 0L96.5819 -0.5L94.5905 -0.5L94.5905 0ZM98.5733 0L98.5733 0.5L100.565 0.5L100.565 0L100.565 -0.5L98.5733 -0.5L98.5733 0ZM102.556 0L102.556 0.5L104.547 0.5L104.547 0L104.547 -0.5L102.556 -0.5L102.556 0ZM106.539 0L106.539 0.5L108.53 0.5L108.53 0L108.53 -0.5L106.539 -0.5L106.539 0ZM110.522 0L110.522 0.5L112.513 0.5L112.513 0L112.513 -0.5L110.522 -0.5L110.522 0ZM114.504 0L114.504 0.5L115.5 0.5L115.5 0L115.5 -0.5L114.504 -0.5L114.504 0ZM120 0L115 -2.88675L115 2.88675L120 0Z" fill="none" stroke="#ffffff" stroke-width="1"/></svg><div style="left:1386px;top:0px;width:300px;height:74px;"><div class="t" style="left:0px;top:0px;width:300px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:24px;font-weight:500;line-height:32px;text-align:center;color:#ffffff;">【 互动回流】</div><div class="t" style="left:0px;top:42px;width:300px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:500;line-height:32px;text-align:center;color:rgba(255,255,255,0.64);">让反馈成为创作燃料，实现互动回流</div></div></div></div></div>
+<!-- frame 06 -->
+<div class="vt-slide"><div class="vt-stage" style="background-color:#eaebf0;"><div style="left:620px;top:20px;width:1280px;height:1040px;border-radius:84px;background-color:#000000;"></div><div style="left:40px;top:72px;width:417px;height:734px;"><div style="left:0px;top:0px;width:540px;height:236px;"><div class="t" style="left:0px;top:0px;width:540px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:64px;font-weight:700;line-height:82px;text-align:left;color:rgba(0,0,0,0.95);">创作与生成<br/>Agent创作</div><div style="left:0px;top:176px;width:540px;height:60px;"><div style="left:0px;top:0px;width:540px;height:60px;"><div class="t" style="left:0px;top:0px;width:417px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:20px;font-weight:400;line-height:30px;text-align:left;color:rgba(0,0,0,0.55);">打通传统工具与 Agent 双链路，降维拆解复杂参数，实现精准选型。</div></div></div></div><div style="left:0px;top:300px;width:349px;height:434px;"><div style="left:0px;top:0px;width:349px;height:134px;"><div class="t" style="left:0px;top:0px;width:349px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:32px;font-weight:700;line-height:30.08px;text-align:left;color:rgba(0,0,0,0.85);">由“灵感发散”</div><div class="t" style="left:0px;top:38px;width:349px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:400;line-height:32px;text-align:left;color:rgba(0,0,0,0.65);"> Agent 解决无具体想法需发散以及小白用户“不会写 Prompt”、“不知道选什么模型”的痛点，降低启动门槛</div></div><div style="left:0px;top:182px;width:349px;height:102px;"><div class="t" style="left:0px;top:0px;width:349px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:32px;font-weight:700;line-height:30.08px;text-align:left;color:rgba(0,0,0,0.85);">向“精细控制”</div><div class="t" style="left:0px;top:38px;width:349px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:400;line-height:32px;text-align:left;color:rgba(0,0,0,0.65);">传统参数设置模式覆盖资深专业玩家/生成内容明确的用户</div></div><div style="left:0px;top:332px;width:349px;height:102px;"><div class="t" style="left:0px;top:0px;width:349px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:32px;font-weight:700;line-height:30.08px;text-align:left;color:rgba(0,0,0,0.85);">赋“效率提升”</div><div class="t" style="left:0px;top:38px;width:349px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:400;line-height:32px;text-align:left;color:rgba(0,0,0,0.65);">从交互操作、模型参数默认设置上赋能用户高效率创作</div></div></div></div><div style="left:711px;top:104px;width:1072px;height:868px;"><div style="left:0px;top:0px;width:1072px;height:382px;overflow:hidden;isolation:isolate;"><div style="left:0px;top:0px;width:749px;height:40px;"><div class="t" style="left:0px;top:0px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:28px;font-weight:700;line-height:40px;text-align:left;color:rgba(255,255,255,0.95);">1、传统+Agent双引擎创作模式</div><div class="t" style="left:426px;top:12.5px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:400;line-height:15.04px;text-align:left;color:rgba(255,255,255,0.65);">传统模式满足精准控制，Agent 满足灵感探索</div></div><div style="left:0px;top:60px;width:1072px;height:322px;"><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-4448.webp" style="left:0px;top:0px;width:460px;height:321px;border-radius:24px;"/><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-4609.webp" style="left:510px;top:0px;width:240px;height:322px;border-radius:24px;"/></div></div><div style="left:0px;top:462px;width:1012px;height:406px;border-radius:40px;"><div style="left:0px;top:0px;width:988px;height:26px;"><div class="t" style="left:0px;top:0px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:28px;font-weight:700;line-height:26.32px;text-align:left;color:rgba(255,255,255,0.95);">2、重构模型标签，破解选择困难</div><div class="t" style="left:428px;top:5.5px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:400;line-height:15.04px;text-align:left;color:rgba(255,255,255,0.65);">模型多，各类模型特点存在不同差异，创作参数多、模型不同差异差异选择困难</div></div><div style="left:0px;top:66px;width:1012px;height:340px;"><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-4654.webp" style="left:0px;top:0px;width:304px;height:340px;border-radius:24px;"/><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-4659.webp" style="left:354px;top:0px;width:304px;height:340px;border-radius:24px;"/><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-4662.webp" style="left:708px;top:0px;width:304px;height:340px;border-radius:24px;"/></div></div></div></div></div>
+<!-- frame 07 -->
+<div class="vt-slide"><div class="vt-stage" style="background-color:#000000;"><div style="left:40px;top:76px;width:1608px;height:138px;"><div style="left:0px;top:0px;width:1608px;height:138px;"><div class="t" style="left:0px;top:0px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:64px;font-weight:700;line-height:82px;text-align:left;color:rgba(255,255,255,0.95);">商业化如何嵌入创作循环</div><div class="t" style="left:0px;top:106px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:24px;font-weight:500;line-height:32px;text-align:left;color:rgba(255,255,255,0.65);">商业化不作为独立入口打断创作，而是随着用户从观看、尝试、持续创作到内容传播的不同阶段，在额度、能力和效率需求出现时提供对应的升级选择。</div></div></div><div style="left:67px;top:254px;width:1801px;height:770px;border-radius:60px;overflow:hidden;isolation:isolate;"><div style="left:0px;top:0px;width:302px;height:770px;"><div style="left:0px;top:0px;width:302px;height:120px;background-color:rgba(255,255,255,0.15);border:1px solid rgba(238,239,243,0.05);box-sizing:border-box;"><div class="t" style="left:40px;top:44.5px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:32px;font-weight:700;line-height:30.08px;text-align:left;color:rgba(255,255,255,0.65);">流程</div></div><div style="left:0px;top:120px;width:302px;height:130px;background-color:rgba(255,255,255,0.1);border:1px solid rgba(238,239,243,0.05);box-sizing:border-box;"><div style="left:40px;top:44.5px;width:40px;height:40px;border-radius:1200px;background-color:rgba(255,255,255,0.15);"><div class="t" style="left:12.5px;top:10.5px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:20px;font-weight:700;line-height:18.8px;text-align:left;color:rgba(255,255,255,0.95);">1</div></div><div class="t" style="left:96px;top:55px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:20px;font-weight:700;line-height:18.8px;text-align:left;color:rgba(255,255,255,0.95);">内容触达</div></div><div style="left:0px;top:250px;width:302px;height:130px;background-color:rgba(255,255,255,0.1);border:1px solid rgba(238,239,243,0.05);box-sizing:border-box;"><div style="left:40px;top:44.5px;width:40px;height:40px;border-radius:1200px;background-color:rgba(255,255,255,0.15);"><div class="t" style="left:12.5px;top:10.5px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:20px;font-weight:700;line-height:18.8px;text-align:left;color:rgba(255,255,255,0.95);">2</div></div><div class="t" style="left:96px;top:45.5px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:20px;font-weight:700;line-height:18.8px;text-align:left;color:rgba(255,255,255,0.95);">首次创作<br/></div></div><div style="left:0px;top:380px;width:302px;height:130px;background-color:rgba(255,255,255,0.1);border:1px solid rgba(238,239,243,0.05);box-sizing:border-box;"><div style="left:40px;top:44.5px;width:40px;height:40px;border-radius:1200px;background-color:rgba(255,255,255,0.15);"><div class="t" style="left:12.5px;top:10.5px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:20px;font-weight:700;line-height:18.8px;text-align:left;color:rgba(255,255,255,0.95);">3</div></div><div class="t" style="left:96px;top:55px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:20px;font-weight:700;line-height:18.8px;text-align:left;color:rgba(255,255,255,0.95);">创作深化</div></div><div style="left:0px;top:510px;width:302px;height:130px;background-color:rgba(255,255,255,0.1);border:1px solid rgba(238,239,243,0.05);box-sizing:border-box;"><div style="left:40px;top:44.5px;width:40px;height:40px;border-radius:1200px;background-color:rgba(255,255,255,0.15);"><div class="t" style="left:12.5px;top:10.5px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:20px;font-weight:700;line-height:18.8px;text-align:left;color:rgba(255,255,255,0.95);">4</div></div><div class="t" style="left:96px;top:55px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:20px;font-weight:700;line-height:18.8px;text-align:left;color:rgba(255,255,255,0.95);">资产沉淀与传播</div></div><div style="left:0px;top:640px;width:302px;height:130px;background-color:rgba(255,255,255,0.1);border:1px solid rgba(238,239,243,0.05);box-sizing:border-box;"><div style="left:40px;top:44.5px;width:40px;height:40px;border-radius:1200px;background-color:rgba(255,255,255,0.15);"><div class="t" style="left:12.5px;top:10.5px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:20px;font-weight:700;line-height:18.8px;text-align:left;color:rgba(255,255,255,0.95);">5</div></div><div class="t" style="left:96px;top:55px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:20px;font-weight:700;line-height:18.8px;text-align:left;color:rgba(255,255,255,0.95);">触达回流</div></div></div><div style="left:302px;top:0px;width:434px;height:770px;"><div style="left:0px;top:0px;width:434px;height:120px;background-color:rgba(255,255,255,0.15);border:1px solid rgba(238,239,243,0.05);box-sizing:border-box;"><div class="t" style="left:40px;top:44.5px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:32px;font-weight:700;line-height:30.08px;text-align:left;color:rgba(255,255,255,0.65);">用户行为 👩🏼‍💻</div></div><div style="left:0px;top:120px;width:434px;height:130px;background-color:rgba(255,255,255,0.1);border:1px solid rgba(238,239,243,0.05);box-sizing:border-box;"><div class="t" style="left:40px;top:48.5px;width:373px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:500;line-height:32px;text-align:left;color:rgba(255,255,255,0.45);">浏览短剧/社区作品→ 获取灵感→ 产生创作意愿。</div></div><div style="left:0px;top:250px;width:434px;height:130px;background-color:rgba(255,255,255,0.1);border:1px solid rgba(238,239,243,0.05);box-sizing:border-box;"><div class="t" style="left:40px;top:32.5px;width:373px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:500;line-height:32px;text-align:left;color:rgba(255,255,255,0.45);">注册获取免费体验次数 → Create / Agent→ 完成一次创作</div></div><div style="left:0px;top:380px;width:434px;height:130px;background-color:rgba(255,255,255,0.1);border:1px solid rgba(238,239,243,0.05);box-sizing:border-box;"><div class="t" style="left:40px;top:32.5px;width:373px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:500;line-height:32px;text-align:left;color:rgba(255,255,255,0.45);">多轮生成 → 尝试高级模型 / Agent → 权益不足 → 订阅 / 购买 Lumens → 继续生成</div></div><div style="left:0px;top:510px;width:434px;height:130px;background-color:rgba(255,255,255,0.1);border:1px solid rgba(238,239,243,0.05);box-sizing:border-box;"><div class="t" style="left:40px;top:32.5px;width:373px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:500;line-height:32px;text-align:left;color:rgba(255,255,255,0.45);">生成 → 保存 → Remix / Use Prompt → 发布 / 参赛 / 分享</div></div><div style="left:0px;top:640px;width:434px;height:130px;background-color:rgba(255,255,255,0.1);border:1px solid rgba(238,239,243,0.05);box-sizing:border-box;"><div class="t" style="left:40px;top:32.5px;width:373px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:500;line-height:32px;text-align:left;color:rgba(255,255,255,0.45);">获得点赞→ 推送互动消息→ 作品详情 查看反馈→ 继续创作</div></div></div><div style="left:736px;top:0px;width:1065px;height:770px;"><div style="left:0px;top:0px;width:1065px;height:120px;background-color:rgba(255,255,255,0.25);border:1px solid rgba(238,239,243,0.05);box-sizing:border-box;"><div class="t" style="left:40px;top:44.5px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:32px;font-weight:700;line-height:30.08px;text-align:left;color:#ffffff;">商业嵌入💰</div></div><div style="left:0px;top:120px;width:1065px;height:130px;background-color:rgba(255,255,255,0.15);border:1px solid rgba(238,239,243,0.05);box-sizing:border-box;"><div class="t" style="left:40px;top:29.5px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:20px;font-weight:700;line-height:28px;text-align:left;color:#ffffff;">观看转创作</div><div class="t" style="left:40px;top:67.5px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:500;line-height:32px;text-align:left;color:rgba(255,255,255,0.45);"><span style="font-size:16px;">在 Drama、社区和活动内容强化 Create、挑战赛等创作入口，</span><span style="font-size:16px;font-weight:700;color:#ffffff;">承接</span><span style="font-size:16px;">观看后的</span><span style="font-size:16px;font-weight:700;color:#ffffff;">创作意愿</span><span style="font-size:16px;">。</span></div></div><div style="left:0px;top:250px;width:1065px;height:130px;background-color:rgba(255,255,255,0.15);border:1px solid rgba(238,239,243,0.05);box-sizing:border-box;"><div class="t" style="left:40px;top:29.5px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:20px;font-weight:700;line-height:28px;text-align:left;color:#ffffff;">免费额度促成首创</div><div class="t" style="left:40px;top:67.5px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:500;line-height:32px;text-align:left;color:rgba(255,255,255,0.45);">新人赠送 Lumens、活动免费次数、Agent 自然语言入口和 Start Creating 跳转，降低首次创作门槛。</div></div><div style="left:0px;top:380px;width:1065px;height:130px;background-color:rgba(255,255,255,0.15);border:1px solid rgba(238,239,243,0.05);box-sizing:border-box;"><div class="t" style="left:40px;top:29.5px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:20px;font-weight:700;line-height:28px;text-align:left;color:#ffffff;">权益驱动持续创作</div><div class="t" style="left:40px;top:67.5px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:500;line-height:32px;text-align:left;color:rgba(255,255,255,0.45);">建立会员等级、模型、 Agent 会话等限制，明确不同方案可使用的更高创作能力。支付后直接继续生成。</div></div><div style="left:0px;top:510px;width:1065px;height:130px;background-color:rgba(255,255,255,0.15);border:1px solid rgba(238,239,243,0.05);box-sizing:border-box;"><div class="t" style="left:40px;top:13.5px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:20px;font-weight:700;line-height:28px;text-align:left;color:#ffffff;">复用与分享促增长</div><div class="t" style="left:40px;top:51.5px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:500;line-height:32px;text-align:left;color:rgba(255,255,255,0.45);">建立会员等级、模型、 Agent 会话等限制，明确不同方案可使用的更高创作能力。支付后直接继续生成。<br/>对内搭建挑战赛的奖励的机制激励用户多参与创作消耗，对外支持裂变分享至外部平台的传播</div></div><div style="left:0px;top:640px;width:1065px;height:130px;background-color:rgba(255,255,255,0.15);border:1px solid rgba(238,239,243,0.05);box-sizing:border-box;"><div class="t" style="left:40px;top:29.5px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:20px;font-weight:700;line-height:28px;text-align:left;color:#ffffff;">消息触达带动回流</div><div class="t" style="left:40px;top:67.5px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:500;line-height:32px;text-align:left;color:rgba(255,255,255,0.45);">通过本地推送、远程推送和互动消息，将用户带回创作、订阅、作品详情或首页。版本更新提示</div></div></div></div><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-6031.webp" style="left:1609px;top:449px;width:320px;height:320px;"/></div></div>
+<!-- frame 08 -->
+<div class="vt-slide"><div class="vt-stage" style="background-color:#eaebf0;"><div style="left:40px;top:269px;width:1800px;height:749px;border-radius:84px;background-color:#000000;"></div><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-5617.webp" style="left:121px;top:543px;width:352px;height:411px;border-radius:20px;"/><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-5620.webp" style="left:560px;top:533px;width:352px;height:410px;border-radius:20px;"/><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-5966.webp" style="left:1008px;top:533px;width:360px;height:410px;border-radius:20px;"/><img class="q" alt="" loading="lazy" src="../assets/img/videotest/6017-5972.webp" style="left:1447px;top:533px;width:360px;height:410px;border-radius:20px;"/><div style="left:66px;top:316px;width:1353px;height:1040px;border-radius:84px;"><div style="left:0px;top:0px;width:1353px;height:1040px;overflow:hidden;border-radius:84px;"></div></div><div style="left:40px;top:72px;width:1776px;height:138px;"><div style="left:0px;top:0px;width:1776px;height:138px;"><div class="t" style="left:0px;top:0px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:64px;font-weight:700;line-height:82px;text-align:left;color:rgba(0,0,0,0.95);">PC横向支持-从需求到上线，一人完成设计线上</div><div class="t" style="left:0px;top:106px;width:1776px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:20px;font-weight:400;line-height:32px;text-align:left;color:rgba(0,0,0,0.65);">设计打通上线壁垒，开发牵制。充分利用AI能力推动实现设计落地，设计一人即团队，更高的线上还原度</div></div></div><div style="left:134px;top:319px;width:919px;height:60px;"><div class="t" style="left:10px;top:10px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:28px;font-weight:700;line-height:40px;text-align:left;color:rgba(255,255,255,0.95);">一人串联需求、设计、开发与上线</div><div class="t" style="left:440px;top:22.5px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:400;line-height:15.04px;text-align:left;color:rgba(255,255,255,0.65);">借助 AI工具协作，独立完成从需求梳理到产品发布的端到端落地。</div></div><div style="left:121px;top:406px;width:1686px;height:106px;"><div style="left:0px;top:0px;width:300px;height:106px;"><div class="t" style="left:0px;top:0px;width:300px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:24px;font-weight:500;line-height:32px;text-align:center;color:#ffffff;">【需求梳理】</div><div class="t" style="left:0px;top:42px;width:300px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:500;line-height:32px;text-align:center;color:rgba(255,255,255,0.64);">根据运营要求梳理需求范围及目标、用户场景与业务目标，形成PRD</div></div><svg class="v" viewBox="0 -2.89 120 5.77" style="left:321px;top:50.11px;width:120px;height:5.77px;overflow:visible"><path d="M0 0L0 0.5L0.99569 0.5L0.99569 0L0.99569 -0.5L0 -0.5L0 0ZM2.98707 0L2.98707 0.5L4.97845 0.5L4.97845 0L4.97845 -0.5L2.98707 -0.5L2.98707 0ZM6.96983 0L6.96983 0.5L8.96121 0.5L8.96121 0L8.96121 -0.5L6.96983 -0.5L6.96983 0ZM10.9526 0L10.9526 0.5L12.944 0.5L12.944 0L12.944 -0.5L10.9526 -0.5L10.9526 0ZM14.9353 0L14.9353 0.5L16.9267 0.5L16.9267 0L16.9267 -0.5L14.9353 -0.5L14.9353 0ZM18.9181 0L18.9181 0.5L20.9095 0.5L20.9095 0L20.9095 -0.5L18.9181 -0.5L18.9181 0ZM22.9009 0L22.9009 0.5L24.8922 0.5L24.8922 0L24.8922 -0.5L22.9009 -0.5L22.9009 0ZM26.8836 0L26.8836 0.5L28.875 0.5L28.875 0L28.875 -0.5L26.8836 -0.5L26.8836 0ZM30.8664 0L30.8664 0.5L32.8578 0.5L32.8578 0L32.8578 -0.5L30.8664 -0.5L30.8664 0ZM34.8491 0L34.8491 0.5L36.8405 0.5L36.8405 0L36.8405 -0.5L34.8491 -0.5L34.8491 0ZM38.8319 0L38.8319 0.5L40.8233 0.5L40.8233 0L40.8233 -0.5L38.8319 -0.5L38.8319 0ZM42.8147 0L42.8147 0.5L44.806 0.5L44.806 0L44.806 -0.5L42.8147 -0.5L42.8147 0ZM46.7974 0L46.7974 0.5L48.7888 0.5L48.7888 0L48.7888 -0.5L46.7974 -0.5L46.7974 0ZM50.7802 0L50.7802 0.5L52.7715 0.5L52.7715 0L52.7715 -0.5L50.7802 -0.5L50.7802 0ZM54.7629 0L54.7629 0.5L56.7543 0.5L56.7543 0L56.7543 -0.5L54.7629 -0.5L54.7629 0ZM58.7457 0L58.7457 0.5L60.7371 0.5L60.7371 0L60.7371 -0.5L58.7457 -0.5L58.7457 0ZM62.7284 0L62.7284 0.5L64.7198 0.5L64.7198 0L64.7198 -0.5L62.7284 -0.5L62.7284 0ZM66.7112 0L66.7112 0.5L68.7026 0.5L68.7026 0L68.7026 -0.5L66.7112 -0.5L66.7112 0ZM70.694 0L70.694 0.5L72.6853 0.5L72.6853 0L72.6853 -0.5L70.694 -0.5L70.694 0ZM74.6767 0L74.6767 0.5L76.6681 0.5L76.6681 0L76.6681 -0.5L74.6767 -0.5L74.6767 0ZM78.6595 0L78.6595 0.5L80.6508 0.5L80.6508 0L80.6508 -0.5L78.6595 -0.5L78.6595 0ZM82.6422 0L82.6422 0.5L84.6336 0.5L84.6336 0L84.6336 -0.5L82.6422 -0.5L82.6422 0ZM86.625 0L86.625 0.5L88.6164 0.5L88.6164 0L88.6164 -0.5L86.625 -0.5L86.625 0ZM90.6077 0L90.6077 0.5L92.5991 0.5L92.5991 0L92.5991 -0.5L90.6077 -0.5L90.6077 0ZM94.5905 0L94.5905 0.5L96.5819 0.5L96.5819 0L96.5819 -0.5L94.5905 -0.5L94.5905 0ZM98.5733 0L98.5733 0.5L100.565 0.5L100.565 0L100.565 -0.5L98.5733 -0.5L98.5733 0ZM102.556 0L102.556 0.5L104.547 0.5L104.547 0L104.547 -0.5L102.556 -0.5L102.556 0ZM106.539 0L106.539 0.5L108.53 0.5L108.53 0L108.53 -0.5L106.539 -0.5L106.539 0ZM110.522 0L110.522 0.5L112.513 0.5L112.513 0L112.513 -0.5L110.522 -0.5L110.522 0ZM114.504 0L114.504 0.5L115.5 0.5L115.5 0L115.5 -0.5L114.504 -0.5L114.504 0ZM120 0L115 -2.88675L115 2.88675L120 0Z" fill="none" stroke="#ffffff" stroke-width="1"/></svg><div style="left:462px;top:0px;width:300px;height:106px;"><div class="t" style="left:78px;top:0px;width:auto;white-space:nowrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:24px;font-weight:500;line-height:32px;text-align:center;color:#ffffff;">【方案设计】</div><div class="t" style="left:0px;top:42px;width:300px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:500;line-height:32px;text-align:center;color:rgba(255,255,255,0.64);">梳理信息架构、关键流程与页面方案，输出 Figma 设计稿</div></div><svg class="v" viewBox="0 -2.89 120 5.77" style="left:783px;top:50.11px;width:120px;height:5.77px;overflow:visible"><path d="M0 0L0 0.5L0.99569 0.5L0.99569 0L0.99569 -0.5L0 -0.5L0 0ZM2.98707 0L2.98707 0.5L4.97845 0.5L4.97845 0L4.97845 -0.5L2.98707 -0.5L2.98707 0ZM6.96983 0L6.96983 0.5L8.96121 0.5L8.96121 0L8.96121 -0.5L6.96983 -0.5L6.96983 0ZM10.9526 0L10.9526 0.5L12.944 0.5L12.944 0L12.944 -0.5L10.9526 -0.5L10.9526 0ZM14.9353 0L14.9353 0.5L16.9267 0.5L16.9267 0L16.9267 -0.5L14.9353 -0.5L14.9353 0ZM18.9181 0L18.9181 0.5L20.9095 0.5L20.9095 0L20.9095 -0.5L18.9181 -0.5L18.9181 0ZM22.9009 0L22.9009 0.5L24.8922 0.5L24.8922 0L24.8922 -0.5L22.9009 -0.5L22.9009 0ZM26.8836 0L26.8836 0.5L28.875 0.5L28.875 0L28.875 -0.5L26.8836 -0.5L26.8836 0ZM30.8664 0L30.8664 0.5L32.8578 0.5L32.8578 0L32.8578 -0.5L30.8664 -0.5L30.8664 0ZM34.8491 0L34.8491 0.5L36.8405 0.5L36.8405 0L36.8405 -0.5L34.8491 -0.5L34.8491 0ZM38.8319 0L38.8319 0.5L40.8233 0.5L40.8233 0L40.8233 -0.5L38.8319 -0.5L38.8319 0ZM42.8147 0L42.8147 0.5L44.806 0.5L44.806 0L44.806 -0.5L42.8147 -0.5L42.8147 0ZM46.7974 0L46.7974 0.5L48.7888 0.5L48.7888 0L48.7888 -0.5L46.7974 -0.5L46.7974 0ZM50.7802 0L50.7802 0.5L52.7715 0.5L52.7715 0L52.7715 -0.5L50.7802 -0.5L50.7802 0ZM54.7629 0L54.7629 0.5L56.7543 0.5L56.7543 0L56.7543 -0.5L54.7629 -0.5L54.7629 0ZM58.7457 0L58.7457 0.5L60.7371 0.5L60.7371 0L60.7371 -0.5L58.7457 -0.5L58.7457 0ZM62.7284 0L62.7284 0.5L64.7198 0.5L64.7198 0L64.7198 -0.5L62.7284 -0.5L62.7284 0ZM66.7112 0L66.7112 0.5L68.7026 0.5L68.7026 0L68.7026 -0.5L66.7112 -0.5L66.7112 0ZM70.694 0L70.694 0.5L72.6853 0.5L72.6853 0L72.6853 -0.5L70.694 -0.5L70.694 0ZM74.6767 0L74.6767 0.5L76.6681 0.5L76.6681 0L76.6681 -0.5L74.6767 -0.5L74.6767 0ZM78.6595 0L78.6595 0.5L80.6508 0.5L80.6508 0L80.6508 -0.5L78.6595 -0.5L78.6595 0ZM82.6422 0L82.6422 0.5L84.6336 0.5L84.6336 0L84.6336 -0.5L82.6422 -0.5L82.6422 0ZM86.625 0L86.625 0.5L88.6164 0.5L88.6164 0L88.6164 -0.5L86.625 -0.5L86.625 0ZM90.6077 0L90.6077 0.5L92.5991 0.5L92.5991 0L92.5991 -0.5L90.6077 -0.5L90.6077 0ZM94.5905 0L94.5905 0.5L96.5819 0.5L96.5819 0L96.5819 -0.5L94.5905 -0.5L94.5905 0ZM98.5733 0L98.5733 0.5L100.565 0.5L100.565 0L100.565 -0.5L98.5733 -0.5L98.5733 0ZM102.556 0L102.556 0.5L104.547 0.5L104.547 0L104.547 -0.5L102.556 -0.5L102.556 0ZM106.539 0L106.539 0.5L108.53 0.5L108.53 0L108.53 -0.5L106.539 -0.5L106.539 0ZM110.522 0L110.522 0.5L112.513 0.5L112.513 0L112.513 -0.5L110.522 -0.5L110.522 0ZM114.504 0L114.504 0.5L115.5 0.5L115.5 0L115.5 -0.5L114.504 -0.5L114.504 0ZM120 0L115 -2.88675L115 2.88675L120 0Z" fill="none" stroke="#ffffff" stroke-width="1"/></svg><div style="left:924px;top:0px;width:300px;height:106px;"><div class="t" style="left:0px;top:0px;width:300px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:24px;font-weight:500;line-height:32px;text-align:center;color:#ffffff;">【AI 协作开发】</div><div class="t" style="left:0px;top:42px;width:300px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:500;line-height:32px;text-align:center;color:rgba(255,255,255,0.64);">GPT 6 读取Figma 设计代码并高度还原设计，输出代码</div></div><svg class="v" viewBox="0 -2.89 120 5.77" style="left:1245px;top:50.11px;width:120px;height:5.77px;overflow:visible"><path d="M0 0L0 0.5L0.99569 0.5L0.99569 0L0.99569 -0.5L0 -0.5L0 0ZM2.98707 0L2.98707 0.5L4.97845 0.5L4.97845 0L4.97845 -0.5L2.98707 -0.5L2.98707 0ZM6.96983 0L6.96983 0.5L8.96121 0.5L8.96121 0L8.96121 -0.5L6.96983 -0.5L6.96983 0ZM10.9526 0L10.9526 0.5L12.944 0.5L12.944 0L12.944 -0.5L10.9526 -0.5L10.9526 0ZM14.9353 0L14.9353 0.5L16.9267 0.5L16.9267 0L16.9267 -0.5L14.9353 -0.5L14.9353 0ZM18.9181 0L18.9181 0.5L20.9095 0.5L20.9095 0L20.9095 -0.5L18.9181 -0.5L18.9181 0ZM22.9009 0L22.9009 0.5L24.8922 0.5L24.8922 0L24.8922 -0.5L22.9009 -0.5L22.9009 0ZM26.8836 0L26.8836 0.5L28.875 0.5L28.875 0L28.875 -0.5L26.8836 -0.5L26.8836 0ZM30.8664 0L30.8664 0.5L32.8578 0.5L32.8578 0L32.8578 -0.5L30.8664 -0.5L30.8664 0ZM34.8491 0L34.8491 0.5L36.8405 0.5L36.8405 0L36.8405 -0.5L34.8491 -0.5L34.8491 0ZM38.8319 0L38.8319 0.5L40.8233 0.5L40.8233 0L40.8233 -0.5L38.8319 -0.5L38.8319 0ZM42.8147 0L42.8147 0.5L44.806 0.5L44.806 0L44.806 -0.5L42.8147 -0.5L42.8147 0ZM46.7974 0L46.7974 0.5L48.7888 0.5L48.7888 0L48.7888 -0.5L46.7974 -0.5L46.7974 0ZM50.7802 0L50.7802 0.5L52.7715 0.5L52.7715 0L52.7715 -0.5L50.7802 -0.5L50.7802 0ZM54.7629 0L54.7629 0.5L56.7543 0.5L56.7543 0L56.7543 -0.5L54.7629 -0.5L54.7629 0ZM58.7457 0L58.7457 0.5L60.7371 0.5L60.7371 0L60.7371 -0.5L58.7457 -0.5L58.7457 0ZM62.7284 0L62.7284 0.5L64.7198 0.5L64.7198 0L64.7198 -0.5L62.7284 -0.5L62.7284 0ZM66.7112 0L66.7112 0.5L68.7026 0.5L68.7026 0L68.7026 -0.5L66.7112 -0.5L66.7112 0ZM70.694 0L70.694 0.5L72.6853 0.5L72.6853 0L72.6853 -0.5L70.694 -0.5L70.694 0ZM74.6767 0L74.6767 0.5L76.6681 0.5L76.6681 0L76.6681 -0.5L74.6767 -0.5L74.6767 0ZM78.6595 0L78.6595 0.5L80.6508 0.5L80.6508 0L80.6508 -0.5L78.6595 -0.5L78.6595 0ZM82.6422 0L82.6422 0.5L84.6336 0.5L84.6336 0L84.6336 -0.5L82.6422 -0.5L82.6422 0ZM86.625 0L86.625 0.5L88.6164 0.5L88.6164 0L88.6164 -0.5L86.625 -0.5L86.625 0ZM90.6077 0L90.6077 0.5L92.5991 0.5L92.5991 0L92.5991 -0.5L90.6077 -0.5L90.6077 0ZM94.5905 0L94.5905 0.5L96.5819 0.5L96.5819 0L96.5819 -0.5L94.5905 -0.5L94.5905 0ZM98.5733 0L98.5733 0.5L100.565 0.5L100.565 0L100.565 -0.5L98.5733 -0.5L98.5733 0ZM102.556 0L102.556 0.5L104.547 0.5L104.547 0L104.547 -0.5L102.556 -0.5L102.556 0ZM106.539 0L106.539 0.5L108.53 0.5L108.53 0L108.53 -0.5L106.539 -0.5L106.539 0ZM110.522 0L110.522 0.5L112.513 0.5L112.513 0L112.513 -0.5L110.522 -0.5L110.522 0ZM114.504 0L114.504 0.5L115.5 0.5L115.5 0L115.5 -0.5L114.504 -0.5L114.504 0ZM120 0L115 -2.88675L115 2.88675L120 0Z" fill="none" stroke="#ffffff" stroke-width="1"/></svg><div style="left:1386px;top:0px;width:300px;height:106px;"><div class="t" style="left:0px;top:0px;width:300px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:24px;font-weight:500;line-height:32px;text-align:center;color:#ffffff;">【 部署上线】</div><div class="t" style="left:0px;top:42px;width:300px;white-space:pre-wrap;font-family:'HYQiHeiY2','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:500;line-height:32px;text-align:center;color:rgba(255,255,255,0.64);">完成效果调优、部署发布，<br/>成功上线</div></div></div></div></div>
+</div>
+</section>
 
-      <!-- 01 封面 -->
-      <section class="vd-sec vd-sec--ink vd-cover" data-scroll-section>
-         <div class="vd-inner">
-            <div class="vd-cover-top vt-reveal">
-               <h2 class="vd-cover-title">Agent/创作者生态<span class="vd-cover-brand">Naivideo</span></h2>
-               <div class="vd-cover-ai">AI</div>
-            </div>
-            <div class="vd-pills">
-               <div class="vd-pill vt-reveal">
-                  <p class="vd-pill-label">AI 创作工具</p>
-                  <p class="vd-pill-line"><span class="vd-pill-big">海外百万</span><span class="vd-pill-small">用户量</span></p>
-                  <p class="vd-pill-desc">Naivideo 是 PicLumen 旗下海外市场的 iOS AI 视频与图像的多模态 AI 创作应用，为全球短视频 / 短剧创作者提供高效 AIGC 创作工作流。</p>
-               </div>
-               <div class="vd-pill vt-reveal">
-                  <p class="vd-pill-label">担任角色</p>
-                  <p class="vd-pill-line"><span class="vd-pill-big">主设</span><span class="vd-pill-small">用户体验设计</span></p>
-                  <p class="vd-pill-tags"><span>海外市场</span><span>Agent</span><span>AI 开发落地</span></p>
-               </div>
-            </div>
-         </div>
-      </section>
+   <script>
+   /* 8 屏舞台：按容器宽度等比缩放 1920x1080 */
+   (function () {
+      var busy = false;
+      function fit() {
+         if (busy) return;
+         var deck = document.getElementById('vt-deck');
+         if (!deck) return;
+         var inner = deck.querySelector('.vt-deck-inner');
+         if (!inner) return;
+         var w = inner.clientWidth || deck.clientWidth;
+         if (!w) return;
+         var s = w / 1920;
+         busy = true;
+         Array.prototype.forEach.call(deck.querySelectorAll('.vt-slide'), function (sl) {
+            sl.style.setProperty('--vt-s', s);
+         });
+         requestAnimationFrame(function () { busy = false; });
+      }
+      window.__fitVtDeck = fit;
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fit);
+      else fit();
+      window.addEventListener('resize', fit);
+      window.addEventListener('load', fit);
+      if (window.ResizeObserver) {
+         var d = document.getElementById('vt-deck');
+         if (d) new ResizeObserver(fit).observe(d);
+      }
+      setTimeout(fit, 300);
+   })();
 
-      <!-- 02 以视频激发灵感（策略） -->
-      <section class="nv-fw" data-scroll-section>
-         <div class="nv-fw__inner">
-            <div class="nv-fw__head">
-               <h2 class="nv-fw__title">以视频<em>激发</em>灵感，让观看自然走向<em>创作</em></h2>
-               <p class="nv-fw__sub">从沉浸观看到灵感创作，再到作品分享与持续回流</p>
-            </div>
-            <div class="nv-fw__cards">
-               <article class="nv-card">
-                  <h3 class="nv-card__title"><span>现有</span><b>基石</b></h3>
-                  <div class="nv-card__item">
-                     <h4>背靠七百万+的平台</h4>
-                     <p>PicLumen 旗下海外 AI 创作 App，注册用户 752 万+</p>
-                  </div>
-                  <div class="nv-card__item">
-                     <h4>产品已有影响力</h4>
-                     <p>赋能全球内容创作者，打造高效的 AIGC 视觉工作流</p>
-                  </div>
-                  <div class="nv-card__item">
-                     <h4>多模型与跨端数据底座</h4>
-                     <p>聚合 20+ 顶尖模型，实现账号、资产与点数的跨端无缝互通</p>
-                  </div>
-               </article>
+   /* 每屏进入视口时上浮淡入 */
+   (function () {
+      var slides = document.querySelectorAll('.vt-slide');
+      if (!slides.length) return;
+      if (!('IntersectionObserver' in window)) {
+         Array.prototype.forEach.call(slides, function (s) { s.classList.add('vt-in'); });
+         return;
+      }
+      var io = new IntersectionObserver(function (es) {
+         es.forEach(function (e) {
+            if (e.isIntersecting) {
+               e.target.classList.add('vt-in');
+               io.unobserve(e.target);
+            }
+         });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+      Array.prototype.forEach.call(slides, function (s) { io.observe(s); });
+   })();
+   </script>
 
-               <article class="nv-card">
-                  <h3 class="nv-card__title"><span>面临</span><b>挑战</b></h3>
-                  <div class="nv-card__item">
-                     <h4>新型工具如何差异化定位？</h4>
-                     <p>竞品在卷“生成技术”，Naivideo 在解“创作动机”</p>
-                  </div>
-                  <div class="nv-card__item">
-                     <h4>商业化与体验如何平衡？</h4>
-                     <p>如何做到沉浸式引导，无感化的商业转化？</p>
-                  </div>
-                  <div class="nv-card__item">
-                     <h4>提升用户粘性</h4>
-                     <p>用户在平台的创作痕迹，如何二次更好的利用</p>
-                  </div>
-               </article>
-
-               <article class="nv-card">
-                  <h3 class="nv-card__title"><span>破局方案</span><b>策略</b></h3>
-                  <div class="nv-card__item">
-                     <h4>内容点燃灵感，Agent 极简创作</h4>
-                     <p>通过沉浸式社区激发创作欲，依托 Agent 自动优化 Prompt 并智能匹配最优模型参数。</p>
-                  </div>
-                  <div class="nv-card__item">
-                     <h4>商业化融入克制，路径简短</h4>
-                     <p>商业转化点设置位置，遵循不打扰、不打断用户操作</p>
-                  </div>
-                  <div class="nv-card__item">
-                     <h4>资产管理分类，用户资产</h4>
-                     <p>将创作资产作为粘性引擎，通过时间积累提高迁移成本，形成用户深度依赖的迁移成本</p>
-                  </div>
-               </article>
-            </div>
-         </div>
-      </section>
-
-      <!-- 03 沉浸 / 激发 / 裂变 -->
-      <section class="vd-sec vd-sec--paper" data-scroll-section>
-         <div class="vd-inner">
-            <div class="vd-split">
-               <div class="vd-side">
-                  <h2 class="vd-side-h vt-reveal">沉浸 / 激发 /<br>裂变</h2>
-                  <p class="vd-side-p vt-reveal">打造沉浸式观感，从底层撬动用户参与及创作、带动用户创作。从看见高质量作品到想做，最后再做。</p>
-
-                  <div class="vd-side-item vt-reveal">
-                     <h4>从“有得看”</h4>
-                     <p>设置【短剧 + Featured（精选推荐）+ New（最新发布）】三个维度的多样化数据观看。</p>
-                  </div>
-                  <div class="vd-side-item vt-reveal">
-                     <h4>到“看得爽”</h4>
-                     <p>通过预加载与无打断逻辑，保证“上下滑动”的绝对流畅与沉浸感。</p>
-                  </div>
-                  <div class="vd-side-item vt-reveal">
-                     <h4>最后看完想做</h4>
-                     <p>轻交互唤起评论，沉淀 AIGC 创作交流圈，激发用户创作欲望的转化。</p>
-                  </div>
-               </div>
-
-               <div class="vd-card vt-reveal">
-                  <div class="vd-card-head">
-                     <h3 class="vd-card-title"><em>多维度打造数据沉浸 / 多样性</em></h3>
-                     <p class="vd-card-desc">看入迷 → 想做 → 传播</p>
-                  </div>
-
-                  <div class="vd-cols vd-cols--3">
-                     <div class="vd-col">
-                        <h4 class="vd-col-t">【内容多样性】</h4>
-                        <p class="vd-col-d">从数据和视觉双维度打造沉浸感</p>
-                        <div class="vd-media vd-media--stack">
-                           <img src="../assets/img/naivideo-case/board-10.jpg" width="392" height="300" alt="Drama / Featured / New 三档内容流">
-                           <img src="../assets/img/naivideo-case/board-01.jpg" width="356" height="676" alt="竖屏精选作品与 Create 入口">
-                        </div>
-                        <p class="vd-cap"><b>【短剧】</b>从碎片化走向连续叙事，极大丰富内容品类，拉长用户停留时长及粘性</p>
-                        <p class="vd-cap"><b>【Featured】</b>运营精选，强视觉冲击力，刺激用户产生创作的钩子<br><b>【New】</b>社区发的最新的趋势作品</p>
-                     </div>
-
-                     <div class="vd-col">
-                        <h4 class="vd-col-t">【浏览沉浸感】</h4>
-                        <p class="vd-col-d">从数据和视觉双维度打造沉浸感</p>
-                        <div class="vd-media vd-media--stack">
-                           <img src="../assets/img/naivideo-case/ui-episode.jpg" width="380" height="675" alt="预加载播放中的竖屏视频">
-                           <img src="../assets/img/naivideo-case/board-05.jpg" width="352" height="660" alt="去底色的 Tab 与导航">
-                        </div>
-                        <p class="vd-cap"><b>【预加载】</b>80% 预加载保证用户观看的流畅度，过滤已浏览，避免重复</p>
-                        <p class="vd-cap"><b>【TAB】</b>去底色弱化，将视觉干扰降到最低<br><b>【视频适配】</b>内容不同比例适配规则，适配最佳观感</p>
-                     </div>
-
-                     <div class="vd-col">
-                        <h4 class="vd-col-t">【互动与创作转化】</h4>
-                        <p class="vd-col-d">搭建评论和分享作为转化的阵地</p>
-                        <div class="vd-media vd-media--stack">
-                           <img src="../assets/img/naivideo-case/board-09.jpg" width="244" height="300" alt="作品视觉与互动">
-                           <img src="../assets/img/naivideo-case/board-04.jpg" width="372" height="316" alt="AI Studio 创作入口">
-                        </div>
-                        <p class="vd-cap"><b>【评论】</b>以评论为阵地，承载创作交流，将“围观灵感”直接转化为“二次创作”的裂变触发</p>
-                        <p class="vd-cap"><b>【分享】</b>打破数据内循环，用一键分享在社媒构建“带链接的免费广告牌”，实现流量外循环</p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-
-      <!-- 04 资产的生命周期管理 -->
-      <section class="vd-sec vd-sec--paper" data-scroll-section>
-         <div class="vd-inner">
-            <div class="vd-head vt-reveal">
-               <h2 class="vd-h2">资产的生命周期管理-创作内容的承接</h2>
-               <p class="vd-sub">资产库不是存储功能，而是粘性引擎。用户生成和上传的资产越多，迁移成本越高、复用越频繁、社交价值越大、付费意愿越强，打造沉浸式观感、从底层撬动用户参与及创作、带动用户创作。从看见高质量作品到想做最后再做</p>
-            </div>
-
-            <div class="vd-card vt-reveal">
-               <div class="vd-card-head">
-                  <h3 class="vd-card-title">资产生命周期的循环</h3>
-                  <p class="vd-card-desc">将资产的整个生命周期管理利用起来，二次创作、裂变传播、互动回流</p>
-               </div>
-
-               <div class="vd-cols vd-cols--4">
-                  <div class="vd-col">
-                     <h4 class="vd-col-t">【资产沉淀】</h4>
-                     <p class="vd-col-d">打造用户深度依赖的创作库</p>
-                     <div class="vd-media"><img src="../assets/img/naivideo-case/board-02.jpg" width="364" height="328" alt="按类型自由归类的内容库"></div>
-                     <p class="vd-cap"><b>1.</b> 按类型自由归类管理，任务透明。生成中带标识，进度可见。<br><b>2.</b> 相册打通：以前生成 → 存相册 → 找图 → 上传（4 步）；现在生成 → 自动入资产 → 相册直选（3 步）</p>
-                  </div>
-
-                  <div class="vd-col">
-                     <h4 class="vd-col-t">【资产复用】</h4>
-                     <p class="vd-col-d">支持参数复用，让二次创作更简单</p>
-                     <div class="vd-media"><img src="../assets/img/naivideo-case/board-04.jpg" width="372" height="316" alt="Remix 与 Use Prompt"></div>
-                     <p class="vd-cap"><b>【Remix】</b>完整模型与参数直接跳转 Create<br><b>【Use Prompt】</b>一键填入 Prompt 填充生成</p>
-                  </div>
-
-                  <div class="vd-col">
-                     <h4 class="vd-col-t">【资产流转】</h4>
-                     <p class="vd-col-d">资产变为公域，借挑战赛激发创作活力</p>
-                     <div class="vd-media"><img src="../assets/img/naivideo-case/board-07.jpg" width="348" height="564" alt="挑战赛与资产发布"></div>
-                     <p class="vd-cap">资产发布挑战赛；评选结束作品左上角展示获奖等级，提升用户成就感</p>
-                  </div>
-
-                  <div class="vd-col">
-                     <h4 class="vd-col-t">【互动回流】</h4>
-                     <p class="vd-col-d">让反馈成为创作燃料，实现互动回流</p>
-                     <div class="vd-media"><img src="../assets/img/naivideo-case/board-03.jpg" width="224" height="316" alt="点赞与评论反馈"></div>
-                     <p class="vd-cap">从“生成完就结束”<br>到“有人看 / 评 / 赞”</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-
-      <!-- 05 创作与生成 Agent 创作 -->
-      <section class="vd-sec vd-sec--paper" data-scroll-section>
-         <div class="vd-inner">
-            <div class="vd-split">
-               <div class="vd-side">
-                  <h2 class="vd-side-h vt-reveal">创作与生成<br>Agent 创作</h2>
-                  <p class="vd-side-p vt-reveal">打通传统工具与 Agent 双链路，降维拆解复杂参数，实现精准选型。</p>
-
-                  <div class="vd-side-item vt-reveal">
-                     <h4>由“灵感发散”</h4>
-                     <p>Agent 解决无具体想法需发散以及小白用户“不会写 Prompt”、“不知道选什么模型”的痛点，降低启动门槛</p>
-                  </div>
-                  <div class="vd-side-item vt-reveal">
-                     <h4>向“精细控制”</h4>
-                     <p>传统参数设置模式覆盖资深专业玩家 / 生成内容明确的用户</p>
-                  </div>
-                  <div class="vd-side-item vt-reveal">
-                     <h4>赋“效率提升”</h4>
-                     <p>从交互操作、模型参数默认设置上赋能用户高效创作</p>
-                  </div>
-               </div>
-
-               <div class="vd-card vt-reveal">
-                  <div class="vd-card-head">
-                     <h3 class="vd-card-title">1、传统 + Agent 双引擎创作模式</h3>
-                     <p class="vd-card-desc">传统模式满足精准控制，Agent 满足灵感探索</p>
-                  </div>
-
-                  <div class="vd-cols" style="grid-template-columns:1fr 1fr">
-                     <div class="vd-col">
-                        <div class="vd-media"><img src="../assets/img/naivideo-case/board-01.jpg" width="356" height="676" alt="传统工具模式：默认隐藏参数"></div>
-                        <p class="vd-cap"><b>传统工具模式</b>默认隐藏参数，屏蔽认知负荷，“输入即所得”</p>
-                     </div>
-                     <div class="vd-col">
-                        <div class="vd-media"><img src="../assets/img/naivideo-case/board-04.jpg" width="372" height="316" alt="Agent 创作探索模式"></div>
-                        <p class="vd-cap"><b>Agent 创作探索模式</b>连贯的多轮上下文记忆，Agent 灵感探索</p>
-                     </div>
-                  </div>
-
-                  <div class="vd-card-head" style="margin-top:clamp(34px,4vw,58px)">
-                     <h3 class="vd-card-title">2、重构模型标签，破解选择困难</h3>
-                     <p class="vd-card-desc">模型多，各类模型特点存在不同差异，创作参数多、模型不同差异差异选择困难</p>
-                  </div>
-
-                  <div class="vd-cols vd-cols--3">
-                     <div class="vd-col">
-                        <p class="vd-col-d" style="text-align:left;font-size:clamp(20px,2.6vw,40px);color:rgba(255,255,255,.08);font-weight:700;margin:0 0 6px">01</p>
-                        <h4 class="vd-col-t" style="text-align:left">参数整理，建立模型能力字典</h4>
-                        <div class="vd-artifact vd-artifact--paper" style="margin-top:14px;aspect-ratio:4/3">
-                           <p class="vd-doc-h">模型能力字典 · Model Matrix</p>
-                           <p class="vd-doc-meta">Vidu / Seedance / Hailuo / Kling / Wan</p>
-                           <div class="vd-doc-bar" style="width:100%"></div>
-                           <div class="vd-doc-bar" style="width:88%"></div>
-                           <div class="vd-doc-bar" style="width:94%"></div>
-                           <div class="vd-doc-bar" style="width:72%"></div>
-                           <div class="vd-doc-bar" style="width:90%"></div>
-                           <div class="vd-doc-bar" style="width:82%"></div>
-                           <div class="vd-doc-bar" style="width:68%"></div>
-                        </div>
-                     </div>
-
-                     <div class="vd-col">
-                        <p class="vd-col-d" style="text-align:left;font-size:clamp(20px,2.6vw,40px);color:rgba(255,255,255,.08);font-weight:700;margin:0 0 6px">02</p>
-                        <h4 class="vd-col-t" style="text-align:left">从参数提炼到场景标签并排序</h4>
-                        <div class="vd-artifact" style="margin-top:14px;aspect-ratio:4/3;background:#F5C342;color:#2A1F00;padding:14px">
-                           <p class="vd-doc-h" style="color:#2A1F00">场景标签 · Scene Tags</p>
-                           <p class="vd-doc-p" style="color:#3D2C00;font-size:7px;line-height:1.9">人物写真 / 舞蹈 / 运镜 / 转场 / 多角色 / 音画同步 / 长镜头 / 首尾帧 …<br>按创作意图分组，标签前置，参数后置。</p>
-                           <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px">
-                              <span style="font-size:6px;padding:3px 6px;border-radius:20px;background:rgba(0,0,0,.12)">人物写真</span>
-                              <span style="font-size:6px;padding:3px 6px;border-radius:20px;background:rgba(0,0,0,.12)">舞蹈</span>
-                              <span style="font-size:6px;padding:3px 6px;border-radius:20px;background:rgba(0,0,0,.12)">运镜</span>
-                              <span style="font-size:6px;padding:3px 6px;border-radius:20px;background:rgba(0,0,0,.12)">转场</span>
-                              <span style="font-size:6px;padding:3px 6px;border-radius:20px;background:rgba(0,0,0,.12)">首尾帧</span>
-                           </div>
-                        </div>
-                     </div>
-
-                     <div class="vd-col">
-                        <p class="vd-col-d" style="text-align:left;font-size:clamp(20px,2.6vw,40px);color:rgba(255,255,255,.08);font-weight:700;margin:0 0 6px">03</p>
-                        <h4 class="vd-col-t" style="text-align:left">模型特点标签，助力快速选择</h4>
-                        <div style="margin-top:14px;display:grid;gap:8px">
-                           <div class="vd-modelis">
-                              <div class="vd-modelis__i">V</div>
-                              <div><b>Vidu</b><small>15s · Audio · 4K</small></div>
-                           </div>
-                           <div class="vd-modelis">
-                              <div class="vd-modelis__i">▮</div>
-                              <div><b>Seedance 2.0</b><small>Start/End Frame · Audio · multi-shot</small></div>
-                           </div>
-                           <div class="vd-modelis">
-                              <div class="vd-modelis__i">◎</div>
-                              <div><b>Hailuo 2.3</b><small>Start/End Frame · Audio · multi-shot</small></div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-
-      <!-- 06 商业化如何嵌入创作循环 -->
-      <section class="vd-sec vd-sec--ink" data-scroll-section>
-         <div class="vd-inner">
-            <div class="vd-head vt-reveal">
-               <h2 class="vd-h2">商业化如何嵌入创作循环</h2>
-               <p class="vd-sub">商业化不作为独立入口打断创作，而是随着用户从观看、尝试、持续创作到内容传播的不同阶段，在额度、能力和效率需求出现时提供对应的升级选择。</p>
-            </div>
-
-            <div class="vd-table vt-reveal">
-               <div class="vd-tr vd-tr--head">
-                  <div class="vd-th">流程</div>
-                  <div class="vd-th">用户行为 🙇</div>
-                  <div class="vd-th">商业嵌入 💰</div>
-               </div>
-
-               <div class="vd-tr">
-                  <div class="vd-step"><i>1</i><span>内容触达</span></div>
-                  <div class="vd-td">浏览短剧 / 社区作品 → 获取灵感 → 产生创作意愿。</div>
-                  <div class="vd-td"><b>观看转创作</b>在 Drama、社区和活动内容强化 Create、挑战赛等创作入口，承接观后创作意愿。</div>
-               </div>
-
-               <div class="vd-tr">
-                  <div class="vd-step"><i>2</i><span>首次创作</span></div>
-                  <div class="vd-td">注册获取免费体验次数 → Create / Agent → 完成一次创作</div>
-                  <div class="vd-td"><b>免费额度促成首创</b>新人赠送 Lumens、活动免费次数、Agent 自然语言入口和 Start Creating 跳转，降低首次创作门槛。</div>
-               </div>
-
-               <div class="vd-tr">
-                  <div class="vd-step"><i>3</i><span>创作深化</span></div>
-                  <div class="vd-td">多轮生成 → 尝试高级模型 / Agent → 权益不足 → 订阅 / 购买 Lumens → 继续生成</div>
-                  <div class="vd-td"><b>权益驱动持续创作</b>建立会员等级、模型、Agent 会话等限制，明确不同方案可使用的更高创作能力。支付后直接继续生成。</div>
-               </div>
-
-               <div class="vd-tr">
-                  <div class="vd-step"><i>4</i><span>资产沉淀与传播</span></div>
-                  <div class="vd-td">生成 → 保存 → Remix / Use Prompt → 发布 / 参与 / 分享</div>
-                  <div class="vd-td"><b>复用与分享促增长</b>对内置挑战赛的奖励机制鼓励用户多参与创作消耗，对外支持跳转分享至外部平台的传播。</div>
-               </div>
-
-               <div class="vd-tr">
-                  <div class="vd-step"><i>5</i><span>触达回流</span></div>
-                  <div class="vd-td">获得点赞 → 推送互动消息 → 作品详情 查看反馈 → 继续创作</div>
-                  <div class="vd-td"><b>消息触达带动回流</b>通过本地推送、远程推送和互动消息，将用户带回创作、订阅、作品详情或首页。版本更新提示。</div>
-               </div>
-
-               <div class="vd-badge">
-                  <strong>↑25.4<em>%</em></strong>
-                  <small>转化率从 0 提升</small>
-               </div>
-            </div>
-         </div>
-      </section>
-
-      <!-- 07 PC 横向支持 -->
-      <section class="vd-sec vd-sec--paper" data-scroll-section>
-         <div class="vd-inner">
-            <div class="vd-head vt-reveal">
-               <h2 class="vd-h2">PC 横向支持-从需求到上线，一人完成设计线上</h2>
-               <p class="vd-sub">设计打通上线壁垒，开发牵制。充分利用 AI 能力推动实现设计落地，设计一人即团队，更高的线上还原度</p>
-            </div>
-
-            <div class="vd-card vt-reveal">
-               <div class="vd-card-head">
-                  <h3 class="vd-card-title">一人串联需求、设计、开发与上线</h3>
-                  <p class="vd-card-desc">借助 AI 工具协作，独立完成从需求梳理到产品发布的端到端落地。</p>
-               </div>
-
-               <div class="vd-cols vd-cols--4">
-                  <div class="vd-col">
-                     <h4 class="vd-col-t">【需求梳理】</h4>
-                     <p class="vd-col-d">根据运营要求梳理需求范围及目标、用户场景与业务目标，形成 PRD</p>
-                     <div class="vd-artifact vd-artifact--paper">
-                        <p class="vd-doc-h">PicLumen About Us 页面产品需求文档</p>
-                        <p class="vd-doc-meta">版本 V1.0 · 2026.10.22 · 评审中</p>
-                        <div class="vd-doc-bar" style="width:92%"></div>
-                        <div class="vd-doc-bar" style="width:78%"></div>
-                        <p class="vd-doc-h2">1 产品目标</p>
-                        <p class="vd-doc-p">· 建立认知：让用户理解 PicLumen 已从免费 AI 图像生成器发展为涵盖工具、内容和社区的综合创作平台。</p>
-                        <p class="vd-doc-h2">2 需求边界</p>
-                        <p class="vd-doc-p">本文档定义 About Us 品牌介绍、使命愿景、品牌故事、团队成员、创作者飞轮、平台能力、适用人群。</p>
-                        <div class="vd-doc-bar" style="width:86%"></div>
-                        <div class="vd-doc-bar" style="width:64%"></div>
-                     </div>
-                  </div>
-
-                  <div class="vd-col">
-                     <h4 class="vd-col-t">【方案设计】</h4>
-                     <p class="vd-col-d">梳理信息架构、关键流程与页面方案，输出 Figma 设计稿</p>
-                     <div class="vd-artifact vd-artifact--figma">
-                        <span>Create. Share. Remix. Grow.<br><small style="font-weight:400;color:#B9B4CF">Our Story · Mission · The Creator Flywheel</small></span>
-                     </div>
-                  </div>
-
-                  <div class="vd-col">
-                     <h4 class="vd-col-t">【AI 协作开发】</h4>
-                     <p class="vd-doc-p" style="visibility:hidden;height:0"></p>
-                     <p class="vd-col-d">GPT 6 读取 Figma 设计代码并高度还原设计，输出代码</p>
-                     <div class="vd-artifact vd-artifact--code">
-                        <div><i>import</i> { Hero, Story } <i>from</i> <b>'@/components'</b>;</div>
-                        <div><i>export default function</i> <b>About</b>() {</div>
-                        <div>&nbsp;&nbsp;<i>return</i> (</div>
-                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&lt;main className=<b>"about"</b>&gt;</div>
-                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Hero title=<b>"Create. Share."</b> /&gt;</div>
-                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Story items={stories} /&gt;</div>
-                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Flywheel steps={4} /&gt;</div>
-                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/main&gt;</div>
-                        <div>&nbsp;&nbsp;);</div>
-                        <div>}</div>
-                     </div>
-                  </div>
-
-                  <div class="vd-col">
-                     <h4 class="vd-col-t">【部署上线】</h4>
-                     <p class="vd-col-d">完成效果调优、部署发布，成功上线</p>
-                     <div class="vd-artifact vd-artifact--web">
-                        <div class="vd-webbar"><i></i><i></i><i></i></div>
-                        <div class="vd-webimg">
-                           <img src="../assets/img/naivideo-case/board-03.jpg" alt="上线页面截图">
-                           <img src="../assets/img/naivideo-case/board-09.jpg" alt="上线页面截图">
-                        </div>
-                     </div>
-                     <p class="vd-cap" style="text-align:center">https://www.piclumen.com/about-us/</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-
-      <!-- 08 合集 -->
-      <section class="vd-sec vd-sec--ink" data-scroll-section>
-         <div class="vd-inner">
-            <div class="vd-head vt-reveal">
-               <h2 class="vd-h2">合集</h2>
-               <p class="vd-sub">把散落在各个模块里的界面收拢在一起——从内容消费到创作工具，再到资产与回流，一条完整的动线。</p>
-            </div>
-
-            <div class="vd-mosaic">
-               <figure class="vt-shot vt-reveal" data-shot="/assets/img/naivideo-case/board-01.jpg"><img src="../assets/img/naivideo-case/board-01.jpg" width="356" height="676" alt="竖屏精选作品与 Create 入口" loading="lazy"></figure>
-               <figure class="vt-shot vt-reveal" data-shot="/assets/img/naivideo-case/board-02.jpg"><img src="../assets/img/naivideo-case/board-02.jpg" width="364" height="328" alt="AI Effects 效果库" loading="lazy"></figure>
-               <figure class="vt-shot vt-reveal" data-shot="/assets/img/naivideo-case/board-03.jpg"><img src="../assets/img/naivideo-case/board-03.jpg" width="224" height="316" alt="AI 人像风格效果" loading="lazy"></figure>
-               <figure class="vt-shot vt-reveal" data-shot="/assets/img/naivideo-case/board-04.jpg"><img src="../assets/img/naivideo-case/board-04.jpg" width="372" height="316" alt="AI Studio 创作入口" loading="lazy"></figure>
-               <figure class="vt-shot vt-reveal" data-shot="/assets/img/naivideo-case/board-05.jpg"><img src="../assets/img/naivideo-case/board-05.jpg" width="352" height="660" alt="竖版作品播放页" loading="lazy"></figure>
-               <figure class="vt-shot vt-reveal" data-shot="/assets/img/naivideo-case/board-06.jpg"><img src="../assets/img/naivideo-case/board-06.jpg" width="652" height="212" alt="Navigate 作品流入口" loading="lazy"></figure>
-               <figure class="vt-shot vt-reveal" data-shot="/assets/img/naivideo-case/board-07.jpg"><img src="../assets/img/naivideo-case/board-07.jpg" width="348" height="564" alt="剧集详情页" loading="lazy"></figure>
-               <figure class="vt-shot vt-reveal" data-shot="/assets/img/naivideo-case/board-08.jpg"><img src="../assets/img/naivideo-case/board-08.jpg" width="356" height="304" alt="AI Music 曲库与波形" loading="lazy"></figure>
-               <figure class="vt-shot vt-reveal" data-shot="/assets/img/naivideo-case/board-09.jpg"><img src="../assets/img/naivideo-case/board-09.jpg" width="244" height="300" alt="光环人像效果" loading="lazy"></figure>
-               <figure class="vt-shot vt-reveal" data-shot="/assets/img/naivideo-case/board-10.jpg"><img src="../assets/img/naivideo-case/board-10.jpg" width="392" height="300" alt="移动端作品列表" loading="lazy"></figure>
-               <figure class="vt-shot vt-reveal" data-shot="/assets/img/naivideo-case/board-11.jpg"><img src="../assets/img/naivideo-case/board-11.jpg" width="352" height="300" alt="Meet Naivideo 品牌卡片" loading="lazy"></figure>
-            </div>
-         </div>
-      </section>
-
-      </div><!-- /.vd -->
-
-      </div><!-- /.vd -->
 
       <!-- 灯箱 -->
       <div class="vt-lightbox" id="vtLightbox" aria-hidden="true">

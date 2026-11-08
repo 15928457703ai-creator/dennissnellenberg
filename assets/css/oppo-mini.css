@@ -1,0 +1,123 @@
+/* =========================================================
+   OPPO 服务小程序案例页 · 中部内容区（Figma node 6029-8319 代码还原）
+   10 屏 1920×1080：手机 UI / 照片走切图，其余全部代码还原
+   - 字体：汉仪旗黑 HYQiHeiY2（按本页用字子集化 55/65/75/85W）
+   ========================================================= */
+
+@font-face {
+   font-family: 'HYQiHeiY2';
+   src: url('../fonts/mini-HY55.woff2') format('woff2');
+   font-weight: 400;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'HYQiHeiY2';
+   src: url('../fonts/mini-HY65.woff2') format('woff2');
+   font-weight: 500;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'HYQiHeiY2';
+   src: url('../fonts/mini-HY75.woff2') format('woff2');
+   font-weight: 700;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'HYQiHeiY2';
+   src: url('../fonts/mini-HY85.woff2') format('woff2');
+   font-weight: 800;
+   font-display: swap;
+}
+
+.erp-deck {
+   position: relative;
+   background: #0d0d0d;
+   padding: 0;
+   margin: 0;
+   overflow: hidden;
+}
+
+.erp-deck-inner {
+   width: 100%;
+   max-width: 1920px;
+   margin: 0 auto;
+}
+
+.erp-slide {
+   position: relative;
+   width: 100%;
+   aspect-ratio: 1920 / 1080;
+   overflow: hidden;
+   isolation: isolate;
+   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.erp-stage {
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 1920px;
+   height: 1080px;
+   transform-origin: 0 0;
+   transform: scale(var(--erp-s, 1));
+   font-kerning: normal;
+   -webkit-font-smoothing: antialiased;
+}
+
+.erp-stage,
+.erp-stage * {
+   box-sizing: border-box;
+}
+
+.erp-stage > div,
+.erp-stage div,
+.erp-stage svg,
+.erp-stage img {
+   position: absolute;
+}
+
+.erp-stage div {
+   margin: 0;
+   padding: 0;
+}
+
+.erp-stage .t {
+   color: inherit;
+   transform: translateZ(0);
+}
+
+.erp-stage .v,
+.erp-stage svg.v {
+   display: block;
+   overflow: visible;
+}
+
+.erp-stage img.q {
+   display: block;
+   object-fit: fill;
+   max-width: none;
+}
+
+.erp-deck + .footer-wrap {
+   margin-top: 0;
+}
+
+@media (max-width: 900px) {
+   .erp-deck-inner {
+      display: block;
+   }
+
+   .erp-slide {
+      width: 100%;
+   }
+}
+
+/* 长标题（OPPO 自助服务小程序）：桌面端缩到单行 */
+@media (min-width: 901px) {
+   .case-header h1 {
+      font-size: clamp(3.05em, 6.72vw, 7.72em);
+   }
+}
