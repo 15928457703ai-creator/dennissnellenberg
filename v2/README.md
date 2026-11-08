@@ -76,6 +76,6 @@ v2/
 - 改个人信息：搜 `_nuxt/DZyj3ghP.js` 里的 `冯梅`，共 4 处（数据对象 + 三处渲染字面量）。
 - 改详情弹窗：`assets/js/detail.js` 顶部的 `DATA` 数组（标题 / 简介 / 年份 / 角色 / 标签 / 图片清单）
   与 `assets/css/detail.css`；图片放在 `assets/ours/<slug>/`。图片按名字排序：命名成 `p01…pNN`
-  （成套演示稿，如 Naivideo 8 屏、OPPO 小程序 10 屏）就按编号铺开，`card.jpg` 单独作为封面/飞行起点，
+  （成套演示稿，如 ERP 11 屏、Naivideo 8 屏、OPPO 小程序 10 屏）就按编号铺开，`card.jpg` 单独作为封面/飞行起点，
   不重复出现在图片流里；只有零散图时按 `card` + `extraN` 排。
 - 旧的深链页：`projects/<slug>/index.html` 仍是普通静态页，直接编辑即可（弹窗之外的兜底）。
