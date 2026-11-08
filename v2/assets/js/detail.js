@@ -20,6 +20,22 @@
     return n;
   }
 
+  function edgeHTML(dir) {
+    var prev = dir === 'prev';
+    return '<button class="fm-detail__edge fm-detail__edge--' + dir + '" type="button" aria-label="' +
+      (prev ? '上一个案例' : '下一个案例') + '">' +
+      '<img class="fm-detail__edge-img" alt="" loading="lazy" decoding="async">' +
+      '<svg class="fm-detail__edge-arrow" viewBox="0 0 16 10" aria-hidden="true"><path d="' +
+        (prev ? 'M15 1 9 5l6 4' : 'M1 1l6 4-6 4') +
+        '" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+      '<span class="fm-detail__edge-meta">' +
+        '<span class="fm-detail__edge-k"></span>' +
+        '<span class="fm-detail__edge-t"></span>' +
+        '<span class="fm-detail__edge-sub"><span class="fm-detail__edge-idx"></span><span class="fm-detail__edge-y"></span></span>' +
+      '</span>' +
+    '</button>';
+  }
+
   function build() {
     var wrap = h('div', 'fm-detail');
     wrap.innerHTML =
@@ -48,7 +64,9 @@
             '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.6 1.6l12.8 12.8M14.4 1.6L1.6 14.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>' +
           '</button>' +
         '</div>' +
-      '</div>';
+      '</div>' +
+      edgeHTML('prev') +
+      edgeHTML('next');
     document.body.appendChild(wrap);
     el = wrap;
     media = wrap.querySelector('.fm-detail__media');
@@ -58,10 +76,25 @@
     wrap.querySelector('.fm-detail__scrim').addEventListener('click', close);
     wrap.querySelector('.fm-detail__next').addEventListener('click', function () { step(1); });
     wrap.querySelector('.fm-detail__play').addEventListener('click', togglePlay);
+    bindEdges(wrap);
     media.addEventListener('scroll', onScroll, { passive: true });
     bindDrag();
     window.addEventListener('keydown', onKey);
     window.addEventListener('resize', onScroll);
+  }
+
+  var EDGES = [['prev', -1], ['next', 1]];
+
+  function bindEdges(wrap) {
+    EDGES.forEach(function (pair) {
+      var b = wrap.querySelector('.fm-detail__edge--' + pair[0]);
+      if (!b) return;
+      b.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        step(pair[1]);
+      });
+    });
   }
 
   /* 抓住图片列上下拖：还原原站 cursor:grab / grabbing 的拖拽手感 */
@@ -108,14 +141,11 @@
     media.addEventListener('dragstart', function (e) { e.preventDefault(); });
   }
 
-  var cur = 0;
+  var cur = 0, curSlug = '', swapTimer = 0;
 
-  function open(slug) {
-    var p = MAP[slug];
-    if (!p) return;
-    if (!el) build();
+  function paint(p) {
     cur = p.i - 1;
-    lastFocus = document.activeElement;
+    curSlug = p.slug;
 
     el.querySelector('.fm-detail__title').textContent = p.title;
     el.querySelector('.fm-detail__desc').textContent = p.desc;
@@ -156,27 +186,82 @@
       });
     }
 
+    syncEdges();
+    onScroll();
+  }
+
+  function open(slug, dir) {
+    var p = MAP[slug];
+    if (!p) return;
+    if (!el) build();
+    lastFocus = document.activeElement;
+
+    /* 弹窗已打开 → 左右切换：内容按方向滑出，换数据后从另一侧滑入 */
+    if (el.classList.contains('is-open') && curSlug && curSlug !== p.slug) {
+      var d = dir || (p.i > (MAP[curSlug] ? MAP[curSlug].i : 1) ? 1 : -1);
+      stopPlay();
+      clearTimeout(swapTimer);
+      el.dataset.dir = d > 0 ? 'next' : 'prev';
+      el.classList.remove('is-in');
+      el.classList.add('is-out');
+      swapTimer = setTimeout(function () {
+        paint(p);
+        el.classList.remove('is-out');
+        void el.offsetWidth;
+        el.classList.add('is-in');
+        swapTimer = setTimeout(function () { el.classList.remove('is-in'); }, 640);
+      }, 220);
+      setHash(p.slug);
+      return;
+    }
+
+    paint(p);
     document.documentElement.classList.add('fm-detail-open');
     el.classList.add('is-mounted');
     void el.offsetWidth;
+    el.classList.remove('is-closing', 'is-out', 'is-in');
     el.classList.add('is-open');
-    el.classList.remove('is-closing');
     el.setAttribute('aria-hidden', 'false');
-    onScroll();
     setTimeout(function () {
       var panel = el && el.querySelector('.fm-detail__panel');
       if (panel) panel.focus({ preventScroll: true });
     }, 420);
 
+    setHash(p.slug);
+  }
+
+  function setHash(slug) {
     try {
-      if (!pushed) { history.pushState({ fm: p.slug }, '', '#work=' + p.slug); pushed = true; }
-      else { history.replaceState({ fm: p.slug }, '', '#work=' + p.slug); }
+      if (!pushed) { history.pushState({ fm: slug }, '', '#work=' + slug); pushed = true; }
+      else { history.replaceState({ fm: slug }, '', '#work=' + slug); }
     } catch (e) {}
+  }
+
+  /* 左右两侧：露出相邻案例的卡片，悬停展开预览，点击切换 */
+  function syncEdges() {
+    EDGES.forEach(function (pair) {
+      var btn = el && el.querySelector('.fm-detail__edge--' + pair[0]);
+      if (!btn) return;
+      var d = pair[1];
+      var p = DATA[(cur + d + DATA.length) % DATA.length];
+      if (!p) return;
+      var src = p.images[0] ? ROOT + p.images[0].src : '';
+      var img = btn.querySelector('.fm-detail__edge-img');
+      if (src && img.getAttribute('src') !== src) { img.src = src; img.alt = p.title; }
+      btn.setAttribute('data-slug', p.slug);
+      btn.setAttribute('aria-label', (d > 0 ? '下一个案例：' : '上一个案例：') + p.title);
+      btn.querySelector('.fm-detail__edge-k').textContent = d > 0 ? '下一个案例' : '上一个案例';
+      btn.querySelector('.fm-detail__edge-t').textContent = p.title;
+      btn.querySelector('.fm-detail__edge-idx').textContent = (p.i < 10 ? '0' : '') + p.i + ' / ' + DATA.length;
+      btn.querySelector('.fm-detail__edge-y').textContent = p.year;
+    });
   }
 
   function close(fromPop) {
     if (!el || !el.classList.contains('is-open')) return;
     stopPlay();
+    clearTimeout(swapTimer);
+    el.classList.remove('is-out', 'is-in');
     el.classList.remove('is-open');
     el.classList.add('is-closing');
     el.setAttribute('aria-hidden', 'true');
@@ -193,7 +278,7 @@
 
   function step(d) {
     var i = (cur + d + DATA.length) % DATA.length;
-    open(DATA[i].slug);
+    open(DATA[i].slug, d);
   }
 
   function onScroll() {
