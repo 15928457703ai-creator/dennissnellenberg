@@ -20,6 +20,65 @@
     return n;
   }
 
+  /* 药丸：黑盘从指针位置长满 + 文字反白 + 指针处 RGB 通道错位（参考站 u_pillDisc / u_pillA / PILL_SPLIT） */
+  function pillHTML(cls) {
+    return '<span class="' + cls + ' fm-pill">' +
+      '<span class="fm-pill__fill" aria-hidden="true"></span>' +
+      '<span class="fm-pill__t"></span>' +
+      '<span class="fm-pill__inv" aria-hidden="true"><span class="fm-pill__t"></span></span>' +
+      '<span class="fm-pill__lens" aria-hidden="true"><span class="fm-pill__t"></span></span>' +
+    '</span>';
+  }
+
+  function setPill(node, text) {
+    if (!node) return;
+    var all = node.querySelectorAll('.fm-pill__t');
+    for (var i = 0; i < all.length; i++) all[i].textContent = text;
+    node.setAttribute('aria-label', text);
+  }
+
+  /* 指针进入点 → --px/--py，最远角 → --reach：圆盘就从这个点铺满整个药丸 */
+  function aim(node, clientX, clientY) {
+    var r = node.getBoundingClientRect();
+    var px = Math.max(0, Math.min(r.width, clientX - r.left));
+    var py = Math.max(0, Math.min(r.height, clientY - r.top));
+    var reach = Math.ceil(Math.max(
+      Math.sqrt(px * px + py * py),
+      Math.sqrt((r.width - px) * (r.width - px) + py * py),
+      Math.sqrt(px * px + (r.height - py) * (r.height - py)),
+      Math.sqrt((r.width - px) * (r.width - px) + (r.height - py) * (r.height - py))
+    )) + 2;
+    node.style.setProperty('--px', px + 'px');
+    node.style.setProperty('--py', py + 'px');
+    node.style.setProperty('--reach', reach + 'px');
+  }
+
+  function bindHovers(root) {
+    var nodes = root.querySelectorAll('.fm-pill, .fm-round');
+    for (var i = 0; i < nodes.length; i++) {
+      (function (n) {
+        var queued = 0;
+        n.addEventListener('pointerenter', function (e) {
+          if (e.pointerType === 'touch') return;
+          aim(n, e.clientX, e.clientY);
+        });
+        /* 圆盘圆心跟着指针走（参考站 ptr 是逐帧写入 uniform 的） */
+        n.addEventListener('pointermove', function (e) {
+          if (e.pointerType === 'touch' || queued) return;
+          queued = 1;
+          requestAnimationFrame(function () {
+            queued = 0;
+            aim(n, e.clientX, e.clientY);
+          });
+        });
+        n.addEventListener('focus', function () {
+          var r = n.getBoundingClientRect();
+          aim(n, r.left + r.width / 2, r.top + r.height / 2);
+        });
+      })(nodes[i]);
+    }
+  }
+
   function edgeHTML(dir) {
     var prev = dir === 'prev';
     return '<button class="fm-detail__edge fm-detail__edge--' + dir + '" type="button" aria-label="' +
@@ -45,12 +104,14 @@
           '<h2 class="fm-detail__title fm-detail__an"></h2>' +
           '<p class="fm-detail__desc fm-detail__an"></p>' +
           '<div class="fm-detail__meta fm-detail__an">' +
-            '<button class="fm-detail__play" type="button" aria-label="自动浏览图片">' +
+            '<button class="fm-detail__play fm-round" type="button" aria-label="自动浏览图片">' +
+              '<span class="fm-round__hole" aria-hidden="true"></span>' +
+              '<span class="fm-round__ring" aria-hidden="true"></span>' +
               '<svg class="i-play" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.4 1.7 10 6l-6.6 4.3z" fill="currentColor"/></svg>' +
               '<svg class="i-pause" viewBox="0 0 12 12" aria-hidden="true"><rect x="2.6" y="1.8" width="2.4" height="8.4" fill="currentColor"/><rect x="7" y="1.8" width="2.4" height="8.4" fill="currentColor"/></svg>' +
             '</button>' +
-            '<span class="fm-detail__pill fm-detail__year"></span>' +
-            '<span class="fm-detail__pill fm-detail__pill--ghost fm-detail__role"></span>' +
+            pillHTML('fm-detail__pill fm-detail__year') +
+            pillHTML('fm-detail__pill fm-detail__pill--ghost fm-detail__role') +
             '<span class="fm-detail__award"></span>' +
           '</div>' +
           '<div class="fm-detail__foot">' +
@@ -60,7 +121,9 @@
         '</div>' +
         '<div class="fm-detail__media" tabindex="-1"></div>' +
         '<div class="fm-detail__gutter">' +
-          '<button class="fm-detail__close" type="button" aria-label="关闭">' +
+          '<button class="fm-detail__close fm-round" type="button" aria-label="关闭">' +
+            '<span class="fm-round__hole" aria-hidden="true"></span>' +
+            '<span class="fm-round__ring" aria-hidden="true"></span>' +
             '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.6 1.6l12.8 12.8M14.4 1.6L1.6 14.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>' +
           '</button>' +
         '</div>' +
@@ -79,6 +142,7 @@
     bindEdges(wrap);
     media.addEventListener('scroll', onScroll, { passive: true });
     bindDrag();
+    bindHovers(wrap);
     window.addEventListener('keydown', onKey);
     window.addEventListener('resize', onScroll);
   }
@@ -278,8 +342,8 @@
 
     el.querySelector('.fm-detail__title').textContent = p.title;
     el.querySelector('.fm-detail__desc').textContent = p.desc;
-    el.querySelector('.fm-detail__year').textContent = p.year;
-    el.querySelector('.fm-detail__role').textContent = p.role;
+    setPill(el.querySelector('.fm-detail__year'), p.year);
+    setPill(el.querySelector('.fm-detail__role'), p.role);
     var aw = el.querySelector('.fm-detail__award');
     aw.textContent = p.award ? '\uD83C\uDFC6' : '';
     aw.title = p.award || '';

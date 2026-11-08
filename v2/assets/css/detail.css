@@ -124,7 +124,6 @@
 }
 .fm-detail__play:focus { outline: none; }
 .fm-detail__play:focus-visible { outline: 2px solid #0b0b0c; outline-offset: 3px; }
-.fm-detail__play:hover { transform: scale(1.06); }
 .fm-detail__play:active { transform: scale(.95); }
 .fm-detail__play svg { width: 11px; height: 11px; display: block; }
 .fm-detail__play .i-pause { display: none; }
@@ -142,12 +141,126 @@
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
+  /* 药丸 hover 的舞台：黑盘在这个盒子里长满 */
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  --px: 50%;
+  --py: 50%;
+  --reach: 0px;
 }
 .fm-detail__pill--ghost {
   background: transparent;
   border: 1px solid #e2e2df;
   color: #55555a;
   font-size: 13px;
+}
+
+/* ── 药丸 hover：黑盘从指针进入点长满，文字翻白，指针处 RGB 通道错位 ──
+   参考站对应 u_pillDisc（圆心=指针，z=满半径）/ u_pillA / PILL_SPLIT=3px 的色散透镜 */
+.fm-pill__fill,
+.fm-pill__inv {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  clip-path: circle(0px at var(--px) var(--py));
+  transition: clip-path .5s cubic-bezier(.16, 1, .3, 1);
+  pointer-events: none;
+}
+.fm-pill__fill { background: #0b0b0c; z-index: 1; }
+.fm-pill__inv {
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  padding: inherit;
+  color: #fff;
+}
+.fm-pill__t { position: relative; z-index: 0; }
+.fm-pill__inv .fm-pill__t { z-index: 0; }
+
+/* 色散透镜：只在指针周围那一小圈里把 RGB 拆开 */
+.fm-pill__lens {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  padding: inherit;
+  color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  /* 五个通道沿 x 摊开（R→Y→G→C→B），叠加后厚笔画出白、细笔画散成彩虹 —— 对应 PILL_SPLIT */
+  text-shadow:
+    -3.2px 0 rgba(255, 0, 51, .92),
+    -1.6px 0 rgba(255, 190, 0, .72),
+    0    0 rgba(0, 255, 110, .6),
+    1.6px 0 rgba(0, 190, 255, .82),
+    3.2px 0 rgba(40, 0, 255, .92);
+  mix-blend-mode: screen;
+  -webkit-mask-image: radial-gradient(circle 52px at var(--px) var(--py), #000 0%, #000 62%, transparent 100%);
+  mask-image: radial-gradient(circle 52px at var(--px) var(--py), #000 0%, #000 62%, transparent 100%);
+  transition: opacity .3s ease .12s;
+}
+.fm-pill__lens .fm-pill__t { color: #fff; }
+
+@media (hover: hover) {
+  .fm-detail__pill:hover .fm-pill__fill,
+  .fm-detail__pill:hover .fm-pill__inv {
+    clip-path: circle(var(--reach) at var(--px) var(--py));
+    transition-duration: .7s;
+  }
+  .fm-detail__pill:hover .fm-pill__lens { opacity: 1; }
+}
+
+/* ── 圆形按钮 hover：黑盘从指针处缩成细圆环，图标翻黑 ──
+   参考站 u_ring=1 的「hollows this pill instead of filling it」 */
+.fm-round {
+  position: relative;
+  isolation: isolate;
+  --px: 50%;
+  --py: 50%;
+  --reach: 0px;
+}
+.fm-round__hole {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 50%;
+  background: #fff;
+  clip-path: circle(0px at var(--px) var(--py));
+  transition: clip-path .5s cubic-bezier(.16, 1, .3, 1);
+  pointer-events: none;
+}
+.fm-round__ring {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: 50%;
+  border: 1.5px solid #0b0b0c;
+  opacity: 0;
+  transition: opacity .3s ease;
+  pointer-events: none;
+}
+.fm-round svg {
+  position: relative;
+  z-index: 1;
+  transition: color .3s ease;
+}
+@media (hover: hover) {
+  .fm-round:hover .fm-round__hole {
+    clip-path: circle(var(--reach) at var(--px) var(--py));
+    transition-duration: .55s;
+  }
+  .fm-round:hover .fm-round__ring { opacity: 1; transition-delay: .08s; }
+  .fm-round:hover svg { color: #0b0b0c; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fm-pill__fill,
+  .fm-pill__inv,
+  .fm-pill__lens,
+  .fm-round__hole,
+  .fm-round__ring { transition-duration: .01s !important; }
 }
 
 .fm-detail__award {
@@ -308,7 +421,6 @@
   cursor: pointer;
   transition: transform .35s cubic-bezier(.22, 1, .36, 1), background .25s ease;
 }
-.fm-detail__close:hover { transform: rotate(90deg); background: #232326; }
 .fm-detail__close:focus { outline: none; }
 .fm-detail__close:focus-visible { outline: 2px solid #0b0b0c; outline-offset: 3px; }
 .fm-detail__close svg { width: 15px; height: 15px; }
