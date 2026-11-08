@@ -37,19 +37,39 @@
   border-radius: 16px;
   overflow: hidden;
   opacity: 0;
-  transform: scale(.972) translateY(10px);
-  transform-origin: 50% 55%;
-  transition: opacity .42s ease, transform .62s cubic-bezier(.16, 1, .3, 1);
+  transform-origin: 0 0;
+  transition: opacity .14s ease;
   will-change: transform, opacity;
 }
-.fm-detail.is-open .fm-detail__panel {
-  opacity: 1;
-  transform: none;
+.fm-detail.is-open .fm-detail__panel { opacity: 1; }
+/* 飞行期间面板本体隐藏，由白色 sheet（.fm-ghost）顶着 */
+.fm-detail.is-open.is-flying .fm-detail__panel { opacity: 0; transition: none; }
+.fm-detail.is-closing .fm-detail__panel { opacity: 0; transition: opacity .2s ease; }
+
+/* ── 飞行中的白色 sheet：从卡片/侧边小矩形长成整个面板 ── */
+.fm-ghost {
+  position: fixed;
+  transform-origin: 0 0;
+  z-index: 940;
+  overflow: hidden;
+  background: #fff;
+  pointer-events: none;
+  will-change: left, top, width, height, border-radius;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, .5), 0 4px 18px rgba(0, 0, 0, .28);
 }
-.fm-detail.is-closing .fm-detail__panel {
+.fm-ghost__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.fm-ghost__wash {
+  position: absolute;
+  inset: 0;
+  background: #fff;
   opacity: 0;
-  transform: scale(.985);
-  transition-duration: .26s;
 }
 
 /* 左：信息栏 */
@@ -191,8 +211,8 @@
 .fm-detail__media figure {
   margin: 0 0 44px;
   opacity: 0;
-  transform: translateY(18px);
-  transition: opacity .7s ease, transform .8s cubic-bezier(.16, 1, .3, 1);
+  transform: translateY(30px) scale(.988);
+  transition: opacity .8s ease, transform .95s cubic-bezier(.19, 1, .22, 1);
 }
 .fm-detail__media figure.is-in { opacity: 1; transform: none; }
 .fm-detail__media figure:last-child { margin-bottom: 0; }
@@ -293,12 +313,39 @@
 .fm-detail__close:focus-visible { outline: 2px solid #0b0b0c; outline-offset: 3px; }
 .fm-detail__close svg { width: 15px; height: 15px; }
 
-/* 入场逐项 */
-.fm-detail__an { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .75s cubic-bezier(.16, 1, .3, 1); }
-.fm-detail.is-open .fm-detail__an { opacity: 1; transform: none; }
-.fm-detail.is-open .fm-detail__an:nth-child(1) { transition-delay: .10s; }
-.fm-detail.is-open .fm-detail__an:nth-child(2) { transition-delay: .16s; }
-.fm-detail.is-open .fm-detail__an:nth-child(3) { transition-delay: .22s; }
+/* 入场逐项：白色 sheet 落地后，标题 → 简介 → 药丸 → 底部，依次上浮 */
+.fm-detail__title,
+.fm-detail__desc,
+.fm-detail__meta,
+.fm-detail__foot {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .66s ease, transform .86s cubic-bezier(.19, 1, .22, 1);
+  transition-delay: var(--fd, 0s);
+}
+.fm-detail__title { --fd: .02s; }
+.fm-detail__desc { --fd: .10s; }
+.fm-detail__meta { --fd: .17s; }
+.fm-detail__foot { --fd: .30s; }
+
+.fm-detail__meta > * {
+  opacity: 0;
+  transition: opacity .55s ease;
+  transition-delay: var(--pd, 0s);
+}
+.fm-detail__meta > *:nth-child(1) { --pd: .18s; }
+.fm-detail__meta > *:nth-child(2) { --pd: .23s; }
+.fm-detail__meta > *:nth-child(3) { --pd: .28s; }
+.fm-detail__meta > *:nth-child(4) { --pd: .33s; }
+
+.fm-detail__close { opacity: 0; transition: opacity .5s ease, transform .35s cubic-bezier(.22, 1, .36, 1), background .25s ease; transition-delay: .22s, 0s, 0s; }
+
+.fm-detail.is-content .fm-detail__title,
+.fm-detail.is-content .fm-detail__desc,
+.fm-detail.is-content .fm-detail__meta,
+.fm-detail.is-content .fm-detail__foot { opacity: 1; transform: none; }
+.fm-detail.is-content .fm-detail__meta > * { opacity: 1; }
+.fm-detail.is-content .fm-detail__close { opacity: 1; transition-delay: 0s; }
 
 /* ── 左右边缘：相邻案例（参考站两侧露出的相邻项目面板） ── */
 .fm-detail__edge {
@@ -428,10 +475,24 @@
 .fm-detail.is-out[data-dir="prev"] .fm-detail__info,
 .fm-detail.is-out[data-dir="prev"] .fm-detail__media { animation: fmSwapOutPrev .22s cubic-bezier(.4, 0, .8, 1) both; }
 
-.fm-detail.is-in[data-dir="next"] .fm-detail__info,
-.fm-detail.is-in[data-dir="next"] .fm-detail__media { animation: fmSwapInNext .52s cubic-bezier(.16, 1, .3, 1) both; }
-.fm-detail.is-in[data-dir="prev"] .fm-detail__info,
-.fm-detail.is-in[data-dir="prev"] .fm-detail__media { animation: fmSwapInPrev .52s cubic-bezier(.16, 1, .3, 1) both; }
+/* 切换后的新内容：只做位移，透明度交给 .is-content 的逐项入场 */
+@keyframes fmSlideNext { from { transform: translate3d(52px, 0, 0); } to { transform: none; } }
+@keyframes fmSlidePrev { from { transform: translate3d(-52px, 0, 0); } to { transform: none; } }
+
+.fm-detail.is-swap-next .fm-detail__info,
+.fm-detail.is-swap-next .fm-detail__media { animation: fmSlideNext .66s cubic-bezier(.19, 1, .22, 1) both; }
+.fm-detail.is-swap-prev .fm-detail__info,
+.fm-detail.is-swap-prev .fm-detail__media { animation: fmSlidePrev .66s cubic-bezier(.19, 1, .22, 1) both; }
+
+/* 减弱动效：不做飞行/滑动，直接切换 */
+@media (prefers-reduced-motion: reduce) {
+  .fm-detail.is-swap-next .fm-detail__info,
+  .fm-detail.is-swap-next .fm-detail__media,
+  .fm-detail.is-swap-prev .fm-detail__info,
+  .fm-detail.is-swap-prev .fm-detail__media { animation: none; }
+  .fm-detail.is-out .fm-detail__info,
+  .fm-detail.is-out .fm-detail__media { animation: none; opacity: 0; }
+}
 
 html.fm-detail-open, html.fm-detail-open body { overflow: hidden !important; }
 

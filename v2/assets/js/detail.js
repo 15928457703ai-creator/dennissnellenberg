@@ -1,6 +1,6 @@
 /* Fengmei · 案例详情弹窗 */
 (function () {
-  var DATA = [{"slug":"oppo-mini","i":1,"title":"OPPO 自助服务小程序","desc":"小程序整体体验升级与设计规范沉淀，重构服务入口与内容结构，月活 34.81W。","year":"2025","role":"主设 · 交互 / 视觉","loc":"China","tags":["OPPO 全球服务中心","Mini Program"],"award":"","images":[{"src":"assets/ours/oppo-mini/p01.webp","w":1920,"h":1080,"n":"p01"},{"src":"assets/ours/oppo-mini/p02.webp","w":1920,"h":1080,"n":"p02"},{"src":"assets/ours/oppo-mini/p03.webp","w":1920,"h":1080,"n":"p03"},{"src":"assets/ours/oppo-mini/p04.webp","w":1920,"h":1080,"n":"p04"},{"src":"assets/ours/oppo-mini/p05.webp","w":1920,"h":1080,"n":"p05"},{"src":"assets/ours/oppo-mini/p06.webp","w":1920,"h":1080,"n":"p06"},{"src":"assets/ours/oppo-mini/p07.webp","w":1920,"h":1080,"n":"p07"},{"src":"assets/ours/oppo-mini/p08.webp","w":1920,"h":1080,"n":"p08"},{"src":"assets/ours/oppo-mini/p09.webp","w":1920,"h":1080,"n":"p09"},{"src":"assets/ours/oppo-mini/p10.webp","w":1920,"h":1200,"n":"p10"}]},{"slug":"oppo-self","i":2,"title":"OPPO 自助服务","desc":"自助服务体验优化：以用户研究定位体验断点，重排服务动线与信息层级。","year":"2023","role":"体验设计","loc":"China","tags":["OPPO 全球服务中心","UX / UI"],"award":"","images":[{"src":"assets/ours/oppo-self/card.jpg","w":1250,"h":720,"n":"card"},{"src":"assets/ours/oppo-self/extra1.webp","w":2000,"h":1219,"n":"extra1"},{"src":"assets/ours/oppo-self/extra2.webp","w":2000,"h":2003,"n":"extra2"}]},{"slug":"oppo","i":3,"title":"OPPO 售后服务","desc":"凤凰计划下的售后服务体验提升，从调研、旅程梳理到界面与组件规范。","year":"2024","role":"UX Research & UI","loc":"China","tags":["OPPO 服务中心 UED","Design System"],"award":"","images":[{"src":"assets/ours/oppo/card.jpg","w":1250,"h":720,"n":"card"},{"src":"assets/ours/oppo/extra1.jpg","w":1920,"h":1080,"n":"extra1"},{"src":"assets/ours/oppo/extra2.jpg","w":1920,"h":1080,"n":"extra2"},{"src":"assets/ours/oppo/extra3.jpg","w":1920,"h":1080,"n":"extra3"}]},{"slug":"erp","i":4,"title":"金沙白酒 ERP","desc":"移动端 ERP 从 0 到 1 建设，覆盖 60+ 工厂场景的交互与视觉体系。","year":"2025","role":"交互与视觉主设","loc":"China","tags":["金沙酒业 · 华润","ERP"],"award":"","images":[{"src":"assets/ours/erp/card.jpg","w":1250,"h":720,"n":"card"},{"src":"assets/ours/erp/extra1.webp","w":1508,"h":1812,"n":"extra1"},{"src":"assets/ours/erp/extra2.webp","w":1600,"h":1557,"n":"extra2"},{"src":"assets/ours/erp/extra3.webp","w":1600,"h":638,"n":"extra3"}]},{"slug":"videotest","i":5,"title":"Naivideo","desc":"PicLumen 旗下海外 AI 视频与图像创作 App，为短剧创作者提供 AIGC 工作流。","year":"2024","role":"主设 · 用户体验","loc":"Spain","tags":["PicLumen","AI App"],"award":"","images":[{"src":"assets/ours/videotest/card.jpg","w":1250,"h":720,"n":"card"},{"src":"assets/ours/videotest/extra1.webp","w":460,"h":321,"n":"extra1"},{"src":"assets/ours/videotest/extra2.webp","w":304,"h":340,"n":"extra2"}]},{"slug":"fabric","i":6,"title":"FABRIC™","desc":"品牌官网的设计与前端实现，克制的排版与细腻的滚动节奏。","year":"2023","role":"Design & Development","loc":"United Kingdom","tags":["Branding: Ché Heijnen","Website"],"award":"","images":[{"src":"assets/ours/fabric/card.jpg","w":1250,"h":720,"n":"card"}]},{"slug":"aanstekelijk","i":7,"title":"Aanstekelijk","desc":"创意机构站点的版式与动效设计，强调文字节奏与图像切换。","year":"2023","role":"Design & Development","loc":"Netherlands","tags":["Branding: Ché Heijnen","Website"],"award":"","images":[{"src":"assets/ours/aanstekelijk/card.jpg","w":1250,"h":720,"n":"card"}]},{"slug":"base-create","i":8,"title":"Base Create","desc":"设计与开发一体的品牌站，模块化区块与轻量动效。","year":"2023","role":"Design & Development","loc":"Hong Kong","tags":["Hong Kong","Website"],"award":"","images":[{"src":"assets/ours/base-create/card.jpg","w":1250,"h":720,"n":"card"}]},{"slug":"avvr","i":9,"title":"AVVR","desc":"以建筑影像为主体的作品站，全屏图像与极简导航。","year":"2023","role":"Design & Development","loc":"Netherlands","tags":["Branding: Ché Heijnen","Website"],"award":"","images":[{"src":"assets/ours/avvr/card.jpg","w":1250,"h":720,"n":"card"}]},{"slug":"graphichunters","i":10,"title":"GraphicHunters","desc":"平面设计作品集站点，网格系统与悬停预览的细节处理。","year":"2022","role":"Design & Development","loc":"Netherlands","tags":["Netherlands","Website"],"award":"","images":[{"src":"assets/ours/graphichunters/card.jpg","w":1250,"h":720,"n":"card"}]},{"slug":"future-goals","i":11,"title":"Future Goals","desc":"概念项目，交互与前端实现，探索滚动叙事的节奏。","year":"2022","role":"Interaction & Development","loc":"Curaçao","tags":["Concept: One:Nil","Website"],"award":"","images":[{"src":"assets/ours/future-goals/card.jpg","w":1250,"h":720,"n":"card"}]},{"slug":"atypikal","i":12,"title":"Atypikal","desc":"交互与开发，围绕字体与图像的混合排版实验。","year":"2021","role":"Interaction & Development","loc":"United States","tags":["Design: Robyn Cambruzzi","Website"],"award":"","images":[{"src":"assets/ours/atypikal/card.jpg","w":1250,"h":720,"n":"card"}]},{"slug":"one-nil","i":13,"title":"One:Nil","desc":"工作室官网的交互实现，克制的黑白系统与细节动效。","year":"2021","role":"Interaction & Development","loc":"Netherlands","tags":["Design: GraphicHunters","Website"],"award":"","images":[{"src":"assets/ours/one-nil/card.jpg","w":1250,"h":720,"n":"card"}]},{"slug":"andy-hardy","i":14,"title":"Andy Hardy","desc":"摄影师作品站，全屏影像与极简信息层。","year":"2020","role":"Design & Development","loc":"Australia","tags":["Australia","Website"],"award":"","images":[{"src":"assets/ours/andy-hardy/card.jpg","w":1250,"h":720,"n":"card"}]}];
+  var DATA = [{"slug":"oppo-mini","i":1,"title":"OPPO 自助服务小程序","desc":"小程序整体体验升级与设计规范沉淀，重构服务入口与内容结构，月活 34.81W。","year":"2025","role":"主设 · 交互 / 视觉","loc":"China","tags":["OPPO 全球服务中心","Mini Program"],"award":"","cover":"assets/ours/oppo-mini/card.jpg","images":[{"src":"assets/ours/oppo-mini/p01.webp","w":1920,"h":1080,"n":"p01"},{"src":"assets/ours/oppo-mini/p02.webp","w":1920,"h":1080,"n":"p02"},{"src":"assets/ours/oppo-mini/p03.webp","w":1920,"h":1080,"n":"p03"},{"src":"assets/ours/oppo-mini/p04.webp","w":1920,"h":1080,"n":"p04"},{"src":"assets/ours/oppo-mini/p05.webp","w":1920,"h":1080,"n":"p05"},{"src":"assets/ours/oppo-mini/p06.webp","w":1920,"h":1080,"n":"p06"},{"src":"assets/ours/oppo-mini/p07.webp","w":1920,"h":1080,"n":"p07"},{"src":"assets/ours/oppo-mini/p08.webp","w":1920,"h":1080,"n":"p08"},{"src":"assets/ours/oppo-mini/p09.webp","w":1920,"h":1080,"n":"p09"},{"src":"assets/ours/oppo-mini/p10.webp","w":1920,"h":1200,"n":"p10"}]},{"slug":"oppo-self","i":2,"title":"OPPO 自助服务","desc":"自助服务体验优化：以用户研究定位体验断点，重排服务动线与信息层级。","year":"2023","role":"体验设计","loc":"China","tags":["OPPO 全球服务中心","UX / UI"],"award":"","cover":"assets/ours/oppo-self/card.jpg","images":[{"src":"assets/ours/oppo-self/card.jpg","w":1250,"h":720,"n":"card"},{"src":"assets/ours/oppo-self/extra1.webp","w":2000,"h":1219,"n":"extra1"},{"src":"assets/ours/oppo-self/extra2.webp","w":2000,"h":2003,"n":"extra2"}]},{"slug":"oppo","i":3,"title":"OPPO 售后服务","desc":"凤凰计划下的售后服务体验提升，从调研、旅程梳理到界面与组件规范。","year":"2024","role":"UX Research & UI","loc":"China","tags":["OPPO 服务中心 UED","Design System"],"award":"","cover":"assets/ours/oppo/card.jpg","images":[{"src":"assets/ours/oppo/card.jpg","w":1250,"h":720,"n":"card"},{"src":"assets/ours/oppo/extra1.jpg","w":1920,"h":1080,"n":"extra1"},{"src":"assets/ours/oppo/extra2.jpg","w":1920,"h":1080,"n":"extra2"},{"src":"assets/ours/oppo/extra3.jpg","w":1920,"h":1080,"n":"extra3"}]},{"slug":"erp","i":4,"title":"金沙白酒 ERP","desc":"移动端 ERP 从 0 到 1 建设，覆盖 60+ 工厂场景的交互与视觉体系。","year":"2025","role":"交互与视觉主设","loc":"China","tags":["金沙酒业 · 华润","ERP"],"award":"","cover":"assets/ours/erp/card.jpg","images":[{"src":"assets/ours/erp/card.jpg","w":1250,"h":720,"n":"card"},{"src":"assets/ours/erp/extra1.webp","w":1508,"h":1812,"n":"extra1"},{"src":"assets/ours/erp/extra2.webp","w":1600,"h":1557,"n":"extra2"},{"src":"assets/ours/erp/extra3.webp","w":1600,"h":638,"n":"extra3"}]},{"slug":"videotest","i":5,"title":"Naivideo","desc":"PicLumen 旗下海外 AI 视频与图像创作 App，为短剧创作者提供 AIGC 工作流。","year":"2024","role":"主设 · 用户体验","loc":"Spain","tags":["PicLumen","AI App"],"award":"","cover":"assets/ours/videotest/card.jpg","images":[{"src":"assets/ours/videotest/card.jpg","w":1250,"h":720,"n":"card"},{"src":"assets/ours/videotest/extra1.webp","w":460,"h":321,"n":"extra1"},{"src":"assets/ours/videotest/extra2.webp","w":304,"h":340,"n":"extra2"}]},{"slug":"fabric","i":6,"title":"FABRIC™","desc":"品牌官网的设计与前端实现，克制的排版与细腻的滚动节奏。","year":"2023","role":"Design & Development","loc":"United Kingdom","tags":["Branding: Ché Heijnen","Website"],"award":"","cover":"assets/ours/fabric/card.jpg","images":[{"src":"assets/ours/fabric/card.jpg","w":1250,"h":720,"n":"card"}]},{"slug":"aanstekelijk","i":7,"title":"Aanstekelijk","desc":"创意机构站点的版式与动效设计，强调文字节奏与图像切换。","year":"2023","role":"Design & Development","loc":"Netherlands","tags":["Branding: Ché Heijnen","Website"],"award":"","cover":"assets/ours/aanstekelijk/card.jpg","images":[{"src":"assets/ours/aanstekelijk/card.jpg","w":1250,"h":720,"n":"card"}]},{"slug":"base-create","i":8,"title":"Base Create","desc":"设计与开发一体的品牌站，模块化区块与轻量动效。","year":"2023","role":"Design & Development","loc":"Hong Kong","tags":["Hong Kong","Website"],"award":"","cover":"assets/ours/base-create/card.jpg","images":[{"src":"assets/ours/base-create/card.jpg","w":1250,"h":720,"n":"card"}]},{"slug":"avvr","i":9,"title":"AVVR","desc":"以建筑影像为主体的作品站，全屏图像与极简导航。","year":"2023","role":"Design & Development","loc":"Netherlands","tags":["Branding: Ché Heijnen","Website"],"award":"","cover":"assets/ours/avvr/card.jpg","images":[{"src":"assets/ours/avvr/card.jpg","w":1250,"h":720,"n":"card"}]},{"slug":"graphichunters","i":10,"title":"GraphicHunters","desc":"平面设计作品集站点，网格系统与悬停预览的细节处理。","year":"2022","role":"Design & Development","loc":"Netherlands","tags":["Netherlands","Website"],"award":"","cover":"assets/ours/graphichunters/card.jpg","images":[{"src":"assets/ours/graphichunters/card.jpg","w":1250,"h":720,"n":"card"}]},{"slug":"future-goals","i":11,"title":"Future Goals","desc":"概念项目，交互与前端实现，探索滚动叙事的节奏。","year":"2022","role":"Interaction & Development","loc":"Curaçao","tags":["Concept: One:Nil","Website"],"award":"","cover":"assets/ours/future-goals/card.jpg","images":[{"src":"assets/ours/future-goals/card.jpg","w":1250,"h":720,"n":"card"}]},{"slug":"atypikal","i":12,"title":"Atypikal","desc":"交互与开发，围绕字体与图像的混合排版实验。","year":"2021","role":"Interaction & Development","loc":"United States","tags":["Design: Robyn Cambruzzi","Website"],"award":"","cover":"assets/ours/atypikal/card.jpg","images":[{"src":"assets/ours/atypikal/card.jpg","w":1250,"h":720,"n":"card"}]},{"slug":"one-nil","i":13,"title":"One:Nil","desc":"工作室官网的交互实现，克制的黑白系统与细节动效。","year":"2021","role":"Interaction & Development","loc":"Netherlands","tags":["Design: GraphicHunters","Website"],"award":"","cover":"assets/ours/one-nil/card.jpg","images":[{"src":"assets/ours/one-nil/card.jpg","w":1250,"h":720,"n":"card"}]},{"slug":"andy-hardy","i":14,"title":"Andy Hardy","desc":"摄影师作品站，全屏影像与极简信息层。","year":"2020","role":"Design & Development","loc":"Australia","tags":["Australia","Website"],"award":"","cover":"assets/ours/andy-hardy/card.jpg","images":[{"src":"assets/ours/andy-hardy/card.jpg","w":1250,"h":720,"n":"card"}]}];
   var MAP = {};
   DATA.forEach(function (p) { MAP[p.slug] = p; });
 
@@ -141,7 +141,136 @@
     media.addEventListener('dragstart', function (e) { e.preventDefault(); });
   }
 
-  var cur = 0, curSlug = '', swapTimer = 0;
+  var cur = 0, curSlug = '', swapTimer = 0, ghostEl = null, flyTimer = null, ghostTimer = null;
+  var lastOrigin = null, panelAnim = null;
+  var FLY_OPEN = 680, FLY_SWAP = 560, FLY_CLOSE = 500;
+  var EASE = 'cubic-bezier(.19, 1, .22, 1)';
+
+  function isMobile() { return window.matchMedia('(max-width: 900px)').matches; }
+  function still() { return window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
+
+  /* 起点：被点的那张卡片 / 列表行 / 侧边预览卡的真实矩形 */
+  function rectOf(node) {
+    if (!node || !node.getBoundingClientRect) return null;
+    var r = node.getBoundingClientRect();
+    if (r.width < 8 || r.height < 8) return null;
+    if (r.right < 0 || r.left > window.innerWidth || r.bottom < 0 || r.top > window.innerHeight) return null;
+    var rad = 12;
+    try { rad = parseFloat(getComputedStyle(node).borderTopLeftRadius) || 12; } catch (e) {}
+    return { x: r.left, y: r.top, w: r.width, h: r.height, r: Math.min(rad, r.height / 2) };
+  }
+
+  /* 深链进入：参考站没有起点卡片时，从画面中央一个小 sheet 长出来 */
+  function defaultOrigin() {
+    var W = window.innerWidth, H = window.innerHeight;
+    if (isMobile()) return { x: 0, y: Math.round(H * 0.34), w: W, h: Math.round(H * 0.66), r: 20 };
+    var w = Math.round(W * 0.46), h = Math.round(H * 0.46);
+    return { x: Math.round((W - w) / 2), y: Math.round((H - h) / 2), w: w, h: h, r: 14 };
+  }
+
+  /* 方向切换：从要去的那个方向的一条窄边展开 */
+  function sideOrigin(dir) {
+    var W = window.innerWidth, H = window.innerHeight;
+    var pad = isMobile() ? 0 : 24;
+    var w = isMobile() ? Math.round(W * 0.16) : 44;
+    return { x: dir > 0 ? W - pad - w : pad, y: pad, w: w, h: H - pad * 2, r: isMobile() ? 14 : 11 };
+  }
+
+  function panelRect() {
+    var W = window.innerWidth, H = window.innerHeight;
+    if (isMobile()) return { x: 0, y: 0, w: W, h: H, r: 0 };
+    return { x: 24, y: 24, w: W - 48, h: H - 48, r: 16 };
+  }
+
+  function clearGhost() {
+    clearTimeout(ghostTimer);
+    if (ghostEl && ghostEl.parentNode) ghostEl.parentNode.removeChild(ghostEl);
+    ghostEl = null;
+  }
+
+  /* 白色 sheet 从起点飞向面板矩形 —— 参考站里“卡片变成详情页”的那段 flight */
+  function fly(from, cover, dur) {
+    clearGhost();
+    clearTimeout(flyTimer);
+    if (!el) return;
+
+    el.classList.add('is-flying');
+    el.classList.remove('is-content');
+
+    var to = panelRect();
+    var instant = still();
+
+    var g = h('div', 'fm-ghost');
+    g.innerHTML = '<img class="fm-ghost__img" alt="" decoding="async"><span class="fm-ghost__wash"></span>';
+    g.style.left = from.x + 'px';
+    g.style.top = from.y + 'px';
+    g.style.width = from.w + 'px';
+    g.style.height = from.h + 'px';
+    g.style.borderRadius = from.r + 'px';
+    if (cover) g.querySelector('.fm-ghost__img').src = cover;
+    document.body.appendChild(g);
+    ghostEl = g;
+
+    var sx = to.w / from.w, sy = to.h / from.h;
+    var dx = to.x - from.x, dy = to.y - from.y;
+    var rTo = Math.max(0, Math.round(to.r / Math.max(sx, sy)));
+
+    if (!instant && g.animate) {
+      /* 只用 transform（合成层）—— 参考站也是一块 plane 在 3D 里飞，不触发重排 */
+      g.animate([
+        { transform: 'translate3d(0, 0, 0) scale(1, 1)', borderRadius: from.r + 'px' },
+        { transform: 'translate3d(' + dx + 'px,' + dy + 'px, 0) scale(' + sx + ',' + sy + ')', borderRadius: rTo + 'px' }
+      ], { duration: dur, easing: EASE, fill: 'both' });
+
+      if (cover) {
+        g.querySelector('.fm-ghost__img').animate([
+          { transform: 'scale(1.05)', opacity: 1 },
+          { transform: 'scale(1)', opacity: 1, offset: .72 },
+          { transform: 'scale(1)', opacity: 0, offset: 1 }
+        ], { duration: dur, easing: 'cubic-bezier(.2, .8, .3, 1)', fill: 'both' });
+
+        /* 卡面一路保持可见，临落地时冲白 —— 和参考站 u_white 0→1 的做法一致 */
+        g.querySelector('.fm-ghost__wash').animate([
+          { opacity: 0 },
+          { opacity: .22, offset: .38 },
+          { opacity: .9, offset: .84 },
+          { opacity: 1, offset: .97 },
+          { opacity: 1 }
+        ], { duration: dur, easing: 'linear', fill: 'both' });
+      } else {
+        g.querySelector('.fm-ghost__wash').style.opacity = '1';
+        g.querySelector('.fm-ghost__img').style.display = 'none';
+      }
+    }
+
+    var panelIn = instant ? 0 : Math.round(dur * 0.75);
+
+    /* 面板本体在 sheet 还完全盖着的时候先淡入（同色同形，接缝看不见） */
+    setTimeout(function () { if (el) el.classList.remove('is-flying'); }, panelIn);
+
+    /* sheet 正好落地的那一帧撤掉它，同时内容开始逐项入场 —— 不会出现半透明白块 */
+    flyTimer = setTimeout(function () {
+      if (!el) return;
+      clearGhost();
+      el.classList.remove('is-flying');
+      el.classList.add('is-content');
+      revealMedia();
+    }, instant ? 0 : dur);
+
+    ghostTimer = setTimeout(clearGhost, instant ? 0 : dur + 60);
+  }
+
+  function revealMedia() {
+    if (!media) return;
+    var figs = media.querySelectorAll('figure');
+    for (var i = 0; i < figs.length; i++) {
+      (function (fig, idx) {
+        setTimeout(function () { fig.classList.add('is-in'); }, 20 + idx * 55);
+      })(figs[i], i);
+    }
+    var sheet = media.querySelector('.fm-detail__sheet');
+    if (sheet) setTimeout(function () { sheet.classList.add('is-in'); }, 130);
+  }
 
   function paint(p) {
     cur = p.i - 1;
@@ -167,9 +296,6 @@
       img.decoding = 'async';
       fig.appendChild(img);
       media.appendChild(fig);
-      requestAnimationFrame(function () {
-        setTimeout(function () { fig.classList.add('is-in'); }, 90 + idx * 70);
-      });
     });
 
     if (p.images.length < 2) {
@@ -181,36 +307,41 @@
         '<div class="fm-detail__sheet-row"><span>Tags</span><b>' + p.tags.join(' \u00b7 ') + '</b></div>' +
         '<a class="fm-detail__sheet-cta" href="mailto:345434367@qq.com">索要完整案例过程 <i>&#8599;</i></a>';
       media.appendChild(sheet);
-      requestAnimationFrame(function () {
-        setTimeout(function () { sheet.classList.add('is-in'); }, 260);
-      });
     }
 
     syncEdges();
     onScroll();
   }
 
-  function open(slug, dir) {
+  function open(slug, dir, originNode) {
     var p = MAP[slug];
     if (!p) return;
     if (!el) build();
     lastFocus = document.activeElement;
 
-    /* 弹窗已打开 → 左右切换：内容按方向滑出，换数据后从另一侧滑入 */
-    if (el.classList.contains('is-open') && curSlug && curSlug !== p.slug) {
+    var isOpen = el.classList.contains('is-open');
+    var from = rectOf(originNode) || (isOpen ? sideOrigin(dir || 1) : defaultOrigin());
+    lastOrigin = from;
+
+    /* 已经打开 → 切换：内容先退场，换数据后白色 sheet 从侧边重新长满 */
+    if (isOpen && curSlug && curSlug !== p.slug) {
       var d = dir || (p.i > (MAP[curSlug] ? MAP[curSlug].i : 1) ? 1 : -1);
       stopPlay();
       clearTimeout(swapTimer);
       el.dataset.dir = d > 0 ? 'next' : 'prev';
-      el.classList.remove('is-in');
+      el.classList.remove('is-content');
       el.classList.add('is-out');
       swapTimer = setTimeout(function () {
         paint(p);
-        el.classList.remove('is-out');
+        el.classList.remove('is-out', 'is-swap-next', 'is-swap-prev');
         void el.offsetWidth;
-        el.classList.add('is-in');
-        swapTimer = setTimeout(function () { el.classList.remove('is-in'); }, 640);
-      }, 220);
+        el.classList.add(d > 0 ? 'is-swap-next' : 'is-swap-prev');
+        el.classList.add('is-content');
+        revealMedia();
+        swapTimer = setTimeout(function () {
+          if (el) el.classList.remove('is-swap-next', 'is-swap-prev');
+        }, 780);
+      }, 170);
       setHash(p.slug);
       return;
     }
@@ -219,13 +350,16 @@
     document.documentElement.classList.add('fm-detail-open');
     el.classList.add('is-mounted');
     void el.offsetWidth;
-    el.classList.remove('is-closing', 'is-out', 'is-in');
+    if (panelAnim) { try { panelAnim.cancel(); } catch (e) {} panelAnim = null; }
+    el.classList.remove('is-closing', 'is-out', 'is-content');
     el.classList.add('is-open');
     el.setAttribute('aria-hidden', 'false');
+    fly(from, ROOT + p.cover, FLY_OPEN);
+
     setTimeout(function () {
       var panel = el && el.querySelector('.fm-detail__panel');
       if (panel) panel.focus({ preventScroll: true });
-    }, 420);
+    }, Math.round(FLY_OPEN * 0.72));
 
     setHash(p.slug);
   }
@@ -261,14 +395,33 @@
     if (!el || !el.classList.contains('is-open')) return;
     stopPlay();
     clearTimeout(swapTimer);
-    el.classList.remove('is-out', 'is-in');
+    clearTimeout(flyTimer);
+    clearGhost();
+
+    /* 反向 flight：面板缩回它来时的那张卡片 */
+    var panel = el.querySelector('.fm-detail__panel');
+    var back = lastOrigin;
+    if (panel && back && panel.animate && !still()) {
+      var pr = panelRect();
+      var sx = Math.max(.04, back.w / pr.w), sy = Math.max(.04, back.h / pr.h);
+      var dx = back.x - pr.x, dy = back.y - pr.y;
+      panelAnim = panel.animate([
+        { transform: 'none', borderRadius: pr.r + 'px', opacity: 1 },
+        { transform: 'translate(' + dx + 'px,' + dy + 'px) scale(' + sx + ',' + sy + ')',
+          borderRadius: (back.r || 12) + 'px', opacity: .25, offset: .92 },
+        { transform: 'translate(' + (dx * 1.01) + 'px,' + (dy * 1.01) + 'px) scale(' + sx + ',' + sy + ')',
+          borderRadius: (back.r || 12) + 'px', opacity: 0 }
+      ], { duration: FLY_CLOSE, easing: 'cubic-bezier(.4, 0, .2, 1)', fill: 'both' });
+    }
+
+    el.classList.remove('is-content', 'is-flying');
     el.classList.remove('is-open');
     el.classList.add('is-closing');
     el.setAttribute('aria-hidden', 'true');
     document.documentElement.classList.remove('fm-detail-open');
     setTimeout(function () {
       if (!el.classList.contains('is-open')) el.classList.remove('is-mounted', 'is-closing');
-    }, 320);
+    }, FLY_CLOSE + 40);
     if (!fromPop) {
       if (pushed) { pushed = false; try { history.back(); } catch (e) {} }
       else { try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {} }
@@ -352,7 +505,8 @@
     if (!slug) return;
     e.preventDefault();
     e.stopPropagation();
-    open(slug);
+    var origin = node.closest('[data-gl="card"], a[href*="projects/"], [data-slug], .item');
+    open(slug, 0, origin || null);
   }, true);
 
   window.addEventListener('popstate', function () {
