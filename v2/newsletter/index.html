@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>联系 — 冯梅 Fengmei</title>
+<meta name="description" content="联系冯梅：345434367@qq.com / 15928457703">
+<style>
+:root{--bg:#0a0a0b;--fg:#f2f2ef;--dim:rgba(242,242,239,.5);--line:rgba(242,242,239,.14)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--fg)}
+body{font-family:"Neue Montreal","HYQiHeiY2","PingFang SC","HarmonyOS Sans SC",-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+@font-face{font-family:"Neue Montreal";src:url(../assets/fonts/NeueMontreal-Regular.otf) format("opentype");font-weight:400}
+@font-face{font-family:"Neue Montreal";src:url(../assets/fonts/NeueMontreal-Bold.otf) format("opentype");font-weight:700}
+a{color:inherit;text-decoration:none}
+.bar{position:fixed;z-index:20;inset:0 0 auto 0;display:flex;justify-content:space-between;align-items:center;
+  padding:28px 40px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  background:linear-gradient(180deg,rgba(10,10,11,.92),rgba(10,10,11,0));backdrop-filter:blur(6px)}
+.bar a{opacity:.72}.bar a:hover{opacity:1}
+.floor{position:fixed;inset:auto 0 0 0;height:40vh;pointer-events:none;opacity:.45;
+  background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);
+  background-size:96px 96px;transform:perspective(520px) rotateX(62deg);transform-origin:bottom center;
+  mask-image:linear-gradient(180deg,transparent,#000 60%)}
+main{position:relative;z-index:5;max-width:1180px;margin:0 auto;padding:170px 40px 140px}
+.eyebrow{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--dim);margin-bottom:26px}
+h1{font-size:clamp(34px,5.4vw,72px);line-height:1;letter-spacing:-.03em;margin-bottom:56px;font-weight:700}
+.list{border-top:1px solid var(--line)}
+.item{display:grid;grid-template-columns:56px 1fr auto;gap:24px;align-items:baseline;
+  padding:26px 0;border-bottom:1px solid var(--line);transition:padding .35s cubic-bezier(.2,.8,.2,1),opacity .3s}
+.item:hover{padding-left:14px}
+.item .no{font-size:11px;letter-spacing:.16em;color:var(--dim)}
+.item .t{font-size:clamp(20px,2.2vw,32px);line-height:1.15;letter-spacing:-.02em}
+.item .m{font-size:12px;letter-spacing:.1em;color:var(--dim);text-transform:uppercase;white-space:nowrap}
+.contact{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:24px;max-width:760px}
+.contact a{display:block;border-top:1px solid var(--line);padding-top:16px;font-size:clamp(18px,2vw,26px)}
+.contact span{display:block;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-bottom:10px}
+p.lead{font-size:clamp(16px,1.5vw,20px);line-height:1.75;color:rgba(242,242,239,.82);max-width:40em;margin-bottom:56px}
+@media (max-width:760px){
+  main{padding:120px 22px 90px}
+  .bar{padding:20px 22px}
+  .item{grid-template-columns:1fr;gap:6px}
+  .item .m{margin-top:4px}
+  .contact{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="floor"></div>
+<div class="bar"><a href="../index.html">冯梅 FENGMEI</a><a href="../index.html">← 首页</a></div>
+<main><div class="eyebrow">Contact</div><h1>一起做点东西</h1><p class="lead">目前在看新的机会：体验设计、设计系统、以及需要把复杂业务讲清楚的产品。邮件或电话都可以，一般当天回复。</p><div class="contact"><a href="mailto:345434367@qq.com"><span>Email</span>345434367@qq.com</a><a href="tel:15928457703"><span>Phone</span>159 2845 7703</a></div></main>
+</body>
+</html>

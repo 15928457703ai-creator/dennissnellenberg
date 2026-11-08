@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OPPO 自助服务小程序 — 冯梅 Fengmei</title>
+<meta name="description" content="小程序整体体验升级与设计规范沉淀，重构服务入口与内容结构，月活 34.81W。">
+<style>
+:root{--bg:#0a0a0b;--fg:#f2f2ef;--dim:rgba(242,242,239,.55);--line:rgba(242,242,239,.14)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--fg)}
+body{font-family:"Neue Montreal","HYQiHeiY2","PingFang SC","HarmonyOS Sans SC",-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased}
+@font-face{font-family:"Neue Montreal";src:url(../../assets/fonts/NeueMontreal-Regular.otf) format("opentype");font-weight:400}
+@font-face{font-family:"Neue Montreal";src:url(../../assets/fonts/NeueMontreal-Bold.otf) format("opentype");font-weight:700}
+a{color:inherit;text-decoration:none}
+.bar{position:fixed;z-index:20;inset:0 0 auto 0;display:flex;justify-content:space-between;align-items:center;
+  padding:28px 40px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  background:linear-gradient(180deg,rgba(10,10,11,.92),rgba(10,10,11,0));backdrop-filter:blur(6px)}
+.bar a{opacity:.75;transition:opacity .25s}.bar a:hover{opacity:1}
+.floor{position:fixed;inset:auto 0 0 0;height:42vh;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);
+  background-size:96px 96px;transform:perspective(520px) rotateX(62deg);transform-origin:bottom center;
+  mask-image:linear-gradient(180deg,transparent,#000 60%)}
+main{position:relative;z-index:5;max-width:1180px;margin:0 auto;padding:180px 40px 140px}
+.eyebrow{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--dim);margin-bottom:28px}
+h1{font-size:clamp(38px,7vw,92px);line-height:.96;letter-spacing:-.03em;font-weight:700;margin-bottom:44px}
+.meta{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);padding:24px 0;margin-bottom:56px}
+.meta div span{display:block;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-bottom:8px}
+.meta div p{font-size:15px}
+.lead{font-size:clamp(17px,1.6vw,22px);line-height:1.75;color:rgba(242,242,239,.86);max-width:46em;margin-bottom:72px}
+figure{margin:0 0 28px}
+figure img{display:block;width:100%;height:auto;border-radius:18px}
+.cap{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-top:12px}
+.nav{display:flex;justify-content:space-between;gap:24px;border-top:1px solid var(--line);
+  margin-top:96px;padding-top:32px;font-size:13px;letter-spacing:.06em}
+.nav a{opacity:.7}.nav a:hover{opacity:1}
+@media (max-width:760px){
+  main{padding:130px 22px 90px}
+  .meta{grid-template-columns:1fr;gap:18px}
+  .bar{padding:20px 22px}
+}
+</style>
+</head>
+<body>
+<div class="floor"></div>
+<div class="bar">
+  <a href="../../index.html">冯梅 FENGMEI</a>
+  <a href="../../full/index.html">← 全部作品</a>
+</div>
+<main>
+  <div class="eyebrow">Selected work · 01 / 14</div>
+  <h1>OPPO 自助服务小程序</h1>
+  <div class="meta">
+    <div><span>Year</span><p>2025</p></div>
+    <div><span>Location</span><p>China</p></div>
+    <div><span>Role</span><p>主设 · 交互 / 视觉</p></div>
+  </div>
+  <p class="lead">小程序整体体验升级与设计规范沉淀，重构服务入口与内容结构，月活 34.81W。</p>
+  <figure><img src="../../assets/ours/oppo-mini/card.jpg" alt="OPPO 自助服务小程序" loading="eager"><div class="cap">01 — 封面</div></figure>
+  <figure><img src="../../assets/ours/oppo-mini/extra1.webp" alt="OPPO 自助服务小程序" loading="lazy"><div class="cap">02 — 过程与方案</div></figure>
+  <figure><img src="../../assets/ours/oppo-mini/extra2.webp" alt="OPPO 自助服务小程序" loading="lazy"><div class="cap">03 — 界面细节</div></figure>
+  <div class="nav">
+    <a href="../andy-hardy/index.html">← Andy Hardy</a>
+    <a href="../oppo-self/index.html">OPPO 自助服务 →</a>
+  </div>
+</main>
+</body>
+</html>
