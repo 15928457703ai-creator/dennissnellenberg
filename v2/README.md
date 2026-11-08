@@ -22,7 +22,9 @@ v2/
 ├── _payload.json           # 首页数据（14 个案例，devalue 扁平格式）
 ├── full/index.html         # 全部作品索引（静态页）
 ├── newsletter/index.html   # 联系页（静态页，沿用原站 URL）
-├── projects/<slug>/        # 14 个案例详情页（静态页）
+├── projects/<slug>/        # 14 个案例详情页（静态页，深链兜底）
+├── assets/css/detail.css   # 详情弹窗样式
+├── assets/js/detail.js     # 详情弹窗逻辑 + 14 个案例的数据（含图片清单）
 ├── assets/ours/<slug>/     # 每个案例的卡片图 + 过程图
 ├── textures/ours_*.ktx2    # 卡片图编码成 GPU 纹理（Basis UASTC/ETC1S）
 ├── textures/manifest.json  # 图片路径 → ktx2 映射（含 ours/ 条目）
@@ -39,9 +41,13 @@ v2/
    所有图先**垂直翻转**再用 `basisu -ktx2` 编码——WebGL 侧是 flipY=false，不翻转会上下颠倒。
 3. **个人信息**：`_nuxt/DZyj3ghP.js` 里的姓名 / 职务 / 邮箱 / 简介 / 荣誉行 / 技能 / 社交链接，
    以及 Profile 浮层的三处文案字面量，全部换成中文（WebGL 文字走 canvas 光栅化，中文可正常渲染）。
-4. **路由**：静态镜像没有 Nuxt 服务端路由，`index.html` 里加了 `ours-router` 脚本，
-   把卡片点击与页脚 `/full`、`/newsletter` 链接改跳静态页面。
-5. **移动端**：≤900px 隐藏 WebGL 舞台，改用同风格的纵向卡片列表（`m-fallback`），避免卡片重叠。
+4. **详情弹窗**：卡片点击不再跳页，改为在首页上浮出白色圆角面板——
+   左边是标题 / 简介 / 年份·角色药丸 + 自动浏览按钮，右边是可独立滚动的通栏图片流，
+   右上角圆形关闭。Esc 关闭、←/→ 切换上下案例、`#work=<slug>` 可直达、
+   滚到底自动停止播放，左下角的圆环是图片列滚动进度。
+5. **路由**：静态镜像没有 Nuxt 服务端路由，`index.html` 里加了 `ours-router` 脚本，
+   把页脚 `/full`、`/newsletter` 链接改跳静态页面。
+6. **移动端**：≤900px 隐藏 WebGL 舞台，改用同风格的纵向卡片列表（`m-fallback`），避免卡片重叠。
 
 ## 已知缺口（原站镜像自带，与本次改动无关）
 
@@ -53,4 +59,6 @@ v2/
 - 换案例：改 `_payload.json`（devalue 扁平格式，可用配套脚本重新生成）+ 替换 `assets/ours/<slug>/card.jpg`
   并重新编码 `textures/ours_<slug>_card.ktx2`、更新 `textures/manifest.json`。
 - 改个人信息：搜 `_nuxt/DZyj3ghP.js` 里的 `冯梅`，共 4 处（数据对象 + 三处渲染字面量）。
-- 改详情页：`projects/<slug>/index.html` 是普通静态页，直接编辑即可。
+- 改详情弹窗：`assets/js/detail.js` 顶部的 `DATA` 数组（标题 / 简介 / 年份 / 角色 / 标签 / 图片清单）
+  与 `assets/css/detail.css`；图片放在 `assets/ours/<slug>/`，`card.*` 排最前。
+- 旧的深链页：`projects/<slug>/index.html` 仍是普通静态页，直接编辑即可（弹窗之外的兜底）。
