@@ -11,7 +11,7 @@
   })();
   var ROOT = script ? script.src.replace(/assets\/js\/detail\.js.*$/, '') : './';
 
-  var el = null, media, ringBar, lastFocus = null, rafId = 0, playing = false, pushed = false;
+  var el = null, media, view, trk, ringBar, lastFocus = null, rafId = 0, playing = false, pushed = false;
 
   function h(tag, cls, html) {
     var n = document.createElement(tag);
@@ -119,7 +119,7 @@
             '<button class="fm-detail__next" type="button">下一个案例 <i>&#8594;</i></button>' +
           '</div>' +
         '</div>' +
-        '<div class="fm-detail__media" tabindex="-1"></div>' +
+        '<div class="fm-detail__media" tabindex="-1"><div class="fm-media__view"><div class="fm-media__track"></div></div></div>' +
         '<div class="fm-detail__gutter">' +
           '<button class="fm-detail__close fm-round" type="button" aria-label="关闭">' +
             '<span class="fm-round__hole" aria-hidden="true"></span>' +
@@ -127,12 +127,15 @@
             '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.6 1.6l12.8 12.8M14.4 1.6L1.6 14.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>' +
           '</button>' +
         '</div>' +
+        '<div class="fm-detail__wipe" aria-hidden="true"></div>' +
       '</div>' +
       edgeHTML('prev') +
       edgeHTML('next');
     document.body.appendChild(wrap);
     el = wrap;
     media = wrap.querySelector('.fm-detail__media');
+    view = wrap.querySelector('.fm-media__view');
+    trk = wrap.querySelector('.fm-media__track');
     ringBar = wrap.querySelector('.fm-detail__ring .bar');
 
     wrap.querySelector('.fm-detail__close').addEventListener('click', close);
@@ -140,11 +143,12 @@
     wrap.querySelector('.fm-detail__next').addEventListener('click', function () { step(1); });
     wrap.querySelector('.fm-detail__play').addEventListener('click', togglePlay);
     bindEdges(wrap);
-    media.addEventListener('scroll', onScroll, { passive: true });
     bindDrag();
+    bindWheel();
+    bindLens();
     bindHovers(wrap);
     window.addEventListener('keydown', onKey);
-    window.addEventListener('resize', onScroll);
+    window.addEventListener('resize', onResize);
   }
 
   var EDGES = [['prev', -1], ['next', 1]];
@@ -161,49 +165,239 @@
     });
   }
 
-  /* 抓住图片列上下拖：还原原站 cursor:grab / grabbing 的拖拽手感 */
-  var drag = { on: false, y: 0, top: 0, v: 0, t: 0, id: null };
+  /* ── 图片列：无限循环滚动 ──
+     参考站 measure({inner, outer}) 的做法：图片按索引算虚拟位置，做 modulo 回绕，
+     滚出上边的那张直接出现在最下面，所以永远滚不到底；速度走惯性衰减。 */
+  var loop = { y: 0, v: 0, total: 0, cum: [], h: [], items: [], gap: 44, raf: 0 };
+  var drag = { on: false, y: 0, start: 0, v: 0, t: 0, id: null };
 
+  function track() { return el && el.querySelector('.fm-media__track'); }
+
+  function measureLoop() {
+    var tr = track();
+    if (!tr) return;
+    var items = [].slice.call(tr.children);
+    loop.items = items;
+    if (!items.length) { loop.total = 0; return; }
+    loop.gap = parseFloat(getComputedStyle(media).getPropertyValue('--fm-gap')) || 44;
+    var hs = [], cum = [], acc = 0, i;
+    for (i = 0; i < items.length; i++) { hs.push(items[i].offsetHeight); cum.push(acc); acc += hs[i] + loop.gap; }
+    loop.h = hs; loop.cum = cum; loop.total = acc;
+  }
+
+  function renderLoop() {
+    if (!loop.items.length || !loop.total) return;
+    var total = loop.total, H = view.clientHeight + 240;
+    var y = loop.y % total; if (y < 0) y += total;
+    for (var i = 0; i < loop.items.length; i++) {
+      var py = (loop.cum[i] - y) % total; if (py < 0) py += total;
+      var n = loop.items[i];
+      n.style.transform = 'translate3d(0,' + py.toFixed(2) + 'px,0)';
+      /* 可视带外直接隐藏，图多时不浪费合成 */
+      n.style.visibility = py < H ? '' : 'hidden';
+    }
+    if (ringBar) {
+      var r = Math.min(1, Math.max(0, y / total));
+      ringBar.style.strokeDashoffset = String(56.5 * (1 - r));
+    }
+  }
+
+  function loopFrame() {
+    loop.raf = 0;
+    if (!el || !el.classList.contains('is-open')) return;
+    var moving = false;
+    if (!drag.on && loop.v) {
+      loop.y += loop.v; loop.v *= 0.93;
+      if (Math.abs(loop.v) < 0.05) loop.v = 0;
+      moving = true;
+    }
+    if (playing) { loop.y += 1.0; moving = true; }
+    if (moving) renderLoop();
+    loop.raf = requestAnimationFrame(loopFrame);
+  }
+  function kick() { if (!loop.raf) loop.raf = requestAnimationFrame(loopFrame); }
+
+  function bindWheel() {
+    media.addEventListener('wheel', function (e) {
+      if (!loop.total) return;
+      e.preventDefault();
+      var d = e.deltaY;
+      if (e.deltaMode === 1) d *= 18; else if (e.deltaMode === 2) d *= view.clientHeight;
+      loop.y += d;
+      loop.v = d * 0.06;
+      if (Math.abs(d) > 1.5) stopPlay();
+      renderLoop();
+      kick();
+    }, { passive: false });
+  }
+
+  /* 抓住图片列上下拖 —— 原站整页 grab 光标，拖起来是同一套回绕 */
   function bindDrag() {
     media.addEventListener('pointerdown', function (e) {
-      if (e.button !== 0 || e.pointerType === 'touch') return;
+      if (e.button !== 0 || !loop.total) return;
       if (e.target.closest('a, button')) return;
-      drag.on = true; drag.y = e.clientY; drag.top = media.scrollTop;
+      drag.on = true; drag.y = e.clientY; drag.start = loop.y;
       drag.v = 0; drag.t = performance.now(); drag.id = e.pointerId;
       stopPlay();
       el.classList.add('is-dragging');
       try { media.setPointerCapture(e.pointerId); } catch (err) {}
+      kick();
     });
     media.addEventListener('pointermove', function (e) {
       if (!drag.on) return;
       e.preventDefault();
-      var now = performance.now();
-      var prev = media.scrollTop;
-      media.scrollTop = drag.top - (e.clientY - drag.y);
+      var now = performance.now(), prev = loop.y;
+      loop.y = drag.start - (e.clientY - drag.y);
       var dt = now - drag.t;
-      if (dt > 0) drag.v = (media.scrollTop - prev) / dt * 16;
+      if (dt > 0) drag.v = (loop.y - prev) / dt * 16;
       drag.t = now;
+      renderLoop();
     });
     var end = function (e) {
       if (!drag.on) return;
       drag.on = false;
       el.classList.remove('is-dragging');
       try { media.releasePointerCapture(drag.id == null ? e.pointerId : drag.id); } catch (err) {}
-      (function glide() {
-        if (Math.abs(drag.v) < 0.4) return;
-        var before = media.scrollTop;
-        media.scrollTop += drag.v;
-        if (media.scrollTop === before) { drag.v = 0; return; }
-        drag.v *= 0.93;
-        requestAnimationFrame(glide);
-      })();
+      loop.v = Math.max(-70, Math.min(70, drag.v));
       drag.id = null;
+      kick();
     };
     media.addEventListener('pointerup', end);
     media.addEventListener('pointercancel', end);
     media.addEventListener('lostpointercapture', end);
     media.addEventListener('dragstart', function (e) { e.preventDefault(); });
   }
+
+  /* ── 指针球 ──
+     参考站那颗球不画自己，只是「在纸下面滚」：指针一动，整幅图顺着被推一点，
+     越靠近指针推得越多，停下就慢慢摊平。所以不能做成「小圆放大镜」——
+     那会露出一圈硬边，一眼就看穿是贴上去的。
+     做法：整幅软位移。每帧生成一张很低分辨率的位移图（R/G 通道 = x/y 位移），
+     衰减半径接近整块画面，喂给 feDisplacementMap，边界自己就没了。 */
+  var warp = { svg: null, filt: null, fimg: null, map: null, ctx: null, img: null,
+               q: 0, n: 0, timer: 0, on: false, armed: false, cx: 0, cy: 0, vx: 0, vy: 0, w: 0, h: 0, k: 3 };
+
+  function ensureWarp() {
+    if (warp.svg) return;
+    var ns = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('class', 'fm-lens');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.innerHTML =
+      '<filter id="fmWarp" filterUnits="userSpaceOnUse" x="0" y="0" width="10" height="10" color-interpolation-filters="sRGB">' +
+        '<feFlood flood-color="#808080" flood-opacity="1" result="flat"/>' +
+        '<feImage result="m" x="0" y="0" width="10" height="10" preserveAspectRatio="none"/>' +
+        '<feComposite in="m" in2="flat" operator="over" result="mm"/>' +
+        '<feDisplacementMap in="SourceGraphic" in2="mm" scale="100" xChannelSelector="R" yChannelSelector="G"/>' +
+      '</filter>';
+    document.body.appendChild(svg);
+    warp.svg = svg;
+    warp.filt = svg.querySelector('filter');
+    warp.fimg = svg.querySelector('feImage');
+    warp.map = document.createElement('canvas');
+    warp.ctx = warp.map.getContext('2d');
+  }
+
+  function warpSize() {
+    if (!view) return false;
+    var r = view.getBoundingClientRect();
+    if (!r.width || !r.height) return false;
+    if (Math.abs(r.width - warp.w) < 1 && Math.abs(r.height - warp.h) < 1) return true;
+    warp.w = Math.round(r.width);
+    warp.h = Math.round(r.height);
+    warp.k = Math.max(2, Math.ceil(Math.max(warp.w, warp.h) / 160));
+    warp.map.width = Math.ceil(warp.w / warp.k);
+    warp.map.height = Math.ceil(warp.h / warp.k);
+    warp.img = null;
+    warp.filt.setAttribute('width', warp.w);
+    warp.filt.setAttribute('height', warp.h);
+    warp.fimg.setAttribute('width', warp.w);
+    warp.fimg.setAttribute('height', warp.h);
+    return true;
+  }
+
+  /* 位移图：f 是径向衰减（中心 1 → 半径 1 处 0），
+     ox/oy 里一份是「顺着指针拖」（-vx），一份是「指针处微微凸起」（dx * M）。 */
+  function warpURL(cx, cy, amp) {
+    var w = warp.w, h = warp.h, k = warp.k;
+    var cv = warp.map, ctx = warp.ctx, cw = cv.width, ch = cv.height;
+    if (!warp.img || warp.img.width !== cw) warp.img = ctx.createImageData(cw, ch);
+    var d = warp.img.data;
+    var R = Math.max(w, h) * 0.78;
+    var vx = warp.vx * amp, vy = warp.vy * amp, M = 0.09;
+    var i = 0, half = k * 0.5, x, y;
+    for (y = 0; y < ch; y++) {
+      var py = y * k + half, dy = py - cy, dys = dy * dy;
+      for (x = 0; x < cw; x++) {
+        var px = x * k + half, dx = px - cx;
+        var r = Math.sqrt(dx * dx + dys) / R;
+        var f = r < 1 ? 1 - r : 0;
+        f = f * f * (3 - 2 * f);
+        var ox = (dx * M - vx) * f, oy = (dy * M - vy) * f;
+        if (ox > 24) ox = 24; else if (ox < -24) ox = -24;
+        if (oy > 24) oy = 24; else if (oy < -24) oy = -24;
+        d[i]     = 127.5 + 2.55 * ox;
+        d[i + 1] = 127.5 + 2.55 * oy;
+        d[i + 2] = 128; d[i + 3] = 255;
+        i += 4;
+      }
+    }
+    ctx.putImageData(warp.img, 0, 0);
+    return cv.toDataURL('image/png');
+  }
+
+  function endWarp() {
+    if (warp.q) { cancelAnimationFrame(warp.q); warp.q = 0; }
+    if (warp.timer) { clearTimeout(warp.timer); warp.timer = 0; }
+    warp.vx = 0; warp.vy = 0; warp.on = false;
+    if (view) view.style.filter = '';
+  }
+
+  function stepWarp() {
+    warp.q = 0;
+    if (!warp.on) return;
+    var mag = Math.sqrt(warp.vx * warp.vx + warp.vy * warp.vy);
+    var amp = mag / 24; if (amp > 1) amp = 1;
+    if (amp < 0.03) { endWarp(); return; }
+    if (!warpSize()) { endWarp(); return; }
+    if (!view.style.filter) view.style.filter = 'url(#fmWarp)';
+    /* 位移图隔帧重画：滤镜本身就贵，30fps 已经够顺，别跟滚动抢帧 */
+    warp.n = (warp.n + 1) % 2;
+    if (!warp.n) warp.fimg.setAttribute('href', warpURL(warp.cx, warp.cy, amp));
+    warp.vx *= 0.82; warp.vy *= 0.82;
+    warp.q = requestAnimationFrame(stepWarp);
+  }
+
+  function bindLens() {
+    media.addEventListener('pointermove', function (e) {
+      if (e.pointerType === 'touch' || drag.on) return;
+      ensureWarp();
+      var r = view.getBoundingClientRect();
+      if (!r.width) return;
+      var cx = e.clientX - r.left, cy = e.clientY - r.top;
+      if (warp.armed) {
+        warp.vx = warp.vx * 0.4 + (cx - warp.cx) * 0.6;
+        warp.vy = warp.vy * 0.4 + (cy - warp.cy) * 0.6;
+      } else {
+        warp.vx = 0; warp.vy = 0;
+      }
+      warp.armed = true;
+      warp.cx = cx; warp.cy = cy;
+      if (!warp.on) {
+        if (!warpSize()) return;
+        warp.on = true;
+      }
+      if (!warp.q) warp.q = requestAnimationFrame(stepWarp);
+      /* 指针停下就收：不靠 rAF 数帧，避免低帧率时残留滤镜 */
+      if (warp.timer) clearTimeout(warp.timer);
+      warp.timer = setTimeout(endWarp, 320);
+    });
+    media.addEventListener('pointerleave', function () { warp.armed = false; endWarp(); });
+    media.addEventListener('pointerdown', function () { warp.armed = false; });
+  }
+
+  /* 关窗 / 换案例时收拾干净 */
+  function clearLens() { warp.armed = false; endWarp(); }
 
   var cur = 0, curSlug = '', swapTimer = 0, ghostEl = null, flyTimer = null, ghostTimer = null;
   var lastOrigin = null, panelAnim = null;
@@ -319,6 +513,7 @@
       el.classList.remove('is-flying');
       el.classList.add('is-content');
       revealMedia();
+      kick();
     }, instant ? 0 : dur);
 
     ghostTimer = setTimeout(clearGhost, instant ? 0 : dur + 60);
@@ -326,7 +521,7 @@
 
   function revealMedia() {
     if (!media) return;
-    var figs = media.querySelectorAll('figure');
+    var figs = media.querySelectorAll('.fm-media__item');
     for (var i = 0; i < figs.length; i++) {
       (function (fig, idx) {
         setTimeout(function () { fig.classList.add('is-in'); }, 20 + idx * 55);
@@ -348,18 +543,21 @@
     aw.textContent = p.award ? '\uD83C\uDFC6' : '';
     aw.title = p.award || '';
 
-    media.innerHTML = '';
-    media.scrollTop = 0;
+    var tr = track();
+    tr.innerHTML = '';
+    loop.y = 0; loop.v = 0; loop.total = 0; loop.items = []; loop.cum = []; loop.h = [];
+    clearLens();
     p.images.forEach(function (im, idx) {
-      var fig = h('figure');
+      var fig = h('figure', 'fm-media__item');
       var img = document.createElement('img');
       img.src = ROOT + im.src;
       img.alt = p.title + ' — ' + (idx + 1);
       img.width = im.w; img.height = im.h;
       img.loading = idx === 0 ? 'eager' : 'lazy';
       img.decoding = 'async';
+      img.addEventListener('load', onImgLoad);
       fig.appendChild(img);
-      media.appendChild(fig);
+      tr.appendChild(fig);
     });
 
     if (p.images.length < 2) {
@@ -370,11 +568,24 @@
         '<div class="fm-detail__sheet-row"><span>Role</span><b>' + p.role + '</b></div>' +
         '<div class="fm-detail__sheet-row"><span>Tags</span><b>' + p.tags.join(' \u00b7 ') + '</b></div>' +
         '<a class="fm-detail__sheet-cta" href="mailto:345434367@qq.com">索要完整案例过程 <i>&#8599;</i></a>';
-      media.appendChild(sheet);
+      sheet.className = 'fm-detail__sheet fm-media__item';
+      tr.appendChild(sheet);
     }
 
     syncEdges();
-    onScroll();
+    measureLoop();
+    renderLoop();
+  }
+
+  var imgLoadT = 0;
+  function onImgLoad() {
+    clearTimeout(imgLoadT);
+    imgLoadT = setTimeout(function () { measureLoop(); renderLoop(); }, 40);
+  }
+
+  function onResize() {
+    measureLoop();
+    renderLoop();
   }
 
   function open(slug, dir, originNode) {
@@ -393,20 +604,9 @@
       stopPlay();
       clearTimeout(swapTimer);
       el.dataset.dir = d > 0 ? 'next' : 'prev';
-      el.classList.remove('is-content');
-      el.classList.add('is-out');
-      swapTimer = setTimeout(function () {
-        paint(p);
-        el.classList.remove('is-out', 'is-swap-next', 'is-swap-prev');
-        void el.offsetWidth;
-        el.classList.add(d > 0 ? 'is-swap-next' : 'is-swap-prev');
-        el.classList.add('is-content');
-        revealMedia();
-        swapTimer = setTimeout(function () {
-          if (el) el.classList.remove('is-swap-next', 'is-swap-prev');
-        }, 780);
-      }, 170);
       setHash(p.slug);
+      if (still()) { paint(p); el.classList.add('is-content'); revealMedia(); kick(); return; }
+      wipeSwap(p, d);
       return;
     }
 
@@ -458,6 +658,9 @@
   function close(fromPop) {
     if (!el || !el.classList.contains('is-open')) return;
     stopPlay();
+    clearLens();
+    loop.v = 0;
+    el.classList.remove('is-wiping');
     clearTimeout(swapTimer);
     clearTimeout(flyTimer);
     clearGhost();
@@ -493,16 +696,82 @@
     if (lastFocus && lastFocus.focus) { try { lastFocus.focus({ preventScroll: true }); } catch (e) {} }
   }
 
+  /* ── 切换案例：一块「项目主色」的 sheet 从要去的那一侧铺满，换完内容再横推出去
+     —— 参考站切项目时先冲一层色板（u_sheetP），落地后才露出新页面 */
+  var colorCache = {};
+
+  function accentOf(src, cb) {
+    if (colorCache[src]) return cb(colorCache[src]);
+    var img = new Image();
+    img.onload = function () {
+      var col = '#f1f1ee';
+      try {
+        var c = document.createElement('canvas'), g;
+        c.width = c.height = 24;
+        g = c.getContext('2d');
+        g.drawImage(img, 0, 0, 24, 24);
+        var d = g.getImageData(0, 0, 24, 24).data;
+        var best = null, bestSat = 0, r = 0, gg = 0, b = 0, n = 0, i, R, G, B, mx, mn, sat;
+        for (i = 0; i < d.length; i += 4) {
+          R = d[i]; G = d[i + 1]; B = d[i + 2];
+          mx = Math.max(R, G, B); mn = Math.min(R, G, B);
+          sat = mx === 0 ? 0 : (mx - mn) / mx;
+          r += R; gg += G; b += B; n++;
+          if (sat > bestSat) { bestSat = sat; best = [R, G, B]; }
+        }
+        if (bestSat > .18) col = 'rgb(' + best.join(',') + ')';
+        else {
+          var lum = (r / n) * .299 + (gg / n) * .587 + (b / n) * .114;
+          col = lum > 150 ? '#ececea' : '#141416';
+        }
+      } catch (e) {}
+      colorCache[src] = col; cb(col);
+    };
+    img.onerror = function () { cb('#f1f1ee'); };
+    img.src = src;
+  }
+
+  function wipeSwap(p, d) {
+    var wipe = el.querySelector('.fm-detail__wipe');
+    var panel = el.querySelector('.fm-detail__panel');
+    if (!wipe || !panel || !wipe.animate) {
+      paint(p); el.classList.add('is-content'); revealMedia(); kick(); return;
+    }
+    var W = panel.clientWidth, H = panel.clientHeight;
+    var x = d > 0 ? W + 30 : -30, y = Math.round(H * 0.5);
+    var reach = Math.ceil(Math.sqrt((W + 60) * (W + 60) + H * H));
+    wipe.style.setProperty('--wx', x + 'px');
+    wipe.style.setProperty('--wy', y + 'px');
+    wipe.style.background = '#141416';
+    el.classList.add('is-wiping');
+    accentOf(ROOT + (p.cover || (p.images[0] && p.images[0].src) || ''), function (c) { wipe.style.background = c; });
+    wipe.animate([
+      { clipPath: 'circle(0px at ' + x + 'px ' + y + 'px)' },
+      { clipPath: 'circle(' + reach + 'px at ' + x + 'px ' + y + 'px)' }
+    ], { duration: 420, easing: 'cubic-bezier(.72, 0, .24, 1)', fill: 'both' });
+
+    swapTimer = setTimeout(function () {
+      if (!el) return;
+      paint(p);
+      el.classList.add('is-content');
+      revealMedia();
+      kick();
+      var x2 = d > 0 ? -30 : W + 30;
+      var a2 = wipe.animate([
+        { clipPath: 'circle(' + reach + 'px at ' + x + 'px ' + y + 'px)' },
+        { clipPath: 'circle(' + reach + 'px at ' + x2 + 'px ' + y + 'px)', offset: .4 },
+        { clipPath: 'circle(0px at ' + x2 + 'px ' + y + 'px)' }
+      ], { duration: 560, easing: 'cubic-bezier(.65, 0, .3, 1)', fill: 'both' });
+      a2.onfinish = function () {
+        el.classList.remove('is-wiping');
+        try { a2.cancel(); } catch (e) {}
+      };
+    }, 400);
+  }
+
   function step(d) {
     var i = (cur + d + DATA.length) % DATA.length;
     open(DATA[i].slug, d);
-  }
-
-  function onScroll() {
-    if (!media) return;
-    var max = media.scrollHeight - media.clientHeight;
-    var r = max > 6 ? media.scrollTop / max : 0;
-    if (ringBar) ringBar.style.strokeDashoffset = String(56.5 * (1 - Math.min(1, Math.max(0, r))));
   }
 
   function togglePlay() {
@@ -512,21 +781,11 @@
   function startPlay() {
     playing = true;
     el.classList.add('is-playing');
-    var n = 0;
-    (function tick() {
-      if (!playing) return;
-      media.scrollTop += 1.05;
-      if (media.scrollTop + media.clientHeight >= media.scrollHeight - 2) {
-        stopPlay();
-        return;
-      }
-      rafId = requestAnimationFrame(tick);
-    })();
+    kick();
   }
 
   function stopPlay() {
     playing = false;
-    cancelAnimationFrame(rafId);
     if (el) el.classList.remove('is-playing');
   }
 

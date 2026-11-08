@@ -308,54 +308,75 @@
 }
 .fm-detail__next:hover i { transform: translateX(4px); }
 
-/* 中：图片流 */
+/* 中：图片流 —— 无限循环
+   图片绝对定位在 .fm-media__track 里，JS 按虚拟位移取模回绕（滚出上边的直接出现在最下边）。
+   .fm-media__view 是可视窗口，负责裁切与上下留白。 */
 .fm-detail__media {
+  position: relative;
   min-width: 0;
   height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  overscroll-behavior: contain;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  padding-bottom: 46px;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: none;
+  --fm-gap: 60px;
 }
-.fm-detail__media::-webkit-scrollbar { width: 0; height: 0; }
+.fm-detail.is-dragging .fm-detail__media { cursor: grabbing; }
+.fm-detail.is-dragging,
+.fm-detail.is-dragging * { -webkit-user-select: none; user-select: none; }
 
-.fm-detail__media figure {
-  margin: 0 0 44px;
-  opacity: 0;
-  transform: translateY(30px) scale(.988);
-  transition: opacity .8s ease, transform .95s cubic-bezier(.19, 1, .22, 1);
+.fm-media__view {
+  position: absolute;
+  inset: 38px 22px 38px 0;
+  overflow: hidden;
 }
-.fm-detail__media figure.is-in { opacity: 1; transform: none; }
-.fm-detail__media figure:last-child { margin-bottom: 0; }
-.fm-detail__media img {
+.fm-media__track { position: relative; height: 100%; }
+
+.fm-media__item {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: 0;
+  opacity: 0;
+  transition: opacity .8s ease;
+  will-change: transform;
+  backface-visibility: hidden;
+  overflow: hidden;
+  border-radius: 14px;
+}
+.fm-media__item.is-in { opacity: 1; }
+.fm-media__item img {
   display: block;
   width: 100%;
   height: auto;
   background: #101011;
+  -webkit-user-drag: none;
 }
 
-/* 拖拽浏览：原站是整页 grab 光标，这里收敛到图片列 */
-.fm-detail__media { cursor: grab; }
-.fm-detail.is-dragging .fm-detail__media { cursor: grabbing; }
-.fm-detail.is-dragging,
-.fm-detail.is-dragging * { -webkit-user-select: none; user-select: none; }
-.fm-detail.is-dragging .fm-detail__media figure { pointer-events: none; }
+/* 指针球：整幅软位移的滤镜本体挂在 body 尾部（SVG），这里只放容器 */
+.fm-lens {
+  position: fixed;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
 
-/* 图片 hover：极轻微放大，作为可拖拽的反馈 */
-.fm-detail__media figure { overflow: hidden; }
-.fm-detail__media figure img {
-  transition: transform 1.1s cubic-bezier(.16, 1, .3, 1), opacity .5s ease;
-  will-change: transform;
+/* 切换案例时铺满面板的色板 */
+.fm-detail__wipe {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  border-radius: inherit;
+  background: #141416;
+  clip-path: circle(0px at 50% 50%);
+  opacity: 0;
+  pointer-events: none;
 }
-@media (hover: hover) {
-  .fm-detail__media figure:hover img { transform: scale(1.014); }
-}
+.fm-detail.is-wiping .fm-detail__wipe { opacity: 1; }
 
 /* 单图案例：图片下方补一块信息面板 */
 .fm-detail__sheet {
-  margin: 0 0 44px;
   padding: 54px 48px 52px;
   background: #f3f3f1;
   opacity: 0;
@@ -633,9 +654,9 @@ html.fm-detail-open, html.fm-detail-open body { overflow: hidden !important; }
   .fm-detail__pill { height: 32px; padding: 0 14px; font-size: 13px; }
   .fm-detail__play { width: 36px; height: 36px; flex-basis: 36px; }
   .fm-detail__foot { display: none; }
-  .fm-detail__media { overflow: visible; padding-top: 24px; padding-bottom: 40px; }
-  .fm-detail__media figure { margin-bottom: 10px; padding: 0 10px; }
-  .fm-detail__media figure:first-child { padding: 0; }
+  .fm-detail__media { --fm-gap: 12px; }
+  .fm-media__view { inset: 22px 10px 26px; }
+  .fm-detail__media .fm-media__item img { border-radius: 10px; }
   .fm-detail__gutter { display: block; height: 0; }
   .fm-detail__edge { display: none; }
   .fm-detail__close {
