@@ -203,6 +203,23 @@
   background: #101011;
 }
 
+/* 拖拽浏览：原站是整页 grab 光标，这里收敛到图片列 */
+.fm-detail__media { cursor: grab; }
+.fm-detail.is-dragging .fm-detail__media { cursor: grabbing; }
+.fm-detail.is-dragging,
+.fm-detail.is-dragging * { -webkit-user-select: none; user-select: none; }
+.fm-detail.is-dragging .fm-detail__media figure { pointer-events: none; }
+
+/* 图片 hover：极轻微放大，作为可拖拽的反馈 */
+.fm-detail__media figure { overflow: hidden; }
+.fm-detail__media figure img {
+  transition: transform 1.1s cubic-bezier(.16, 1, .3, 1), opacity .5s ease;
+  will-change: transform;
+}
+@media (hover: hover) {
+  .fm-detail__media figure:hover img { transform: scale(1.014); }
+}
+
 /* 单图案例：图片下方补一块信息面板 */
 .fm-detail__sheet {
   margin: 0 0 44px;

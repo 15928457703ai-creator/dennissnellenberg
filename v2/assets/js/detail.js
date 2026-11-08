@@ -59,8 +59,53 @@
     wrap.querySelector('.fm-detail__next').addEventListener('click', function () { step(1); });
     wrap.querySelector('.fm-detail__play').addEventListener('click', togglePlay);
     media.addEventListener('scroll', onScroll, { passive: true });
+    bindDrag();
     window.addEventListener('keydown', onKey);
     window.addEventListener('resize', onScroll);
+  }
+
+  /* 抓住图片列上下拖：还原原站 cursor:grab / grabbing 的拖拽手感 */
+  var drag = { on: false, y: 0, top: 0, v: 0, t: 0, id: null };
+
+  function bindDrag() {
+    media.addEventListener('pointerdown', function (e) {
+      if (e.button !== 0 || e.pointerType === 'touch') return;
+      if (e.target.closest('a, button')) return;
+      drag.on = true; drag.y = e.clientY; drag.top = media.scrollTop;
+      drag.v = 0; drag.t = performance.now(); drag.id = e.pointerId;
+      stopPlay();
+      el.classList.add('is-dragging');
+      try { media.setPointerCapture(e.pointerId); } catch (err) {}
+    });
+    media.addEventListener('pointermove', function (e) {
+      if (!drag.on) return;
+      e.preventDefault();
+      var now = performance.now();
+      var prev = media.scrollTop;
+      media.scrollTop = drag.top - (e.clientY - drag.y);
+      var dt = now - drag.t;
+      if (dt > 0) drag.v = (media.scrollTop - prev) / dt * 16;
+      drag.t = now;
+    });
+    var end = function (e) {
+      if (!drag.on) return;
+      drag.on = false;
+      el.classList.remove('is-dragging');
+      try { media.releasePointerCapture(drag.id == null ? e.pointerId : drag.id); } catch (err) {}
+      (function glide() {
+        if (Math.abs(drag.v) < 0.4) return;
+        var before = media.scrollTop;
+        media.scrollTop += drag.v;
+        if (media.scrollTop === before) { drag.v = 0; return; }
+        drag.v *= 0.93;
+        requestAnimationFrame(glide);
+      })();
+      drag.id = null;
+    };
+    media.addEventListener('pointerup', end);
+    media.addEventListener('pointercancel', end);
+    media.addEventListener('lostpointercapture', end);
+    media.addEventListener('dragstart', function (e) { e.preventDefault(); });
   }
 
   var cur = 0;
